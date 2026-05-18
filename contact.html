@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - LaserMQ</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fluent-ui.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="mica-bg">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="brand">
+                    <span class="brand-logo">L</span>
+                    LaserMQ
+                </a>
+                
+                <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    ☰
+                </button>
+                
+                <div class="nav-links" id="nav-links">
+                    <a href="index.html">Trang Chủ</a>
+                    <a href="products.html">Sản Phẩm</a>
+                    <a href="catalog.html">Tài Liệu</a>
+                    <a href="contact.html" class="active">Liên Hệ</a>
+                    <a href="contact.html" class="btn btn-primary" style="color: white; font-weight: 500;">Nhận Báo Giá</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="section" style="padding-top: 60px; padding-bottom: 40px; background-color: var(--fluent-bg-secondary); border-bottom: 1px solid var(--fluent-border);">
+        <div class="container">
+            <h1 style="font-size: 2.5rem; margin-bottom: 16px;">Liên Hệ & Hỗ Trợ</h1>
+            <p style="font-size: 1.1rem; max-width: 600px;">Đội ngũ kỹ sư của chúng tôi luôn sẵn sàng hỗ trợ, tư vấn giải pháp tối ưu cho nhu cầu sản xuất của bạn.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-cols-2">
+                
+                <!-- Contact Info & Map -->
+                <div>
+                    <h2 style="margin-bottom: 24px;">Thông Tin Công Ty</h2>
+                    
+                    <div class="fluent-card" style="margin-bottom: 32px;">
+                        <h3 style="margin-bottom: 8px;">CÔNG TY TNHH CÔNG NGHỆ LASERMQ</h3>
+                        <p style="margin-bottom: 8px;"><strong>Mã số thuế:</strong> 0123456789</p>
+                        <p style="margin-bottom: 8px;"><strong>Địa chỉ:</strong> Khu Công Nghiệp ABC, Quận XYZ, TP. Hà Nội, Việt Nam.</p>
+                        <p style="margin-bottom: 8px;"><strong>Hotline tư vấn:</strong> +84 90 123 4567</p>
+                        <p style="margin-bottom: 8px;"><strong>Hỗ trợ kỹ thuật (24/7):</strong> +84 90 987 6543</p>
+                        <p style="margin-bottom: 0;"><strong>Email:</strong> contact@lasermq.com</p>
+                    </div>
+
+                    <!-- Google Maps Placeholder -->
+                    <div class="acrylic-card hover-scale" style="height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #e9e9e9; border: 1px solid var(--fluent-border); overflow: hidden;">
+                        <div style="font-size: 3rem; margin-bottom: 16px;">🗺️</div>
+                        <h4 style="color: var(--fluent-text-secondary);">[Bản Đồ Google Maps Embed]</h4>
+                        <!-- Actual embed code would go here: <iframe src="..." ...></iframe> -->
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <div class="fluent-card">
+                        <h2 style="margin-bottom: 24px;">Gửi Yêu Cầu Tư Vấn</h2>
+                        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã gửi yêu cầu. Chúng tôi sẽ liên hệ lại sớm nhất!');">
+                            <div style="margin-bottom: 16px;">
+                                <label for="name" style="display: block; margin-bottom: 8px; font-weight: 500;">Họ và Tên *</label>
+                                <input type="text" id="name" class="fluent-input" required placeholder="Nhập họ tên của bạn">
+                            </div>
+                            
+                            <div class="grid grid-cols-2" style="gap: 16px; margin-bottom: 16px;">
+                                <div>
+                                    <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 500;">Số Điện Thoại *</label>
+                                    <input type="tel" id="phone" class="fluent-input" required placeholder="Nhập số điện thoại">
+                                </div>
+                                <div>
+                                    <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label>
+                                    <input type="email" id="email" class="fluent-input" placeholder="Nhập địa chỉ email (không bắt buộc)">
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 16px;">
+                                <label for="interest" style="display: block; margin-bottom: 8px; font-weight: 500;">Sản phẩm quan tâm</label>
+                                <select id="interest" class="fluent-input">
+                                    <option value="cut">Máy Cắt Laser</option>
+                                    <option value="weld">Máy Hàn Laser</option>
+                                    <option value="mark">Máy Khắc Laser</option>
+                                    <option value="project">Dự Án Tích Hợp Tự Động Hóa</option>
+                                    <option value="other">Khác</option>
+                                </select>
+                            </div>
+
+                            <div style="margin-bottom: 24px;">
+                                <label for="message" style="display: block; margin-bottom: 8px; font-weight: 500;">Nội dung yêu cầu</label>
+                                <textarea id="message" class="fluent-input" placeholder="Mô tả chi tiết vật liệu cần gia công, độ dày, sản lượng dự kiến... để chúng tôi tư vấn tốt nhất."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1.05rem;">Gửi Yêu Cầu</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="brand" style="margin-bottom: 16px;">
+                        <span class="brand-logo">L</span>
+                        LaserMQ
+                    </div>
+                    <p style="max-width: 300px;">Đối tác tin cậy cung cấp giải pháp, máy móc thiết bị laser công nghiệp với công nghệ hiện đại nhất hiện nay.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Sản Phẩm</h4>
+                    <ul>
+                        <li><a href="products.html">Máy Cắt Laser</a></li>
+                        <li><a href="products.html">Máy Hàn Laser</a></li>
+                        <li><a href="products.html">Máy Khắc Laser</a></li>
+                        <li><a href="products.html">Dự Án Tích Hợp</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Công Ty</h4>
+                    <ul>
+                        <li><a href="#">Về Chúng Tôi</a></li>
+                        <li><a href="catalog.html">Tài Liệu Kỹ Thuật</a></li>
+                        <li><a href="contact.html">Liên Hệ</a></li>
+                        <li><a href="#">Chính Sách Bảo Hành</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 LaserMQ. All rights reserved. Thiết kế với Windows 11 Fluent Design.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

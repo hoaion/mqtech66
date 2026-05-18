@@ -1,0 +1,257 @@
+/* fluent-ui.css - Windows 11 Fluent Design System Elements */
+
+:root {
+    /* Color Palette - Anti-glare Off-White theme */
+    --fluent-bg: #F3F3F3; /* Base background */
+    --fluent-bg-secondary: #F9F9F9;
+    --fluent-card-bg: #FFFFFF;
+    
+    /* Windows 11 Blue Accent */
+    --fluent-accent: #0078D4;
+    --fluent-accent-hover: #005A9E;
+    --fluent-accent-light: rgba(0, 120, 212, 0.1);
+    
+    /* Text Colors */
+    --fluent-text-primary: #202020;
+    --fluent-text-secondary: #5F5F5F;
+    --fluent-text-tertiary: #8C8C8C;
+    
+    /* Borders & Shadows */
+    --fluent-border: rgba(0, 0, 0, 0.05);
+    --fluent-border-strong: rgba(0, 0, 0, 0.1);
+    --fluent-shadow-rest: 0 2px 4px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.02);
+    --fluent-shadow-hover: 0 4px 8px rgba(0,0,0,0.04), 0 8px 16px rgba(0,0,0,0.04);
+    --fluent-shadow-flyout: 0 8px 16px rgba(0,0,0,0.08), 0 16px 32px rgba(0,0,0,0.08);
+    
+    /* Interactive States */
+    --fluent-hover-bg: rgba(0, 0, 0, 0.04);
+    --fluent-pressed-bg: rgba(0, 0, 0, 0.08);
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* Acrylic / Mica Material Effects */
+.mica-bg {
+    background-color: rgba(243, 243, 243, 0.85); /* Fallback */
+    backdrop-filter: blur(20px) saturate(125%);
+    -webkit-backdrop-filter: blur(20px) saturate(125%);
+    border-bottom: 1px solid var(--fluent-border);
+}
+
+.acrylic-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    border: 1px solid var(--fluent-border-strong);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--fluent-shadow-rest);
+}
+
+/* Fluent Card Elements */
+.fluent-card {
+    background-color: var(--fluent-card-bg);
+    border: 1px solid var(--fluent-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--fluent-shadow-rest);
+    padding: 24px;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.fluent-card:hover {
+    box-shadow: var(--fluent-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.fluent-card::after {
+    /* Subtle highlight on top edge common in Windows 11 */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+}
+
+/* Button Controls */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.15s ease-out;
+    border: 1px solid transparent;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--fluent-accent);
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    /* Subtle inner shadow for 3D effect in Windows 11 buttons */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background-color: var(--fluent-accent-hover);
+}
+
+.btn-primary:active {
+    background-color: #004C87;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background-color: var(--fluent-card-bg);
+    color: var(--fluent-text-primary);
+    border: 1px solid var(--fluent-border-strong);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:hover {
+    background-color: var(--fluent-hover-bg);
+}
+
+.btn-secondary:active {
+    background-color: var(--fluent-pressed-bg);
+    transform: scale(0.98);
+}
+
+/* Input Fields */
+.fluent-input {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--fluent-text-primary);
+    background-color: var(--fluent-card-bg);
+    border: 1px solid var(--fluent-border-strong);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.fluent-input:hover {
+    background-color: var(--fluent-bg-secondary);
+}
+
+.fluent-input:focus {
+    outline: none;
+    border-color: var(--fluent-accent);
+    box-shadow: 0 0 0 1px var(--fluent-accent), inset 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.fluent-input::placeholder {
+    color: var(--fluent-text-tertiary);
+}
+
+textarea.fluent-input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Segment Controls (Windows 11 Tabs alternative) */
+.segment-control {
+    display: inline-flex;
+    background-color: var(--fluent-hover-bg);
+    padding: 4px;
+    border-radius: var(--radius-md);
+    gap: 4px;
+}
+
+.segment-btn {
+    padding: 6px 16px;
+    border: none;
+    background: transparent;
+    color: var(--fluent-text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.segment-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--fluent-text-primary);
+}
+
+.segment-btn.active {
+    background-color: var(--fluent-card-bg);
+    color: var(--fluent-text-primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Badges / Tags */
+.fluent-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: var(--fluent-accent-light);
+    color: var(--fluent-accent);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Micro-interactions: scale */
+.hover-scale {
+    transition: transform 0.2s ease-in-out;
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* Table styling for specs */
+.fluent-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+}
+
+.fluent-table th, .fluent-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--fluent-border);
+}
+
+.fluent-table th {
+    font-weight: 600;
+    color: var(--fluent-text-secondary);
+    font-size: 0.9rem;
+    background-color: var(--fluent-bg-secondary);
+}
+
+.fluent-table tr:first-child th:first-child {
+    border-top-left-radius: var(--radius-md);
+}
+
+.fluent-table tr:first-child th:last-child {
+    border-top-right-radius: var(--radius-md);
+}
+
+.fluent-table tr:last-child td {
+    border-bottom: none;
+}

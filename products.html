@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - LaserMQ</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fluent-ui.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="mica-bg">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="brand">
+                    <span class="brand-logo">L</span>
+                    LaserMQ
+                </a>
+                
+                <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    ☰
+                </button>
+                
+                <div class="nav-links" id="nav-links">
+                    <a href="index.html">Trang Chủ</a>
+                    <a href="products.html" class="active">Sản Phẩm</a>
+                    <a href="catalog.html">Tài Liệu</a>
+                    <a href="contact.html">Liên Hệ</a>
+                    <a href="contact.html" class="btn btn-primary" style="color: white; font-weight: 500;">Nhận Báo Giá</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="section" style="padding-top: 60px; padding-bottom: 40px; background-color: var(--fluent-bg-secondary); border-bottom: 1px solid var(--fluent-border);">
+        <div class="container">
+            <h1 style="font-size: 2.5rem; margin-bottom: 16px;">Sản Phẩm Laser</h1>
+            <p style="font-size: 1.1rem; max-width: 600px;">Khám phá danh mục các dòng máy laser công nghiệp hiện đại, đáp ứng mọi nhu cầu gia công chế tạo của bạn.</p>
+        </div>
+    </section>
+
+    <!-- Products Grid & Filters -->
+    <section class="section">
+        <div class="container">
+            
+            <!-- Filters (Segment Controls) -->
+            <div style="margin-bottom: 40px; display: flex; justify-content: center;">
+                <div class="segment-control">
+                    <button class="segment-btn active" data-filter="all">Tất Cả</button>
+                    <button class="segment-btn" data-filter="cut">Máy Cắt Laser</button>
+                    <button class="segment-btn" data-filter="weld">Máy Hàn Laser</button>
+                    <button class="segment-btn" data-filter="mark">Máy Khắc Laser</button>
+                    <button class="segment-btn" data-filter="project">Dự Án Tích Hợp</button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-3" id="products-grid">
+                
+                <!-- Product 1: Cắt Laser -->
+                <div class="fluent-card hover-scale" data-category="cut">
+                    <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=400" alt="Máy Cắt Laser Fiber F-Series" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <span class="fluent-badge" style="margin-bottom: 8px;">Bán Chạy</span>
+                    <h3 style="margin-bottom: 16px;">Máy Cắt Laser Fiber F-Series</h3>
+                    
+                    <table class="fluent-table" style="margin-bottom: 24px;">
+                        <tbody>
+                            <tr>
+                                <td>Công suất</td>
+                                <td>3000W - 12000W</td>
+                            </tr>
+                            <tr>
+                                <td>Khổ làm việc</td>
+                                <td>1500x3000mm</td>
+                            </tr>
+                            <tr>
+                                <td>Nguồn Laser</td>
+                                <td>IPG / MAX</td>
+                            </tr>
+                            <tr>
+                                <td>Làm mát</td>
+                                <td>Chiller nước</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Nhận Báo Giá</a>
+                </div>
+
+                <!-- Product 2: Cắt Laser -->
+                <div class="fluent-card hover-scale" data-category="cut">
+                    <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&q=80&w=400" alt="Máy Cắt Laser Ống" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 style="margin-bottom: 16px;">Máy Cắt Laser Ống Chuyên Dụng</h3>
+                    
+                    <table class="fluent-table" style="margin-bottom: 24px;">
+                        <tbody>
+                            <tr>
+                                <td>Công suất</td>
+                                <td>1500W - 6000W</td>
+                            </tr>
+                            <tr>
+                                <td>Chiều dài ống</td>
+                                <td>Lên đến 6m</td>
+                            </tr>
+                            <tr>
+                                <td>Đường kính ống</td>
+                                <td>20mm - 220mm</td>
+                            </tr>
+                            <tr>
+                                <td>Cắt góc</td>
+                                <td>Beveling 45°</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Nhận Báo Giá</a>
+                </div>
+
+                <!-- Product 3: Hàn Laser -->
+                <div class="fluent-card hover-scale" data-category="weld">
+                    <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1621644026362-d28c312fb1ff?auto=format&fit=crop&q=80&w=400" alt="Máy Hàn Laser Cầm Tay" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 style="margin-bottom: 16px;">Máy Hàn Laser Cầm Tay W-Series</h3>
+                    
+                    <table class="fluent-table" style="margin-bottom: 24px;">
+                        <tbody>
+                            <tr>
+                                <td>Công suất</td>
+                                <td>1000W / 1500W / 2000W</td>
+                            </tr>
+                            <tr>
+                                <td>Chức năng</td>
+                                <td>Hàn, Cắt rỉ sét, Tẩy gỉ</td>
+                            </tr>
+                            <tr>
+                                <td>Độ sâu mối hàn</td>
+                                <td>Lên đến 5mm (Inox)</td>
+                            </tr>
+                            <tr>
+                                <td>Trọng lượng súng</td>
+                                <td>< 0.8kg</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Nhận Báo Giá</a>
+                </div>
+
+                <!-- Product 4: Khắc Laser -->
+                <div class="fluent-card hover-scale" data-category="mark">
+                    <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400" alt="Máy Khắc Laser UV" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 style="margin-bottom: 16px;">Máy Khắc Laser UV 5W</h3>
+                    
+                    <table class="fluent-table" style="margin-bottom: 24px;">
+                        <tbody>
+                            <tr>
+                                <td>Công suất</td>
+                                <td>3W / 5W / 10W</td>
+                            </tr>
+                            <tr>
+                                <td>Bước sóng</td>
+                                <td>355nm</td>
+                            </tr>
+                            <tr>
+                                <td>Tốc độ khắc</td>
+                                <td>Lên đến 10,000mm/s</td>
+                            </tr>
+                            <tr>
+                                <td>Làm mát</td>
+                                <td>Làm mát bằng nước</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Nhận Báo Giá</a>
+                </div>
+
+                <!-- Product 5: Khắc Laser -->
+                <div class="fluent-card hover-scale" data-category="mark">
+                    <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1590483849504-8b6b17c1be26?auto=format&fit=crop&q=80&w=400" alt="Máy Khắc Laser Fiber 3D" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 style="margin-bottom: 16px;">Máy Khắc Laser Fiber 3D</h3>
+                    
+                    <table class="fluent-table" style="margin-bottom: 24px;">
+                        <tbody>
+                            <tr>
+                                <td>Công suất</td>
+                                <td>20W / 30W / 50W</td>
+                            </tr>
+                            <tr>
+                                <td>Vùng làm việc</td>
+                                <td>110x110mm - 300x300mm</td>
+                            </tr>
+                            <tr>
+                                <td>Khắc cong (3D)</td>
+                                <td>Tích hợp trục Z tự động</td>
+                            </tr>
+                            <tr>
+                                <td>Vật liệu</td>
+                                <td>Kim loại, Nhựa cứng</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Nhận Báo Giá</a>
+                </div>
+
+                <!-- Product 6: Dự án tích hợp -->
+                <div class="fluent-card hover-scale" data-category="project">
+                    <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1565439387994-3a55e718b5ed?auto=format&fit=crop&q=80&w=400" alt="Trạm Hàn Robot" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 style="margin-bottom: 16px;">Trạm Hàn Laser Robot Tự Động</h3>
+                    
+                    <table class="fluent-table" style="margin-bottom: 24px;">
+                        <tbody>
+                            <tr>
+                                <td>Robot</td>
+                                <td>Yaskawa / ABB 6 trục</td>
+                            </tr>
+                            <tr>
+                                <td>Nguồn Laser</td>
+                                <td>Fiber 2000W - 6000W</td>
+                            </tr>
+                            <tr>
+                                <td>Hệ thống cấp phôi</td>
+                                <td>Bàn xoay 2 vị trí</td>
+                            </tr>
+                            <tr>
+                                <td>Phần mềm</td>
+                                <td>Lập trình Offline 3D</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Tư Vấn Thiết Kế</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="brand" style="margin-bottom: 16px;">
+                        <span class="brand-logo">L</span>
+                        LaserMQ
+                    </div>
+                    <p style="max-width: 300px;">Đối tác tin cậy cung cấp giải pháp, máy móc thiết bị laser công nghiệp với công nghệ hiện đại nhất hiện nay.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Sản Phẩm</h4>
+                    <ul>
+                        <li><a href="products.html">Máy Cắt Laser</a></li>
+                        <li><a href="products.html">Máy Hàn Laser</a></li>
+                        <li><a href="products.html">Máy Khắc Laser</a></li>
+                        <li><a href="products.html">Dự Án Tích Hợp</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Công Ty</h4>
+                    <ul>
+                        <li><a href="#">Về Chúng Tôi</a></li>
+                        <li><a href="catalog.html">Tài Liệu Kỹ Thuật</a></li>
+                        <li><a href="contact.html">Liên Hệ</a></li>
+                        <li><a href="#">Chính Sách Bảo Hành</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 LaserMQ. All rights reserved. Thiết kế với Windows 11 Fluent Design.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
