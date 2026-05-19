@@ -239,6 +239,15 @@ section:has(.hero-content) {
     color: #202020 !important;
 }
 
+/* Map Container */
+.map-wrapper {
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    overflow: hidden;
+    line-height: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .grid-cols-4 {
