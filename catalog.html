@@ -3,9 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tài Liệu & Catalog - LaserMQ</title>
+    <title>Tài Liệu Kỹ Thuật - MINH QUANG</title>
+    <meta name="description" content="Thư viện tài liệu kỹ thuật, hướng dẫn vận hành và phần mềm máy laser của Công ty MINH QUANG.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/fluent-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* ===== CATALOG PAGE SPECIFIC STYLES ===== */
+
+        .catalog-hero {
+            padding: 60px 0 40px;
+            background-color: var(--fluent-bg-secondary);
+            border-bottom: 1px solid var(--fluent-border);
+        }
+
+        /* ===== SEARCH BAR ===== */
+        .search-wrapper {
+            position: relative;
+            max-width: 560px;
+            margin-top: 28px;
+        }
+
+        .search-wrapper .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--fluent-text-secondary);
+            font-size: 1rem;
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 16px 12px 44px;
+            border: 1.5px solid var(--fluent-border);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--fluent-bg);
+            color: var(--fluent-text-primary);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #FF6700;
+            box-shadow: 0 0 0 3px rgba(255, 103, 0, 0.12);
+        }
+
+        .search-input::placeholder {
+            color: var(--fluent-text-secondary);
+        }
+
+        /* ===== DOCUMENT SECTION ===== */
+        .doc-section {
+            margin-bottom: 48px;
+        }
+
+        .doc-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--fluent-border);
+        }
+
+        .doc-view-more {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #FF6700;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            user-select: none;
+            background: none;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .doc-view-more:hover {
+            background-color: rgba(255, 103, 0, 0.08);
+            color: #e44a00;
+        }
+
+        .doc-view-more i {
+            font-size: 0.8rem;
+            transition: transform 0.2s ease;
+        }
+
+        .doc-view-more.collapsed:hover i {
+            transform: translateX(3px);
+        }
+
+        .doc-view-more.expanded:hover i {
+            transform: translateY(-2px);
+        }
+
+        .doc-section-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .doc-section-icon.orange { background: linear-gradient(135deg, #FF6700, #e44a00); }
+        .doc-section-icon.blue   { background: linear-gradient(135deg, #0078d4, #005a9e); }
+        .doc-section-icon.green  { background: linear-gradient(135deg, #107c10, #054f04); }
+
+        .doc-section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--fluent-text-primary);
+            margin: 0;
+        }
+
+        .doc-section-count {
+            font-size: 0.8rem;
+            color: var(--fluent-text-secondary);
+            background: var(--fluent-bg-secondary);
+            padding: 2px 8px;
+            border-radius: 20px;
+            border: 1px solid var(--fluent-border);
+        }
+
+        /* ===== DOCUMENT CARD ROW (horizontal scroll) ===== */
+        .doc-row {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 8px 24px;
+            margin: -8px -24px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--fluent-border) transparent;
+        }
+
+        .doc-row::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .doc-row::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .doc-row::-webkit-scrollbar-thumb {
+            background: var(--fluent-border);
+            border-radius: 4px;
+        }
+
+        /* ===== DOCUMENT CARD ===== */
+        .doc-card {
+            box-sizing: border-box;
+            flex: 0 0 220px;
+            background: var(--fluent-bg);
+            border: 1px solid var(--fluent-border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: #FF6700;
+        }
+
+        .doc-card.hidden {
+            display: none;
+        }
+
+        .doc-card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .doc-file-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .doc-file-icon.pdf  { background: #fff0f0; color: #d32f2f; }
+        .doc-file-icon.docx { background: #e8f0fe; color: #1a73e8; }
+        .doc-file-icon.exe  { background: #e8f5e9; color: #2e7d32; }
+        .doc-file-icon.zip  { background: #fff8e1; color: #f57c00; }
+
+        .doc-card-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .doc-card-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--fluent-text-primary);
+            line-height: 1.3;
+            margin: 0 0 4px;
+            /* Limit to 2 lines */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .doc-card-meta {
+            font-size: 0.75rem;
+            color: var(--fluent-text-secondary);
+            margin: 0;
+        }
+
+        .doc-download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 7px 12px;
+            background: rgba(255, 103, 0, 0.08);
+            border: 1px solid rgba(255, 103, 0, 0.25);
+            border-radius: 8px;
+            color: #FF6700;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+            width: 100%;
+        }
+
+        .doc-download-btn:hover {
+            background: rgba(255, 103, 0, 0.15);
+            border-color: #FF6700;
+            color: #FF6700;
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--fluent-text-secondary);
+        }
+
+        .no-results.visible {
+            display: block;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            opacity: 0.4;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .doc-card {
+                flex: 0 0 180px;
+            }
+
+            .search-wrapper {
+                max-width: 100%;
+            }
+        }
+
+        .doc-card.limit-hidden {
+            display: none;
+        }
+
+        .doc-row.expanded {
+            flex-wrap: wrap;
+            overflow-x: visible;
+        }
+    </style>
 </head>
 <body>
 
@@ -17,11 +306,11 @@
                     <div class="mq-squircle-logo">MQ</div>
                     <span class="brand-text">MINH QUANG</span>
                 </a>
-                
+
                 <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
                     ☰
                 </button>
-                
+
                 <div class="nav-links" id="nav-links">
                     <a href="index.html">Trang Chủ</a>
                     <a href="products.html">Sản Phẩm</a>
@@ -33,80 +322,293 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="section" style="padding-top: 60px; padding-bottom: 40px; background-color: var(--fluent-bg-secondary); border-bottom: 1px solid var(--fluent-border);">
+    <!-- Page Header & Search -->
+    <section class="catalog-hero">
         <div class="container">
-            <h1 style="font-size: 2.5rem; margin-bottom: 16px;">Tài Liệu & Catalog</h1>
-            <p style="font-size: 1.1rem; max-width: 600px; margin-bottom: 24px;">Tải xuống tài liệu kỹ thuật, hướng dẫn sử dụng và catalog sản phẩm mới nhất.</p>
-            
-            <div style="max-width: 500px; position: relative;">
-                <input type="text" id="catalog-search" class="fluent-input" placeholder="Tìm kiếm tài liệu, ví dụ: 'Máy cắt'..." style="padding-left: 40px; border-radius: var(--radius-lg); padding-top: 12px; padding-bottom: 12px;">
-                <span style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: var(--fluent-text-secondary);">🔍</span>
+            <h1 style="font-size: 2.5rem; margin-bottom: 8px;">Thư Viện Tài Liệu</h1>
+            <p style="font-size: 1.05rem; max-width: 600px; margin-bottom: 0;">Tra cứu hướng dẫn vận hành, tài liệu kỹ thuật và phần mềm hỗ trợ cho tất cả dòng máy laser MINH QUANG.</p>
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input
+                    type="text"
+                    id="doc-search"
+                    class="search-input"
+                    placeholder="Tìm kiếm tài liệu theo tên..."
+                    autocomplete="off"
+                >
             </div>
         </div>
     </section>
 
-    <!-- Documents Grid -->
-    <section class="section">
+    <!-- Document Library -->
+    <section class="section" style="padding-top: 48px;">
         <div class="container">
-            
-            <div class="grid grid-cols-4">
-                
-                <!-- Document 1 -->
-                <div class="fluent-card hover-scale document-card">
-                    <div style="font-size: 2.5rem; margin-bottom: 16px;">📄</div>
-                    <span class="fluent-badge" style="margin-bottom: 8px; background-color: #fcece8; color: #d83b01;">PDF</span>
-                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Catalog Máy Cắt Laser 2026</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 24px;">Tổng hợp thông số kỹ thuật các dòng máy cắt F-Series.</p>
-                    <a href="#" class="btn btn-secondary" style="width: 100%;">Tải Xuống (3.2 MB)</a>
-                </div>
 
-                <!-- Document 2 -->
-                <div class="fluent-card hover-scale document-card">
-                    <div style="font-size: 2.5rem; margin-bottom: 16px;">📄</div>
-                    <span class="fluent-badge" style="margin-bottom: 8px; background-color: #fcece8; color: #d83b01;">PDF</span>
-                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">HDSD Máy Hàn Laser Cầm Tay</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 24px;">Hướng dẫn vận hành, bảo trì và an toàn bức xạ.</p>
-                    <a href="#" class="btn btn-secondary" style="width: 100%;">Tải Xuống (1.5 MB)</a>
+            <!-- ===== CATEGORY 1: Manual Laser ===== -->
+            <div class="doc-section" id="cat-manual">
+                <div class="doc-section-header">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="doc-section-icon orange">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <h2 class="doc-section-title">Manual Laser</h2>
+                        <span class="doc-section-count">6 tài liệu</span>
+                    </div>
                 </div>
+                <div class="doc-row" id="row-manual">
 
-                <!-- Document 3 -->
-                <div class="fluent-card hover-scale document-card">
-                    <div style="font-size: 2.5rem; margin-bottom: 16px;">📄</div>
-                    <span class="fluent-badge" style="margin-bottom: 8px; background-color: #e5f3ff; color: #0078d4;">DOCX</span>
-                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Thông số Máy Khắc UV 5W</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 24px;">Chi tiết cấu hình và khả năng khắc trên vật liệu.</p>
-                    <a href="#" class="btn btn-secondary" style="width: 100%;">Tải Xuống (0.8 MB)</a>
+                    <div class="doc-card" data-title="BCS100 User Manual V3.22 Height Controller">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon pdf">
+                                <i class="fa-regular fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">BCS100 Height Controller Manual</p>
+                                <p class="doc-card-meta">PDF &bull; 1.2 MB &bull; v3.22</p>
+                            </div>
+                        </div>
+                        <a href="tai-lieu/manual/BCS100 User Manual V3.22.pdf" class="doc-download-btn" download>
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="IPG Application Fiber Micromaterial Processing">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon pdf">
+                                <i class="fa-regular fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">IPG Micromaterial Processing Guide</p>
+                                <p class="doc-card-meta">PDF &bull; 6.5 MB &bull; IPG Fiber</p>
+                            </div>
+                        </div>
+                        <a href="tai-lieu/manual/IPG Application_Fiber_Micromaterial_processing.pdf" class="doc-download-btn" download>
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="JPT YDFLP LP Series User Manual 2016.10">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon pdf">
+                                <i class="fa-regular fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">JPT YDFLP LP Series User Manual</p>
+                                <p class="doc-card-meta">PDF &bull; 638 KB &bull; v2016.10</p>
+                            </div>
+                        </div>
+                        <a href="tai-lieu/manual/JPT YDFLP LP Series User Manual-2016.10.pdf" class="doc-download-btn" download>
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="JPT CW 1000 Manual 20180703 EN">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon pdf">
+                                <i class="fa-regular fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">JPT-CW-1000 User Manual</p>
+                                <p class="doc-card-meta">PDF &bull; 1.6 MB &bull; v2018.07</p>
+                            </div>
+                        </div>
+                        <a href="tai-lieu/manual/JPT-CW--1000-Manual-20180703-EN.pdf" class="doc-download-btn" download>
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="LW403 Welding Head User Manual">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon pdf">
+                                <i class="fa-regular fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">LW403 Welding Head User Manual</p>
+                                <p class="doc-card-meta">PDF &bull; 1.3 MB &bull; Manual</p>
+                            </div>
+                        </div>
+                        <a href="tai-lieu/manual/LW403 Welding Head User Manual.pdf" class="doc-download-btn" download>
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="Welding Head Brochure 2018">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon pdf">
+                                <i class="fa-regular fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">Welding Head Brochure 2018</p>
+                                <p class="doc-card-meta">PDF &bull; 5.1 MB &bull; Brochure</p>
+                            </div>
+                        </div>
+                        <a href="tai-lieu/manual/Welding Head Brochure 2018.pdf" class="doc-download-btn" download>
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
                 </div>
-
-                <!-- Document 4 -->
-                <div class="fluent-card hover-scale document-card">
-                    <div style="font-size: 2.5rem; margin-bottom: 16px;">📄</div>
-                    <span class="fluent-badge" style="margin-bottom: 8px; background-color: #fcece8; color: #d83b01;">PDF</span>
-                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Hồ sơ Năng Lực LaserMQ</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 24px;">Giới thiệu công ty và các dự án tích hợp tiêu biểu.</p>
-                    <a href="#" class="btn btn-secondary" style="width: 100%;">Tải Xuống (5.6 MB)</a>
-                </div>
-
-                <!-- Document 5 -->
-                <div class="fluent-card hover-scale document-card">
-                    <div style="font-size: 2.5rem; margin-bottom: 16px;">📄</div>
-                    <span class="fluent-badge" style="margin-bottom: 8px; background-color: #e3f2fd; color: #0066cc;">ZIP</span>
-                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Bộ thư viện 3D Máy Cắt</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 24px;">File thiết kế 3D (.STEP) hỗ trợ layout nhà xưởng.</p>
-                    <a href="#" class="btn btn-secondary" style="width: 100%;">Tải Xuống (45 MB)</a>
-                </div>
-
-                <!-- Document 6 -->
-                <div class="fluent-card hover-scale document-card">
-                    <div style="font-size: 2.5rem; margin-bottom: 16px;">📄</div>
-                    <span class="fluent-badge" style="margin-bottom: 8px; background-color: #fcece8; color: #d83b01;">PDF</span>
-                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Bảng vật liệu cắt tiêu chuẩn</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 24px;">Tra cứu tốc độ và áp suất khí cắt theo độ dày tôn.</p>
-                    <a href="#" class="btn btn-secondary" style="width: 100%;">Tải Xuống (1.1 MB)</a>
-                </div>
-
             </div>
+
+            <!-- ===== CATEGORY 2: Tài liệu vận hành ===== -->
+            <div class="doc-section" id="cat-operation">
+                <div class="doc-section-header">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="doc-section-icon blue">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+                        <h2 class="doc-section-title">Tài liệu vận hành</h2>
+                        <span class="doc-section-count">3 tài liệu</span>
+                    </div>
+                </div>
+                <div class="doc-row" id="row-operation">
+
+                    <div class="doc-card" data-title="Quy trình an toàn Laser">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon pdf">
+                                <i class="fa-regular fa-file-pdf"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">Quy trình an toàn Laser</p>
+                                <p class="doc-card-meta">PDF &bull; 980 KB &bull; 2025</p>
+                            </div>
+                        </div>
+                        <a href="#" class="doc-download-btn">
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="Thông số cắt vật liệu chuẩn">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon docx">
+                                <i class="fa-regular fa-file-word"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">Thông số cắt vật liệu chuẩn</p>
+                                <p class="doc-card-meta">DOCX &bull; 320 KB &bull; v3.0</p>
+                            </div>
+                        </div>
+                        <a href="#" class="doc-download-btn">
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="Nhật ký bảo trì định kỳ">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon docx">
+                                <i class="fa-regular fa-file-word"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">Nhật ký bảo trì định kỳ</p>
+                                <p class="doc-card-meta">DOCX &bull; 180 KB &bull; Template</p>
+                            </div>
+                        </div>
+                        <a href="#" class="doc-download-btn">
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== CATEGORY 3: Software ===== -->
+            <div class="doc-section" id="cat-software">
+                <div class="doc-section-header">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="doc-section-icon green">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h2 class="doc-section-title">Software</h2>
+                        <span class="doc-section-count">5 tài liệu</span>
+                    </div>
+                </div>
+                <div class="doc-row" id="row-software">
+
+                    <div class="doc-card" data-title="CypCut Laser Cutting Software">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon exe">
+                                <i class="fa-solid fa-gear"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">CypCut Laser Cutting Software</p>
+                                <p class="doc-card-meta">EXE &bull; 148 MB &bull; v3.5.2</p>
+                            </div>
+                        </div>
+                        <a href="#" class="doc-download-btn">
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="EzCad Driver V2.1">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon zip">
+                                <i class="fa-regular fa-file-zipper"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">EzCad Driver V2.1</p>
+                                <p class="doc-card-meta">ZIP &bull; 22 MB &bull; v2.1</p>
+                            </div>
+                        </div>
+                        <a href="#" class="doc-download-btn">
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="RDWorks V8 Installer">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon exe">
+                                <i class="fa-solid fa-gear"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">RDWorks V8 Installer</p>
+                                <p class="doc-card-meta">EXE &bull; 56 MB &bull; V8.01.60</p>
+                            </div>
+                        </div>
+                        <a href="#" class="doc-download-btn">
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="TYPE-E-GUI_20210512 JPT Laser">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon zip">
+                                <i class="fa-regular fa-file-zipper"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">TYPE-E-GUI JPT Laser</p>
+                                <p class="doc-card-meta">RAR &bull; 3.9 MB &bull; v20210512</p>
+                            </div>
+                        </div>
+                        <a href="tai-lieu/software/TYPE-E-GUI_20210512.rar" class="doc-download-btn" download>
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                    <div class="doc-card" data-title="MarkingMate marking system MM27D-4.17">
+                        <div class="doc-card-top">
+                            <div class="doc-file-icon exe">
+                                <i class="fa-solid fa-gear"></i>
+                            </div>
+                            <div class="doc-card-info">
+                                <p class="doc-card-title">MarkingMate Marking System</p>
+                                <p class="doc-card-meta">EXE &bull; vMM27D-4.17</p>
+                            </div>
+                        </div>
+                        <a href="https://zlxz-1304693777.cos.ap-nanjing.myqcloud.com/3D%E6%BF%80%E5%85%89%E6%89%93%E6%A0%87%E5%A5%97%E4%BB%B6/MM3D%E5%A5%97%E4%BB%B6/MM27D-4.17.exe" class="doc-download-btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-download"></i> Tải xuống
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Empty state -->
+            <div class="no-results" id="no-results">
+                <i class="fa-solid fa-folder-open"></i>
+                <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 4px;">Không tìm thấy tài liệu</p>
+                <p style="margin: 0;">Thử tìm kiếm với từ khóa khác.</p>
+            </div>
+
         </div>
     </section>
 
@@ -141,11 +643,118 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 LaserMQ. All rights reserved. Thiết kế với Windows 11 Fluent Design.
+                &copy; 2026 MINH QUANG. All rights reserved. Thiết kế với Windows 11 Fluent Design.
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const allSections = document.querySelectorAll('.doc-section');
+            const searchInput = document.getElementById('doc-search');
+            const noResults = document.getElementById('no-results');
+
+            // Initialize collapse/expand states for sections
+            allSections.forEach(section => {
+                const header = section.querySelector('.doc-section-header');
+                const row = section.querySelector('.doc-row');
+                const cards = section.querySelectorAll('.doc-card');
+
+                if (cards.length > 5) {
+                    // Create view more button
+                    const btn = document.createElement('button');
+                    btn.className = 'doc-view-more collapsed';
+                    btn.innerHTML = 'Xem thêm <i class="fa-solid fa-chevron-right"></i>';
+                    header.appendChild(btn);
+
+                    // Initially collapse cards > 5
+                    cards.forEach((card, index) => {
+                        if (index >= 5) {
+                            card.classList.add('limit-hidden');
+                        }
+                    });
+
+                    // Add click event
+                    btn.addEventListener('click', function() {
+                        const isCollapsed = this.classList.contains('collapsed');
+                        if (isCollapsed) {
+                            this.classList.replace('collapsed', 'expanded');
+                            this.innerHTML = 'Thu gọn <i class="fa-solid fa-chevron-up"></i>';
+                            row.classList.add('expanded');
+                            cards.forEach((card, index) => {
+                                if (index >= 5) card.classList.remove('limit-hidden');
+                            });
+                        } else {
+                            this.classList.replace('expanded', 'collapsed');
+                            this.innerHTML = 'Xem thêm <i class="fa-solid fa-chevron-right"></i>';
+                            row.classList.remove('expanded');
+                            cards.forEach((card, index) => {
+                                if (index >= 5) card.classList.add('limit-hidden');
+                            });
+                        }
+                    });
+                }
+            });
+
+            // ===== DOCUMENT SEARCH =====
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim().toLowerCase();
+                const viewMoreButtons = document.querySelectorAll('.doc-view-more');
+                let totalVisible = 0;
+
+                if (query.length > 0) {
+                    // Hide view more buttons during search
+                    viewMoreButtons.forEach(btn => btn.style.display = 'none');
+
+                    allSections.forEach(section => {
+                        const cards = section.querySelectorAll('.doc-card');
+                        let sectionVisible = 0;
+
+                        cards.forEach(card => {
+                            // Remove limit-hidden during search so all matching items show up
+                            card.classList.remove('limit-hidden');
+                            
+                            const title = card.getAttribute('data-title').toLowerCase();
+                            const matches = title.includes(query);
+                            card.classList.toggle('hidden', !matches);
+
+                            if (matches) {
+                                totalVisible++;
+                                sectionVisible++;
+                            }
+                        });
+
+                        // Hide entire section if no match inside
+                        section.style.display = sectionVisible === 0 ? 'none' : '';
+                    });
+                } else {
+                    // Restore view more buttons
+                    viewMoreButtons.forEach(btn => btn.style.display = '');
+
+                    allSections.forEach(section => {
+                        section.style.display = '';
+                        const cards = section.querySelectorAll('.doc-card');
+                        const btn = section.querySelector('.doc-view-more');
+                        const isExpanded = btn && btn.classList.contains('expanded');
+
+                        cards.forEach((card, index) => {
+                            card.classList.remove('hidden');
+                            
+                            // Re-apply limit-hidden if collapsed
+                            if (index >= 5 && !isExpanded) {
+                                card.classList.add('limit-hidden');
+                            } else {
+                                card.classList.remove('limit-hidden');
+                            }
+                        });
+                    });
+                }
+
+                // Show empty state
+                noResults.classList.toggle('visible', totalVisible === 0 && query.length > 0);
+            });
+        });
+    </script>
 </body>
 </html>
