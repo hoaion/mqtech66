@@ -239,7 +239,7 @@ footer {
 
 /* Hero Section Background & Acrylic Effect */
 section:has(.hero-content) {
-    background: url('https://i.ytimg.com/vi/3lLfXX9Xu-0/maxresdefault.jpg') center/cover no-repeat;
+    background: url('../images/background/hero-bg.png') center/cover no-repeat;
     position: relative;
 }
 
