@@ -3,9 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liên Hệ - LaserMQ</title>
+    <title>Liên Hệ - MINH QUANG | NAMTURE</title>
+    <meta name="description" content="Liên hệ Công ty MINH QUANG để nhận tư vấn giải pháp laser công nghiệp, báo giá máy cắt, hàn, khắc laser và dự án tích hợp tự động hóa.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/fluent-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Namture Design System -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== NAMTURE DESIGN SYSTEM ===== */
+        :root {
+            --earth-bg: #f6f4ef;
+            --earth-bg-warm: #ede9df;
+            --earth-bg-light: #fbfaf7;
+            --earth-card: #ffffff;
+            --earth-card-hover: #f9f7f3;
+            
+            --sage: #88a34f;
+            --sage-dark: #7a9247;
+            --sage-light: rgba(136, 163, 79, 0.12);
+            --sage-glow: rgba(136, 163, 79, 0.2);
+            --sage-border: rgba(136, 163, 79, 0.25);
+            
+            --beige: #e0d3b2;
+            --beige-dark: #d4c4a0;
+            --beige-light: rgba(224, 211, 178, 0.3);
+            --gold: #d8ccae;
+            --gold-dark: #c4b694;
+            
+            --text-primary: #1f1d1a;
+            --text-secondary: #5a5648;
+            --text-tertiary: #8c887a;
+            
+            --headline-font: 'Playfair Display', serif;
+            --body-font: 'Inter', sans-serif;
+            
+            --shadow-card: 0 2px 12px rgba(31, 29, 26, 0.06);
+            --shadow-hover: 0 8px 24px rgba(31, 29, 26, 0.1);
+            --shadow-btn: 0 4px 12px rgba(136, 163, 79, 0.25);
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        body {
+            background-color: var(--earth-bg) !important;
+            color: var(--text-primary) !important;
+            font-family: var(--body-font);
+        }
+
+        header.mica-bg {
+            background-color: rgba(246, 244, 239, 0.88) !important;
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            border-bottom: 1px solid var(--beige) !important;
+        }
+        header .brand-text {
+            color: var(--text-primary) !important;
+        }
+        header .nav-links a {
+            color: var(--text-secondary) !important;
+        }
+        header .nav-links a:hover {
+            color: var(--sage) !important;
+        }
+
+        .mq-squircle-logo {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%) !important;
+            color: white !important;
+            box-shadow: 0 4px 15px var(--sage-glow) !important;
+        }
+
+        .mega-menu, .submenu {
+            background-color: var(--earth-card) !important;
+            border: 1px solid var(--beige) !important;
+        }
+        .mega-menu-category span {
+            color: var(--text-secondary) !important;
+        }
+        .mega-menu-category:hover span {
+            color: var(--sage) !important;
+        }
+        .mega-menu-category:hover {
+            background-color: var(--sage-light) !important;
+        }
+        .submenu-item {
+            color: var(--text-secondary) !important;
+        }
+        .submenu-item:hover {
+            background-color: var(--sage-light) !important;
+            color: var(--sage) !important;
+        }
+
+        /* ===== NAMTURE COMPONENTS ===== */
+        .nmt-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+            border-color: var(--sage-border);
+        }
+        .nmt-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+            color: #fff !important;
+            font-family: var(--body-font);
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-btn);
+            font-size: 1.05rem;
+        }
+        .nmt-btn-primary:hover {
+            box-shadow: 0 6px 20px var(--sage-glow);
+            transform: translateY(-2px);
+            color: #fff !important;
+        }
+        .nmt-section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .nmt-section-title h1 {
+            font-family: var(--headline-font);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+        .nmt-section-title p {
+            font-family: var(--body-font);
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .nmt-divider {
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, var(--sage), var(--beige));
+            border-radius: 9999px;
+            margin: 16px auto 0;
+        }
+
+        /* ===== CONTACT PAGE SPECIFIC ===== */
+        .contact-hero {
+            padding: 60px 0 40px;
+            background-color: var(--earth-bg-warm);
+            border-bottom: 1px solid var(--beige);
+        }
+
+        /* Company name highlight */
+        .nmt-company-name {
+            font-family: var(--headline-font);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--sage-dark);
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--beige);
+        }
+
+        /* Contact info items */
+        .nmt-contact-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 18px;
+            align-items: flex-start;
+        }
+        .nmt-contact-item:last-child {
+            margin-bottom: 0;
+        }
+        .nmt-contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--sage-light);
+            border: 1px solid var(--sage-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sage-dark);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .nmt-contact-label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 2px;
+        }
+        .nmt-contact-value {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+        .nmt-contact-value a {
+            color: var(--sage-dark);
+            text-decoration: none;
+        }
+        .nmt-contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* Map wrapper */
+        .nmt-map {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--beige);
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-map:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: var(--sage-border);
+        }
+        .nmt-map iframe {
+            display: block;
+            width: 100%;
+            height: 360px;
+            border: 0;
+        }
+
+        /* ===== FORM STYLES ===== */
+        .nmt-form-group {
+            margin-bottom: 20px;
+        }
+        .nmt-form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            font-family: var(--body-font);
+        }
+        .nmt-form-label .required {
+            color: #c9513a;
+        }
+        .nmt-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--earth-bg-light);
+            border: 1.5px solid var(--beige);
+            border-radius: var(--radius-md);
+            font-family: var(--body-font);
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.25s ease;
+            box-sizing: border-box;
+        }
+        .nmt-input:focus {
+            border-color: var(--sage);
+            box-shadow: 0 0 0 3px var(--sage-light);
+            background: #fff;
+        }
+        .nmt-input::placeholder {
+            color: var(--text-tertiary);
+        }
+        .nmt-input textarea,
+        textarea.nmt-input {
+            resize: vertical;
+            min-height: 120px;
+        }
+        select.nmt-input {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%238c887a' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nmt-section-title h1 {
+                font-size: 32px;
+            }
+        }
+
+        footer {
+            background: var(--earth-bg-warm);
+            border-top: 1px solid var(--beige);
+        }
+    </style>
 </head>
 <body>
 
@@ -23,70 +325,70 @@
                 </button>
 
                 <div class="nav-links" id="nav-links">
-                    <a href="index.html" class="active">Trang Chủ</a>
-
+                    <a href="index.html">Trang Chủ</a>
+                    
                     <!-- Multi-level Mega Menu for Products -->
                     <div class="nav-item">
                         <a href="products.html">
                             Sản Phẩm
                             <span class="dropdown-arrow">▼</span>
                         </a>
-
+                        
                         <!-- Level 2 - Main Categories -->
                         <div class="mega-menu">
-
+                            
                             <!-- Category 1: Máy Cắt Laser -->
                             <div class="mega-menu-category">
                                 <span>Máy Cắt Laser</span>
                                 <span class="right-arrow">▶</span>
-
+                                
                                 <!-- Level 3 - Products under Máy Cắt Laser -->
                                 <div class="submenu">
                                     <a href="chi-tiet-fiber-f-series.html" class="submenu-item">Máy Cắt Laser Fiber F-Series</a>
                                     <a href="chi-tiet-ong-chuyen-dung.html" class="submenu-item">Máy Cắt Laser Ống Chuyên Dụng</a>
                                 </div>
                             </div>
-
+                            
                             <!-- Category 2: Máy Hàn Laser -->
                             <div class="mega-menu-category">
                                 <span>Máy Hàn Laser</span>
                                 <span class="right-arrow">▶</span>
-
+                                
                                 <!-- Level 3 - Products under Máy Hàn Laser -->
                                 <div class="submenu">
                                     <a href="chi-tiet-cam-tay-w-series.html" class="submenu-item">Máy Hàn Laser Cầm Tay W-Series</a>
                                 </div>
                             </div>
-
+                            
                             <!-- Category 3: Máy Khắc Laser -->
                             <div class="mega-menu-category">
                                 <span>Máy Khắc Laser</span>
                                 <span class="right-arrow">▶</span>
-
+                                
                                 <!-- Level 3 - Products under Máy Khắc Laser -->
                                 <div class="submenu">
                                     <a href="chi-tiet-uv-5w.html" class="submenu-item">Máy Khắc Laser UV 5W</a>
                                     <a href="chi-tiet-fiber-3d.html" class="submenu-item">Máy Khắc Laser Fiber 3D</a>
                                 </div>
                             </div>
-
+                            
                             <!-- Category 4: Dự Án Tích Hợp -->
                             <div class="mega-menu-category">
                                 <span>Dự Án Tích Hợp</span>
                                 <span class="right-arrow">▶</span>
-
+                                
                                 <!-- Level 3 - Products under Dự Án Tích Hợp -->
                                 <div class="submenu">
                                     <a href="chi-tiet-tram-han-robot-tu-dong.html" class="submenu-item">Trạm Hàn Laser Robot Tự Động</a>
                                     <a href="chi-tiet-truyen-tu-dong-in-bao-bi.html" class="submenu-item">Hệ Thống Khắc Laser Trên Băng Chuyền</a>
                                 </div>
                             </div>
-
+                            
                         </div>
                     </div>
-
+                    
                     <a href="catalog.html">Tài Liệu</a>
-                    <a href="contact.html">Liên Hệ</a>
+                    <a href="contact.html" class="active">Liên Hệ</a>
 
                 </div>
             </nav>
@@ -94,10 +396,13 @@
     </header>
 
     <!-- Page Header -->
-    <section class="section" style="padding-top: 60px; padding-bottom: 40px; background-color: var(--fluent-bg-secondary); border-bottom: 1px solid var(--fluent-border);">
+    <section class="contact-hero">
         <div class="container">
-            <h1 style="font-size: 2.5rem; margin-bottom: 16px;">Liên Hệ & Hỗ Trợ</h1>
-            <p style="font-size: 1.1rem; max-width: 600px;">Đội ngũ kỹ sư của chúng tôi luôn sẵn sàng hỗ trợ, tư vấn giải pháp tối ưu cho nhu cầu sản xuất của bạn.</p>
+            <div class="nmt-section-title" style="margin-bottom: 0;">
+                <h1>Liên Hệ & Hỗ Trợ</h1>
+                <p>Đội ngũ kỹ sư của chúng tôi luôn sẵn sàng hỗ trợ, tư vấn giải pháp tối ưu cho nhu cầu sản xuất của bạn.</p>
+                <div class="nmt-divider"></div>
+            </div>
         </div>
     </section>
 
@@ -108,46 +413,93 @@
                 
                 <!-- Contact Info & Map -->
                 <div>
-                    <div class="fluent-card" style="margin-bottom: 32px;">
-                        <h2 style="margin-bottom: 24px;">Thông Tin Công Ty</h2>
-                        <h3 style="margin-bottom: 8px;">CÔNG TY TNHH THƯƠNG MẠI KỸ THUẬT CÔNG NGHỆ MINH QUANG</h3>
-                        <p style="margin-bottom: 8px;"><strong>Mã số thuế:</strong> 0316036429</p>
-                        <p style="margin-bottom: 8px;"><strong>Địa chỉ:</strong> 76/1 Lê Thị Nho, Phường Trung Mỹ Tây, Thành phố Hồ Chí Minh, Việt Nam</p>
-                        <p style="margin-bottom: 8px;"><strong>Hotline tư vấn:</strong> 0918 666 888</p>
-                        <p style="margin-bottom: 8px;"><strong>Hỗ trợ kỹ thuật (24/7):</strong> 0918 999 666</p>
-                        <p style="margin-bottom: 0;"><strong>Email:</strong> contact@lasermq.com</p>
+                    <div class="nmt-card" style="padding: 32px; margin-bottom: 32px;">
+                        <p class="nmt-company-name">CÔNG TY TNHH THƯƠNG MẠI KỸ THUẬT CÔNG NGHỆ MINH QUANG</p>
+                        
+                        <div class="nmt-contact-item">
+                            <div class="nmt-contact-icon">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <span class="nmt-contact-label">Mã số thuế</span>
+                                <span class="nmt-contact-value">0316036429</span>
+                            </div>
+                        </div>
+
+                        <div class="nmt-contact-item">
+                            <div class="nmt-contact-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="nmt-contact-label">Địa chỉ</span>
+                                <span class="nmt-contact-value">76/1 Lê Thị Nho, Phường Trung Mỹ Tây, TP. Hồ Chí Minh</span>
+                            </div>
+                        </div>
+
+                        <div class="nmt-contact-item">
+                            <div class="nmt-contact-icon" style="color: #c9513a; border-color: rgba(201, 81, 58, 0.25); background: rgba(201, 81, 58, 0.08);">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="nmt-contact-label">Hotline tư vấn</span>
+                                <span class="nmt-contact-value"><a href="tel:0918666888">0918 666 888</a></span>
+                            </div>
+                        </div>
+
+                        <div class="nmt-contact-item">
+                            <div class="nmt-contact-icon" style="color: #c9513a; border-color: rgba(201, 81, 58, 0.25); background: rgba(201, 81, 58, 0.08);">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                            <div>
+                                <span class="nmt-contact-label">Hỗ trợ kỹ thuật (24/7)</span>
+                                <span class="nmt-contact-value"><a href="tel:0918999666">0918 999 666</a></span>
+                            </div>
+                        </div>
+
+                        <div class="nmt-contact-item">
+                            <div class="nmt-contact-icon" style="color: #3a6ea5; border-color: rgba(58, 110, 165, 0.25); background: rgba(58, 110, 165, 0.08);">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="nmt-contact-label">Email</span>
+                                <span class="nmt-contact-value"><a href="mailto:contact@lasermq.com">contact@lasermq.com</a></span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Google Maps Embed -->
-                    <div class="map-wrapper hover-scale">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1385.3958365022706!2d106.62258394808568!3d10.850197956012389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x488bdaa7a5241b53%3A0x1060b58f2799cb05!2zQ8OUTkcgVFkgVE5ISCBUSMavxqBORyBN4bqgSSBL4bu4IFRIVeG6rFQgQ8OUTkcgTkdI4buGIE1JTkggUVVBTkc!5e0!3m2!1svi!2s!4v1779167515310!5m2!1svi!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="nmt-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1385.3958365022706!2d106.62258394808568!3d10.850197956012389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x488bdaa7a5241b53%3A0x1060b58f2799cb05!2zQ8OUTkcgVFkgVE5ISCBUSMavxqBORyBN4bqgSSBL4bu4IFRIVeG6rFQgQ8OUTkcgTkdI4buGIE1JTkggUVVBTkc!5e0!3m2!1svi!2s!4v1779167515310!5m2!1svi!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
                 <div>
-                    <div class="fluent-card">
-                        <h2 style="margin-bottom: 24px;">Gửi Yêu Cầu Tư Vấn</h2>
+                    <div class="nmt-card" style="padding: 32px;">
+                        <h2 style="font-family: var(--headline-font); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin: 0 0 24px 0;">
+                            Gửi Yêu Cầu Tư Vấn
+                        </h2>
                         <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã gửi yêu cầu. Chúng tôi sẽ liên hệ lại sớm nhất!');">
-                            <div style="margin-bottom: 16px;">
-                                <label for="name" style="display: block; margin-bottom: 8px; font-weight: 500;">Họ và Tên *</label>
-                                <input type="text" id="name" class="fluent-input" required placeholder="Nhập họ tên của bạn">
+                            
+                            <div class="nmt-form-group">
+                                <label for="name" class="nmt-form-label">Họ và Tên <span class="required">*</span></label>
+                                <input type="text" id="name" class="nmt-input" required placeholder="Nhập họ tên của bạn">
                             </div>
                             
-                            <div class="grid grid-cols-2" style="gap: 16px; margin-bottom: 16px;">
-                                <div>
-                                    <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 500;">Số Điện Thoại *</label>
-                                    <input type="tel" id="phone" class="fluent-input" required placeholder="Nhập số điện thoại">
+                            <div class="grid grid-cols-2" style="gap: 16px;">
+                                <div class="nmt-form-group">
+                                    <label for="phone" class="nmt-form-label">Số Điện Thoại <span class="required">*</span></label>
+                                    <input type="tel" id="phone" class="nmt-input" required placeholder="Nhập số điện thoại">
                                 </div>
-                                <div>
-                                    <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label>
-                                    <input type="email" id="email" class="fluent-input" placeholder="Nhập địa chỉ email (không bắt buộc)">
+                                <div class="nmt-form-group">
+                                    <label for="email" class="nmt-form-label">Email</label>
+                                    <input type="email" id="email" class="nmt-input" placeholder="Nhập địa chỉ email (không bắt buộc)">
                                 </div>
                             </div>
 
-                            <div style="margin-bottom: 16px;">
-                                <label for="interest" style="display: block; margin-bottom: 8px; font-weight: 500;">Sản phẩm quan tâm</label>
-                                <select id="interest" class="fluent-input">
+                            <div class="nmt-form-group">
+                                <label for="interest" class="nmt-form-label">Sản phẩm quan tâm</label>
+                                <select id="interest" class="nmt-input">
                                     <option value="cut">Máy Cắt Laser</option>
                                     <option value="weld">Máy Hàn Laser</option>
                                     <option value="mark">Máy Khắc Laser</option>
@@ -156,12 +508,14 @@
                                 </select>
                             </div>
 
-                            <div style="margin-bottom: 24px;">
-                                <label for="message" style="display: block; margin-bottom: 8px; font-weight: 500;">Nội dung yêu cầu</label>
-                                <textarea id="message" class="fluent-input" placeholder="Mô tả chi tiết vật liệu cần gia công, độ dày, sản lượng dự kiến... để chúng tôi tư vấn tốt nhất."></textarea>
+                            <div class="nmt-form-group">
+                                <label for="message" class="nmt-form-label">Nội dung yêu cầu</label>
+                                <textarea id="message" class="nmt-input" placeholder="Mô tả chi tiết vật liệu cần gia công, độ dày, sản lượng dự kiến... để chúng tôi tư vấn tốt nhất."></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1.05rem;">Gửi Yêu Cầu</button>
+                            <button type="submit" class="nmt-btn-primary" style="width: 100%;">
+                                <i class="fa-solid fa-paper-plane"></i> Gửi Yêu Cầu
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -201,7 +555,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 LaserMQ. All rights reserved. Thiết kế với Windows 11 Fluent Design.
+                &copy; 2026 MINH QUANG. All rights reserved.
             </div>
         </div>
     </footer>

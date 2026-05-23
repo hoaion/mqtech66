@@ -3,21 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản Phẩm - LaserMQ</title>
+    <title>Sản Phẩm - MINH QUANG | NAMTURE</title>
+    <meta name="description" content="Danh mục máy cắt laser, hàn laser, khắc laser và dự án tích hợp của Công ty MINH QUANG. Công nghệ laser công nghiệp hiện đại.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/fluent-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Namture Design System -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
     <style>
-        /* Product cards: push button to bottom */
-        #products-grid .fluent-card {
+        /* ===== NAMTURE DESIGN SYSTEM ===== */
+        :root {
+            --earth-bg: #f6f4ef;
+            --earth-bg-warm: #ede9df;
+            --earth-bg-light: #fbfaf7;
+            --earth-card: #ffffff;
+            --earth-card-hover: #f9f7f3;
+            
+            --sage: #88a34f;
+            --sage-dark: #7a9247;
+            --sage-light: rgba(136, 163, 79, 0.12);
+            --sage-glow: rgba(136, 163, 79, 0.2);
+            --sage-border: rgba(136, 163, 79, 0.25);
+            
+            --beige: #e0d3b2;
+            --beige-dark: #d4c4a0;
+            --beige-light: rgba(224, 211, 178, 0.3);
+            --gold: #d8ccae;
+            --gold-dark: #c4b694;
+            
+            --text-primary: #1f1d1a;
+            --text-secondary: #5a5648;
+            --text-tertiary: #8c887a;
+            
+            --headline-font: 'Playfair Display', serif;
+            --body-font: 'Inter', sans-serif;
+            
+            --shadow-card: 0 2px 12px rgba(31, 29, 26, 0.06);
+            --shadow-hover: 0 8px 24px rgba(31, 29, 26, 0.1);
+            --shadow-btn: 0 4px 12px rgba(136, 163, 79, 0.25);
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        body {
+            background-color: var(--earth-bg) !important;
+            color: var(--text-primary) !important;
+            font-family: var(--body-font);
+        }
+
+        header.mica-bg {
+            background-color: rgba(246, 244, 239, 0.88) !important;
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            border-bottom: 1px solid var(--beige) !important;
+        }
+        header .brand-text {
+            color: var(--text-primary) !important;
+        }
+        header .nav-links a {
+            color: var(--text-secondary) !important;
+        }
+        header .nav-links a:hover {
+            color: var(--sage) !important;
+        }
+
+        .mq-squircle-logo {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%) !important;
+            color: white !important;
+            box-shadow: 0 4px 15px var(--sage-glow) !important;
+        }
+
+        .mega-menu, .submenu {
+            background-color: var(--earth-card) !important;
+            border: 1px solid var(--beige) !important;
+        }
+        .mega-menu-category span {
+            color: var(--text-secondary) !important;
+        }
+        .mega-menu-category:hover span {
+            color: var(--sage) !important;
+        }
+        .mega-menu-category:hover {
+            background-color: var(--sage-light) !important;
+        }
+        .submenu-item {
+            color: var(--text-secondary) !important;
+        }
+        .submenu-item:hover {
+            background-color: var(--sage-light) !important;
+            color: var(--sage) !important;
+        }
+
+        /* ===== NAMTURE COMPONENTS ===== */
+        .nmt-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+            border-color: var(--sage-border);
+        }
+        .nmt-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            background: var(--sage-light);
+            color: var(--sage-dark);
+            font-family: var(--body-font);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1px solid var(--sage-border);
+            width: fit-content;
+        }
+        .nmt-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+            color: #fff !important;
+            font-family: var(--body-font);
+            font-weight: 600;
+            padding: 14px 24px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-btn);
+        }
+        .nmt-btn-primary:hover {
+            box-shadow: 0 6px 20px var(--sage-glow);
+            transform: translateY(-2px);
+            color: #fff !important;
+        }
+        .nmt-section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .nmt-section-title h1 {
+            font-family: var(--headline-font);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+        .nmt-section-title p {
+            font-family: var(--body-font);
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .nmt-divider {
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, var(--sage), var(--beige));
+            border-radius: 9999px;
+            margin: 16px auto 0;
+        }
+
+        /* ===== PRODUCT SPECIFIC ===== */
+        #products-grid .nmt-card {
             display: flex;
             flex-direction: column;
         }
-        #products-grid .fluent-card .btn {
+        #products-grid .nmt-card .nmt-btn-primary {
             margin-top: auto;
         }
-        /* Badge: compact, not stretched */
-        #products-grid .fluent-card .fluent-badge {
+        #products-grid .nmt-card .nmt-badge {
             align-self: flex-start;
+        }
+
+        /* Product image placeholder */
+        .nmt-product-img {
+            height: 200px;
+            background-color: var(--earth-bg-warm);
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .nmt-product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Product name heading */
+        .nmt-product-name {
+            font-family: var(--headline-font);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+            line-height: 1.3;
+        }
+
+        /* Product spec table */
+        .nmt-spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+            font-size: 0.875rem;
+        }
+        .nmt-spec-table td {
+            padding: 6px 0;
+            border-bottom: 1px solid var(--beige);
+            color: var(--text-secondary);
+        }
+        .nmt-spec-table td:first-child {
+            font-weight: 500;
+            color: var(--text-tertiary);
+            width: 45%;
+        }
+        .nmt-spec-table td:last-child {
+            text-align: right;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .nmt-spec-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ===== SEGMENTED CONTROL (FILTER) ===== */
+        .nmt-segment {
+            display: inline-flex;
+            background: var(--earth-bg-warm);
+            border: 1px solid var(--beige);
+            border-radius: 9999px;
+            padding: 4px;
+            gap: 2px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nmt-segment-btn {
+            padding: 10px 20px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: var(--body-font);
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .nmt-segment-btn:hover {
+            color: var(--text-primary);
+        }
+        .nmt-segment-btn.active {
+            background: var(--sage);
+            color: #fff;
+            box-shadow: 0 2px 8px var(--sage-glow);
+        }
+
+        /* ===== PRODUCT CARD LINK ===== */
+        a.product-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        a.product-link:hover {
+            color: inherit;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--earth-bg-warm);
+            border-top: 1px solid var(--beige);
+        }
+
+        /* Page header */
+        .products-hero {
+            padding: 60px 0 40px;
+            background-color: var(--earth-bg-warm);
+            border-bottom: 1px solid var(--beige);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nmt-segment {
+                border-radius: var(--radius-lg);
+                padding: 6px;
+                gap: 4px;
+            }
+            .nmt-segment-btn {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
+            .nmt-section-title h1 {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
@@ -31,11 +323,11 @@
                     <div class="mq-squircle-logo">MQ</div>
                     <span class="brand-text">MINH QUANG</span>
                 </a>
-                
+
                 <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
                     ☰
                 </button>
-                
+
                 <div class="nav-links" id="nav-links">
                     <a href="index.html">Trang Chủ</a>
                     
@@ -108,10 +400,13 @@
     </header>
 
     <!-- Page Header -->
-    <section class="section" style="padding-top: 60px; padding-bottom: 40px; background-color: var(--fluent-bg-secondary); border-bottom: 1px solid var(--fluent-border);">
+    <section class="products-hero">
         <div class="container">
-            <h1 style="font-size: 2.5rem; margin-bottom: 16px;">Sản Phẩm Laser</h1>
-            <p style="font-size: 1.1rem; max-width: 600px;">Khám phá danh mục các dòng máy laser công nghiệp hiện đại, đáp ứng mọi nhu cầu gia công chế tạo của bạn.</p>
+            <div class="nmt-section-title" style="margin-bottom: 0;">
+                <h1>Sản Phẩm Laser</h1>
+                <p>Khám phá danh mục các dòng máy laser công nghiệp hiện đại, đáp ứng mọi nhu cầu gia công chế tạo của bạn.</p>
+                <div class="nmt-divider"></div>
+            </div>
         </div>
     </section>
 
@@ -121,12 +416,12 @@
             
             <!-- Filters (Segment Controls) -->
             <div style="margin-bottom: 40px; display: flex; justify-content: center;">
-                <div class="segment-control">
-                    <button class="segment-btn active" data-filter="all">Tất Cả</button>
-                    <button class="segment-btn" data-filter="cut">Máy Cắt Laser</button>
-                    <button class="segment-btn" data-filter="weld">Máy Hàn Laser</button>
-                    <button class="segment-btn" data-filter="mark">Máy Khắc Laser</button>
-                    <button class="segment-btn" data-filter="project">Dự Án Tích Hợp</button>
+                <div class="nmt-segment">
+                    <button class="nmt-segment-btn active" data-filter="all">Tất Cả</button>
+                    <button class="nmt-segment-btn" data-filter="cut">Máy Cắt Laser</button>
+                    <button class="nmt-segment-btn" data-filter="weld">Máy Hàn Laser</button>
+                    <button class="nmt-segment-btn" data-filter="mark">Máy Khắc Laser</button>
+                    <button class="nmt-segment-btn" data-filter="project">Dự Án Tích Hợp</button>
                 </div>
             </div>
 
@@ -134,234 +429,164 @@
             <div class="grid grid-cols-3" id="products-grid">
                 
                 <!-- Product 1: Cắt Laser -->
-                <a href="chi-tiet-fiber-f-series.html" style="text-decoration: none; color: inherit;">
-                    <div class="fluent-card hover-scale" data-category="cut">
-                        <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <img src="images/san-pham/may-cat-laser/fiber-f-series/main.jpg" alt="Máy Cắt Laser Fiber F-Series" style="width: 100%; height: 100%; object-fit: cover;">
+                <a href="chi-tiet-fiber-f-series.html" class="product-link">
+                    <div class="nmt-card" data-category="cut">
+                        <div class="nmt-product-img">
+                            <img src="images/san-pham/may-cat-laser/fiber-f-series/main.jpg" alt="Máy Cắt Laser Fiber F-Series" loading="lazy">
                         </div>
-                        <span class="fluent-badge" style="margin-bottom: 8px;">Bán Chạy</span>
-                        <h3 style="margin-bottom: 16px;">Máy Cắt Laser Fiber F-Series</h3>
+                        <span class="nmt-badge" style="margin-bottom: 8px;">Bán Chạy</span>
+                        <h3 class="nmt-product-name">Máy Cắt Laser Fiber F-Series</h3>
                         
-                        <table class="fluent-table" style="margin-bottom: 16px;">
+                        <table class="nmt-spec-table">
                             <tbody>
-                                <tr>
-                                    <td>Công suất</td>
-                                    <td>3000W - 12000W</td>
-                                </tr>
-                                <tr>
-                                    <td>Khổ làm việc</td>
-                                    <td>1500x3000mm</td>
-                                </tr>
-                                <tr>
-                                    <td>Nguồn Laser</td>
-                                    <td>IPG / MAX</td>
-                                </tr>
-                                <tr>
-                                    <td>Làm mát</td>
-                                    <td>Chiller nước</td>
-                                </tr>
+                                <tr><td>Công suất</td><td>3000W - 12000W</td></tr>
+                                <tr><td>Khổ làm việc</td><td>1500x3000mm</td></tr>
+                                <tr><td>Nguồn Laser</td><td>IPG / MAX</td></tr>
+                                <tr><td>Làm mát</td><td>Chiller nước</td></tr>
                             </tbody>
                         </table>
                         
-                        <span class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Xem Chi Tiết</span>
+                        <span class="nmt-btn-primary" style="width: 100%; display: flex;">
+                            <i class="fa-solid fa-arrow-right"></i> Xem Chi Tiết
+                        </span>
                     </div>
                 </a>
 
                 <!-- Product 2: Cắt Laser -->
-                <a href="chi-tiet-ong-chuyen-dung.html" style="text-decoration: none; color: inherit;">
-                    <div class="fluent-card hover-scale" data-category="cut">
-                        <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <img src="images/san-pham/may-cat-laser/ong-chuyen-dung/main.jpg" alt="Máy Cắt Laser Ống" style="width: 100%; height: 100%; object-fit: cover;">
+                <a href="chi-tiet-ong-chuyen-dung.html" class="product-link">
+                    <div class="nmt-card" data-category="cut">
+                        <div class="nmt-product-img">
+                            <img src="images/san-pham/may-cat-laser/ong-chuyen-dung/main.jpg" alt="Máy Cắt Laser Ống" loading="lazy">
                         </div>
-                        <h3 style="margin-bottom: 16px;">Máy Cắt Laser Ống Chuyên Dụng</h3>
+                        <h3 class="nmt-product-name">Máy Cắt Laser Ống Chuyên Dụng</h3>
                         
-                        <table class="fluent-table" style="margin-bottom: 16px;">
+                        <table class="nmt-spec-table">
                             <tbody>
-                                <tr>
-                                    <td>Công suất</td>
-                                    <td>1500W - 6000W</td>
-                                </tr>
-                                <tr>
-                                    <td>Chiều dài ống</td>
-                                    <td>Lên đến 6m</td>
-                                </tr>
-                                <tr>
-                                    <td>Đường kính ống</td>
-                                    <td>20mm - 220mm</td>
-                                </tr>
-                                <tr>
-                                    <td>Cắt góc</td>
-                                    <td>Beveling 45°</td>
-                                </tr>
+                                <tr><td>Công suất</td><td>1500W - 6000W</td></tr>
+                                <tr><td>Chiều dài ống</td><td>Lên đến 6m</td></tr>
+                                <tr><td>Đường kính ống</td><td>20mm - 220mm</td></tr>
+                                <tr><td>Cắt góc</td><td>Beveling 45°</td></tr>
                             </tbody>
                         </table>
                         
-                        <span class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Xem Chi Tiết</span>
+                        <span class="nmt-btn-primary" style="width: 100%; display: flex;">
+                            <i class="fa-solid fa-arrow-right"></i> Xem Chi Tiết
+                        </span>
                     </div>
                 </a>
 
                 <!-- Product 3: Hàn Laser -->
-                <a href="chi-tiet-cam-tay-w-series.html" style="text-decoration: none; color: inherit;">
-                    <div class="fluent-card hover-scale" data-category="weld">
-                        <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <img src="images/san-pham/may-han-laser/cam-tay-w-series/main.jpg" alt="Máy Hàn Laser Cầm Tay" style="width: 100%; height: 100%; object-fit: cover;">
+                <a href="chi-tiet-cam-tay-w-series.html" class="product-link">
+                    <div class="nmt-card" data-category="weld">
+                        <div class="nmt-product-img">
+                            <img src="images/san-pham/may-han-laser/cam-tay-w-series/main.jpg" alt="Máy Hàn Laser Cầm Tay" loading="lazy">
                         </div>
-                        <h3 style="margin-bottom: 16px;">Máy Hàn Laser Cầm Tay W-Series</h3>
+                        <h3 class="nmt-product-name">Máy Hàn Laser Cầm Tay W-Series</h3>
                         
-                        <table class="fluent-table" style="margin-bottom: 16px;">
+                        <table class="nmt-spec-table">
                             <tbody>
-                                <tr>
-                                    <td>Công suất</td>
-                                    <td>1000W / 1500W / 2000W</td>
-                                </tr>
-                                <tr>
-                                    <td>Chức năng</td>
-                                    <td>Hàn, Cắt rỉ sét, Tẩy gỉ</td>
-                                </tr>
-                                <tr>
-                                    <td>Độ sâu mối hàn</td>
-                                    <td>Lên đến 5mm (Inox)</td>
-                                </tr>
-                                <tr>
-                                    <td>Trọng lượng súng</td>
-                                    <td>< 0.8kg</td>
-                                </tr>
+                                <tr><td>Công suất</td><td>1000W / 1500W / 2000W</td></tr>
+                                <tr><td>Chức năng</td><td>Hàn, Cắt rỉ sét, Tẩy gỉ</td></tr>
+                                <tr><td>Độ sâu mối hàn</td><td>Lên đến 5mm (Inox)</td></tr>
+                                <tr><td>Trọng lượng súng</td><td>&lt; 0.8kg</td></tr>
                             </tbody>
                         </table>
                         
-                        <span class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Xem Chi Tiết</span>
+                        <span class="nmt-btn-primary" style="width: 100%; display: flex;">
+                            <i class="fa-solid fa-arrow-right"></i> Xem Chi Tiết
+                        </span>
                     </div>
                 </a>
 
                 <!-- Product 4: Khắc Laser -->
-                <a href="chi-tiet-uv-5w.html" style="text-decoration: none; color: inherit;">
-                    <div class="fluent-card hover-scale" data-category="mark">
-                        <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <img src="images/san-pham/may-khac-laser/uv-5w/main.jpg" alt="Máy Khắc Laser UV" style="width: 100%; height: 100%; object-fit: cover;">
+                <a href="chi-tiet-uv-5w.html" class="product-link">
+                    <div class="nmt-card" data-category="mark">
+                        <div class="nmt-product-img">
+                            <img src="images/san-pham/may-khac-laser/uv-5w/main.jpg" alt="Máy Khắc Laser UV" loading="lazy">
                         </div>
-                        <h3 style="margin-bottom: 16px;">Máy Khắc Laser UV 5W</h3>
+                        <h3 class="nmt-product-name">Máy Khắc Laser UV 5W</h3>
                         
-                        <table class="fluent-table" style="margin-bottom: 16px;">
+                        <table class="nmt-spec-table">
                             <tbody>
-                                <tr>
-                                    <td>Công suất</td>
-                                    <td>3W / 5W / 10W</td>
-                                </tr>
-                                <tr>
-                                    <td>Bước sóng</td>
-                                    <td>355nm</td>
-                                </tr>
-                                <tr>
-                                    <td>Tốc độ khắc</td>
-                                    <td>Lên đến 10,000mm/s</td>
-                                </tr>
-                                <tr>
-                                    <td>Làm mát</td>
-                                    <td>Làm mát bằng nước</td>
-                                </tr>
+                                <tr><td>Công suất</td><td>3W / 5W / 10W</td></tr>
+                                <tr><td>Bước sóng</td><td>355nm</td></tr>
+                                <tr><td>Tốc độ khắc</td><td>Lên đến 10,000mm/s</td></tr>
+                                <tr><td>Làm mát</td><td>Làm mát bằng nước</td></tr>
                             </tbody>
                         </table>
                         
-                        <span class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Xem Chi Tiết</span>
+                        <span class="nmt-btn-primary" style="width: 100%; display: flex;">
+                            <i class="fa-solid fa-arrow-right"></i> Xem Chi Tiết
+                        </span>
                     </div>
                 </a>
 
                 <!-- Product 5: Khắc Laser -->
-                <a href="chi-tiet-fiber-3d.html" style="text-decoration: none; color: inherit;">
-                    <div class="fluent-card hover-scale" data-category="mark">
-                        <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <img src="images/san-pham/may-khac-laser/fiber-3d/main.jpg" alt="Máy Khắc Laser Fiber 3D" style="width: 100%; height: 100%; object-fit: cover;">
+                <a href="chi-tiet-fiber-3d.html" class="product-link">
+                    <div class="nmt-card" data-category="mark">
+                        <div class="nmt-product-img">
+                            <img src="images/san-pham/may-khac-laser/fiber-3d/main.jpg" alt="Máy Khắc Laser Fiber 3D" loading="lazy">
                         </div>
-                        <h3 style="margin-bottom: 16px;">Máy Khắc Laser Fiber 3D</h3>
+                        <h3 class="nmt-product-name">Máy Khắc Laser Fiber 3D</h3>
                         
-                        <table class="fluent-table" style="margin-bottom: 16px;">
+                        <table class="nmt-spec-table">
                             <tbody>
-                                <tr>
-                                    <td>Công suất</td>
-                                    <td>20W / 30W / 50W</td>
-                                </tr>
-                                <tr>
-                                    <td>Vùng làm việc</td>
-                                    <td>110x110mm - 300x300mm</td>
-                                </tr>
-                                <tr>
-                                    <td>Khắc cong (3D)</td>
-                                    <td>Tích hợp trục Z tự động</td>
-                                </tr>
-                                <tr>
-                                    <td>Vật liệu</td>
-                                    <td>Kim loại, Nhựa cứng</td>
-                                </tr>
+                                <tr><td>Công suất</td><td>20W / 30W / 50W</td></tr>
+                                <tr><td>Vùng làm việc</td><td>110x110mm - 300x300mm</td></tr>
+                                <tr><td>Khắc cong (3D)</td><td>Tích hợp trục Z tự động</td></tr>
+                                <tr><td>Vật liệu</td><td>Kim loại, Nhựa cứng</td></tr>
                             </tbody>
                         </table>
                         
-                        <span class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Xem Chi Tiết</span>
+                        <span class="nmt-btn-primary" style="width: 100%; display: flex;">
+                            <i class="fa-solid fa-arrow-right"></i> Xem Chi Tiết
+                        </span>
                     </div>
                 </a>
 
                 <!-- Product 6: Dự án tích hợp -->
-                <a href="chi-tiet-tram-han-robot-tu-dong.html" style="text-decoration: none; color: inherit;">
-                    <div class="fluent-card hover-scale" data-category="project">
-                        <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <img src="images/san-pham/du-an-tich-hop/tram-han-robot-tu-dong/main.jpg" alt="Trạm Hàn Robot" style="width: 100%; height: 100%; object-fit: cover;">
+                <a href="chi-tiet-tram-han-robot-tu-dong.html" class="product-link">
+                    <div class="nmt-card" data-category="project">
+                        <div class="nmt-product-img">
+                            <img src="images/san-pham/du-an-tich-hop/tram-han-robot-tu-dong/main.jpg" alt="Trạm Hàn Robot" loading="lazy">
                         </div>
-                        <h3 style="margin-bottom: 16px;">Trạm Hàn Laser Robot Tự Động</h3>
+                        <h3 class="nmt-product-name">Trạm Hàn Laser Robot Tự Động</h3>
                         
-                        <table class="fluent-table" style="margin-bottom: 24px;">
+                        <table class="nmt-spec-table">
                             <tbody>
-                                <tr>
-                                    <td>Robot</td>
-                                    <td>Yaskawa / ABB 6 trục</td>
-                                </tr>
-                                <tr>
-                                    <td>Nguồn Laser</td>
-                                    <td>Fiber 2000W - 6000W</td>
-                                </tr>
-                                <tr>
-                                    <td>Hệ thống cấp phôi</td>
-                                    <td>Bàn xoay 2 vị trí</td>
-                                </tr>
-                                <tr>
-                                    <td>Phần mềm</td>
-                                    <td>Lập trình Offline 3D</td>
-                                </tr>
+                                <tr><td>Robot</td><td>Yaskawa / ABB 6 trục</td></tr>
+                                <tr><td>Nguồn Laser</td><td>Fiber 2000W - 6000W</td></tr>
+                                <tr><td>Hệ thống cấp phôi</td><td>Bàn xoay 2 vị trí</td></tr>
+                                <tr><td>Phần mềm</td><td>Lập trình Offline 3D</td></tr>
                             </tbody>
                         </table>
                         
-                        <span class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Xem Chi Tiết</span>
+                        <span class="nmt-btn-primary" style="width: 100%; display: flex;">
+                            <i class="fa-solid fa-arrow-right"></i> Xem Chi Tiết
+                        </span>
                     </div>
                 </a>
 
                 <!-- Product 7: Dự án tích hợp -->
-                <a href="chi-tiet-truyen-tu-dong-in-bao-bi.html" style="text-decoration: none; color: inherit;">
-                    <div class="fluent-card hover-scale" data-category="project">
-                        <div style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <img src="images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/main.jpg" alt="Hệ Thống Khắc Laser" style="width: 100%; height: 100%; object-fit: cover;">
+                <a href="chi-tiet-truyen-tu-dong-in-bao-bi.html" class="product-link">
+                    <div class="nmt-card" data-category="project">
+                        <div class="nmt-product-img">
+                            <img src="images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/main.jpg" alt="Hệ Thống Khắc Laser" loading="lazy">
                         </div>
-                        <h3 style="margin-bottom: 16px;">Hệ Thống Khắc Laser Trên Băng Chuyền</h3>
+                        <h3 class="nmt-product-name">Hệ Thống Khắc Laser Trên Băng Chuyền</h3>
                         
-                        <table class="fluent-table" style="margin-bottom: 24px;">
+                        <table class="nmt-spec-table">
                             <tbody>
-                                <tr>
-                                    <td>Công suất</td>
-                                    <td>30W / 50W / 100W</td>
-                                </tr>
-                                <tr>
-                                    <td>Tốc độ băng chuyền</td>
-                                    <td>Lên đến 120m/phút</td>
-                                </tr>
-                                <tr>
-                                    <td>Khắc on-the-fly</td>
-                                    <td>Có (khắc khi di chuyển)</td>
-                                </tr>
-                                <tr>
-                                    <td>Tích hợp</td>
-                                    <td>Dễ dàng vào dây chuyền</td>
-                                </tr>
+                                <tr><td>Công suất</td><td>30W / 50W / 100W</td></tr>
+                                <tr><td>Tốc độ băng chuyền</td><td>Lên đến 120m/phút</td></tr>
+                                <tr><td>Khắc on-the-fly</td><td>Có (khắc khi di chuyển)</td></tr>
+                                <tr><td>Tích hợp</td><td>Dễ dàng vào dây chuyền</td></tr>
                             </tbody>
                         </table>
                         
-                        <span class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Xem Chi Tiết</span>
+                        <span class="nmt-btn-primary" style="width: 100%; display: flex;">
+                            <i class="fa-solid fa-arrow-right"></i> Xem Chi Tiết
+                        </span>
                     </div>
                 </a>
 
@@ -400,11 +625,34 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 LaserMQ. All rights reserved. Thiết kế với Windows 11 Fluent Design.
+                &copy; 2026 MINH QUANG. All rights reserved.
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.nmt-segment-btn');
+            const cards = document.querySelectorAll('#products-grid .nmt-card');
+
+            filterBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+                    cards.forEach(function(card) {
+                        const cat = card.getAttribute('data-category');
+                        if (filter === 'all' || cat === filter) {
+                            card.closest('.product-link').style.display = '';
+                        } else {
+                            card.closest('.product-link').style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
