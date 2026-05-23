@@ -3,10 +3,675 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Máy Khắc Laser Fiber 3D - LaserMQ</title>
+    <title>Máy Khắc Laser Fiber 3D - LaserMQ | PRESTIGE</title>
     <meta name="description" content="Máy khắc laser fiber 3D công suất 20W-50W, khắc cong tự động với trục Z, phù hợp khắc kim loại và nhựa cứng.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/fluent-ui.css">
+    
+    <!-- Prestige Design System - Dark Mode -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== PRESTIGE DESIGN SYSTEM ===== */
+        :root {
+            --bg-deep: #0f1418;
+            --bg-card: #1b2025;
+            --bg-card-alt: #242840;
+            --bg-card-hover: #262a2f;
+            --bg-elevated: #171c20;
+            --bg-surface: #2a2e45;
+            --gold: #f2c36b;
+            --gold-dark: #d4a853;
+            --gold-glow: rgba(212, 168, 83, 0.15);
+            --gold-border: rgba(212, 168, 83, 0.2);
+            --teal: #6fd8c8;
+            --teal-glow: rgba(111, 216, 200, 0.5);
+            --text-primary: #dfe3e9;
+            --text-secondary: #d2c5b2;
+            --headline-font: 'Playfair Display', serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        /* Dark Mode Overrides for existing page */
+        body {
+            background-color: var(--bg-deep) !important;
+            color: var(--text-primary) !important;
+            font-family: var(--body-font);
+        }
+
+        /* Header Dark Mode */
+        header.mica-bg {
+            background-color: rgba(27, 32, 37, 0.85) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gold-border);
+        }
+        header .brand-text {
+            color: var(--gold) !important;
+        }
+        header .nav-links a {
+            color: var(--text-secondary) !important;
+        }
+        header .nav-links a:hover {
+            color: var(--gold) !important;
+        }
+
+        /* MQ Logo Gold */
+        .mq-squircle-logo {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%) !important;
+            color: #412d00 !important;
+            box-shadow: 0 4px 15px var(--gold-glow) !important;
+        }
+
+        /* Dropdown / Mega Menu Dark */
+        .mega-menu, .submenu {
+            background-color: var(--bg-card) !important;
+            border: 1px solid var(--gold-border) !important;
+        }
+        .mega-menu-category span {
+            color: var(--text-secondary) !important;
+        }
+        .mega-menu-category:hover span {
+            color: var(--gold) !important;
+        }
+        .submenu-item {
+            color: var(--text-secondary) !important;
+        }
+        .submenu-item:hover {
+            background-color: rgba(212, 168, 83, 0.08) !important;
+            color: var(--gold) !important;
+        }
+
+        /* Breadcrumb Dark */
+        section[style*="background-color: #ffffff"] {
+            background-color: var(--bg-elevated) !important;
+        }
+        section[style*="background-color: #ffffff"] a,
+        section[style*="background-color: #ffffff"] span {
+            color: var(--text-secondary) !important;
+        }
+        section[style*="background-color: #ffffff"] span:last-child {
+            color: var(--gold) !important;
+        }
+
+        /* ===== PRESTIGE COMPONENTS ===== */
+        .glass-card {
+            background: rgba(27, 32, 37, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--gold-border);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 168, 83, 0.5);
+            box-shadow: 0 10px 30px var(--gold-glow);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f2c36b 0%, #d4a853 100%);
+            color: #412d00 !important;
+        }
+        .gold-gradient:hover {
+            box-shadow: 0 8px 25px var(--gold-glow);
+            transform: translateY(-1px);
+        }
+        .gold-glow {
+            filter: drop-shadow(0 0 15px rgba(212, 168, 83, 0.2));
+        }
+        .inner-gold-border {
+            position: relative;
+        }
+        .inner-gold-border::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.4), transparent) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .prestige-hero {
+            padding: 60px 0;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .prestige-hero-grid {
+            display: grid;
+            grid-template-columns: 6fr 4fr;
+            gap: 64px;
+            align-items: start;
+        }
+        .prestige-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .prestige-main-image {
+            position: relative;
+            background: rgba(27, 32, 37, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--gold-border);
+            border-radius: 16px;
+            overflow: hidden;
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+        .prestige-main-image:hover {
+            border-color: rgba(212, 168, 83, 0.5);
+        }
+        .prestige-main-image img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 12px;
+            filter: drop-shadow(0 0 15px rgba(212, 168, 83, 0.2));
+            transition: transform 0.7s ease;
+        }
+        .prestige-main-image:hover img {
+            transform: scale(1.05);
+        }
+        .prestige-thumbnails {
+            display: flex;
+            gap: 16px;
+            justify-content: flex-start;
+        }
+        .prestige-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            overflow: hidden;
+            padding: 4px;
+            background: var(--bg-card-hover);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .prestige-thumb:hover {
+            border-color: rgba(212, 168, 83, 0.5);
+            transform: scale(1.1);
+        }
+        .prestige-thumb.active {
+            border-color: var(--gold-dark);
+        }
+        .prestige-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* ===== PRODUCT INFO ===== */
+        .prestige-info {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .prestige-badge {
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 9999px;
+            background: rgba(212, 168, 83, 0.1);
+            color: var(--gold);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            font-family: var(--body-font);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+        .prestige-title {
+            font-family: var(--headline-font);
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        .prestige-title-underline {
+            height: 4px;
+            width: 96px;
+            background: linear-gradient(135deg, #f2c36b 0%, #d4a853 100%);
+            border-radius: 9999px;
+        }
+        .prestige-desc {
+            font-family: var(--body-font);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        .prestige-mini-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .prestige-mini-spec {
+            background: rgba(27, 32, 37, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--gold-border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        .prestige-mini-spec:hover {
+            border-color: rgba(212, 168, 83, 0.5);
+        }
+        .prestige-mini-spec .material-symbols-outlined {
+            color: var(--gold);
+            font-variation-settings: 'FILL' 1;
+        }
+        .prestige-mini-spec-label {
+            font-family: var(--body-font);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+        .prestige-mini-spec-value {
+            font-family: var(--body-font);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .prestige-ctas {
+            display: flex;
+            gap: 16px;
+            padding-top: 16px;
+        }
+        .prestige-btn-primary {
+            flex: 1;
+            background: linear-gradient(135deg, #f2c36b 0%, #d4a853 100%);
+            color: #412d00 !important;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 168, 83, 0.2);
+        }
+        .prestige-btn-primary:hover {
+            box-shadow: 0 12px 35px rgba(212, 168, 83, 0.3);
+            transform: translateY(-2px);
+        }
+        .prestige-btn-secondary {
+            flex: 1;
+            border: 1px solid rgba(212, 168, 83, 0.5);
+            color: var(--gold) !important;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 12px;
+            background: transparent;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        .prestige-btn-secondary:hover {
+            background: rgba(212, 168, 83, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* ===== ADVANTAGES SECTION ===== */
+        .prestige-advantages {
+            padding: 96px 0;
+            background: var(--bg-elevated);
+            overflow: hidden;
+        }
+        .prestige-adv-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .prestige-adv-title h2 {
+            font-family: var(--headline-font);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--gold);
+            margin: 0 0 16px 0;
+        }
+        .prestige-adv-title .divider {
+            height: 4px;
+            width: 128px;
+            background: linear-gradient(135deg, #f2c36b 0%, #d4a853 100%);
+            border-radius: 9999px;
+            margin: 0 auto;
+        }
+        .prestige-adv-blocks {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 96px;
+        }
+        .prestige-adv-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .prestige-adv-block.reverse .prestige-adv-image {
+            order: 2;
+        }
+        .prestige-adv-block.reverse .prestige-adv-text {
+            order: 1;
+        }
+        .prestige-adv-image-wrap {
+            position: relative;
+        }
+        .prestige-adv-image-wrap .glow-bg {
+            position: absolute;
+            inset: -16px;
+            background: rgba(212, 168, 83, 0.05);
+            border-radius: 16px;
+            filter: blur(40px);
+            transition: all 0.3s ease;
+        }
+        .prestige-adv-image-wrap:hover .glow-bg {
+            background: rgba(212, 168, 83, 0.1);
+        }
+        .prestige-adv-image-wrap img {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+        .prestige-adv-text {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .prestige-adv-text .icon {
+            font-size: 48px;
+            color: var(--gold);
+        }
+        .prestige-adv-text h3 {
+            font-family: var(--headline-font);
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        .prestige-adv-text p {
+            font-family: var(--body-font);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .prestige-adv-text .status-dot {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .prestige-adv-text .status-dot .dot {
+            width: 12px;
+            height: 12px;
+            background: var(--teal);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 10px var(--teal-glow);
+        }
+        .prestige-adv-text .status-dot span {
+            font-family: var(--body-font);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--teal);
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ===== SPECS TABLE ===== */
+        .prestige-specs {
+            max-width: 1440px;
+            margin: 80px auto;
+            padding: 0 80px;
+        }
+        .prestige-specs h2 {
+            font-family: var(--headline-font);
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 16px 0;
+        }
+        .prestige-specs .divider {
+            height: 4px;
+            width: 80px;
+            background: linear-gradient(135deg, #f2c36b 0%, #d4a853 100%);
+            border-radius: 9999px;
+        }
+        .prestige-table-wrap {
+            border: 1px solid rgba(212, 168, 83, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            margin-top: 48px;
+        }
+        .prestige-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .prestige-table thead tr {
+            background: var(--bg-card-hover);
+            border-bottom: 1px solid rgba(212, 168, 83, 0.3);
+        }
+        .prestige-table th {
+            padding: 24px 32px;
+            font-family: var(--headline-font);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        .prestige-table tbody tr {
+            border-bottom: 1px solid rgba(212, 168, 83, 0.05);
+            transition: background 0.3s ease;
+        }
+        .prestige-table tbody tr:hover {
+            background: var(--bg-card);
+        }
+        .prestige-table tbody tr:nth-child(odd) {
+            background: #1a1e2e;
+        }
+        .prestige-table tbody tr:nth-child(even) {
+            background: #242840;
+        }
+        .prestige-table td {
+            padding: 20px 32px;
+            font-family: var(--body-font);
+            font-size: 16px;
+        }
+        .prestige-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .prestige-table td:last-child {
+            color: var(--text-primary);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .prestige-cta-section {
+            max-width: 1440px;
+            margin: 80px auto 80px;
+            padding: 0 80px;
+        }
+        .prestige-cta-card {
+            background: rgba(27, 32, 37, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--gold-border);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .prestige-cta-card .glow-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 256px;
+            height: 256px;
+            background: rgba(212, 168, 83, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+            transform: translate(50%, -50%);
+        }
+        .prestige-cta-card .glow-2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 256px;
+            height: 256px;
+            background: rgba(111, 216, 200, 0.05);
+            border-radius: 50%;
+            filter: blur(80px);
+            transform: translate(-50%, 50%);
+        }
+        .prestige-cta-card h2 {
+            font-family: var(--headline-font);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 16px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .prestige-cta-card p {
+            font-family: var(--body-font);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .prestige-cta-btns {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        .prestige-cta-primary {
+            background: linear-gradient(135deg, #f2c36b 0%, #d4a853 100%);
+            color: #412d00 !important;
+            font-weight: 700;
+            padding: 20px 48px;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 168, 83, 0.2);
+        }
+        .prestige-cta-primary:hover {
+            box-shadow: 0 12px 35px rgba(212, 168, 83, 0.3);
+            transform: translateY(-2px);
+        }
+        .prestige-cta-secondary {
+            background: var(--bg-card);
+            color: var(--gold) !important;
+            font-weight: 700;
+            padding: 20px 48px;
+            border-radius: 9999px;
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        .prestige-cta-secondary:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER OVERRIDES ===== */
+        footer {
+            background: var(--bg-elevated) !important;
+            border-top: 1px solid var(--gold-border) !important;
+        }
+        footer, footer * {
+            color: var(--text-secondary) !important;
+        }
+        footer h4 {
+            color: var(--gold) !important;
+        }
+        footer a:hover {
+            color: var(--gold) !important;
+        }
+        footer .brand-text {
+            color: var(--gold) !important;
+        }
+        .footer-bottom {
+            border-top-color: rgba(212, 168, 83, 0.15) !important;
+            color: rgba(223, 227, 233, 0.5) !important;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .prestige-hero { padding-left: 40px; padding-right: 40px; }
+            .prestige-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .prestige-title { font-size: 48px; }
+            .prestige-adv-blocks { padding: 0 40px; }
+            .prestige-adv-block { grid-template-columns: 1fr; gap: 40px; }
+            .prestige-adv-block.reverse .prestige-adv-image { order: 1; }
+            .prestige-adv-block.reverse .prestige-adv-text { order: 2; }
+            .prestige-specs { padding: 0 40px; }
+            .prestige-cta-section { padding: 0 40px; }
+        }
+        @media (max-width: 768px) {
+            .prestige-hero { padding-left: 20px; padding-right: 20px; }
+            .prestige-hero-grid { gap: 32px; }
+            .prestige-title { font-size: 36px; }
+            .prestige-mini-specs { grid-template-columns: 1fr; }
+            .prestige-ctas { flex-direction: column; }
+            .prestige-adv-blocks { gap: 48px; }
+            .prestige-adv-title h2 { font-size: 36px; }
+            .prestige-cta-card h2 { font-size: 32px; }
+            .prestige-cta-btns { flex-direction: column; align-items: center; }
+            .prestige-adv-blocks { padding: 0 20px; }
+            .prestige-specs { padding: 0 20px; }
+            .prestige-cta-section { padding: 0 20px; }
+            .prestige-table th, .prestige-table td { padding: 16px; }
+        }
+    </style>
 </head>
 <body class="product-detail-page">
 
@@ -88,8 +753,7 @@
                     
                     <a href="catalog.html">Tài Liệu</a>
                     <a href="contact.html">Liên Hệ</a>
-                    <a href="products.html" class="btn btn-primary" style="color: white; font-weight: 500;">Nhận Báo
-                        Giá</a>
+
                 </div>
             </nav>
         </div>
@@ -108,124 +772,126 @@
         </div>
     </section>
 
-    <!-- Hero Section - 60/40 Split -->
-    <section class="product-hero">
-        <div class="container">
-            <div class="product-hero-grid">
+    <!-- ===== PRESTIGE HERO SECTION ===== -->
+    <section class="prestige-hero animate-on-scroll">
+        <div class="prestige-hero-grid">
+            <!-- Left: Image Gallery (60%) -->
+            <div class="prestige-gallery">
+                <div class="prestige-main-image" id="main-showcase">
+                    <img src="images/san-pham/may-khac-laser/fiber-3d/1.png" alt="Máy Khắc Laser Fiber 3D" id="main-image">
+                </div>
+                <div class="prestige-thumbnails">
+                    <div class="prestige-thumb active" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/1.png', this)">
+                        <img src="images/san-pham/may-khac-laser/fiber-3d/1.png" alt="View 1">
+                    </div>
+                    <div class="prestige-thumb" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/2.jpg', this)">
+                        <img src="images/san-pham/may-khac-laser/fiber-3d/2.jpg" alt="View 2">
+                    </div>
+                    <div class="prestige-thumb" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/3.jpg', this)">
+                        <img src="images/san-pham/may-khac-laser/fiber-3d/3.jpg" alt="View 3">
+                    </div>
+                    <div class="prestige-thumb" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/4.jpg', this)">
+                        <img src="images/san-pham/may-khac-laser/fiber-3d/4.jpg" alt="View 4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Product Info (40%) -->
+            <div class="prestige-info">
+                <span class="prestige-badge">MÁY KHẮC LASER 3D</span>
+                <h1 class="prestige-title">Máy Khắc Laser Fiber 3D</h1>
+                <div class="prestige-title-underline"></div>
+                <p class="prestige-desc">Giải pháp khắc 3D đỉnh cao cho ngành chế tác kim loại và khuôn mẫu tinh xảo. Công nghệ trục Z tự động mang lại độ chính xác tuyệt đối trên mọi bề mặt phức tạp.</p>
                 
-                <!-- Left Side - Image Gallery (60%) -->
-                <div class="product-gallery-premium">
-                    <div class="main-showcase" id="main-showcase">
-                        <img src="images/san-pham/may-khac-laser/fiber-3d/1.jpg" alt="Máy Khắc Laser Fiber 3D" id="main-image">
+                <div class="prestige-mini-specs">
+                    <div class="prestige-mini-spec">
+                        <span class="material-symbols-outlined">bolt</span>
+                        <span class="prestige-mini-spec-label">CÔNG SUẤT</span>
+                        <span class="prestige-mini-spec-value">20W/30W/50W</span>
                     </div>
-                    <div class="thumbnail-strip">
-                        <div class="thumbnail-item active" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/1.jpg', this)">
-                            <img src="images/san-pham/may-khac-laser/fiber-3d/1.jpg" alt="View 1">
-                        </div>
-                        <div class="thumbnail-item" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/2.jpg', this)">
-                            <img src="images/san-pham/may-khac-laser/fiber-3d/2.jpg" alt="View 2">
-                        </div>
-                        <div class="thumbnail-item" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/3.jpg', this)">
-                            <img src="images/san-pham/may-khac-laser/fiber-3d/3.jpg" alt="View 3">
-                        </div>
-                        <div class="thumbnail-item" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/4.jpg', this)">
-                            <img src="images/san-pham/may-khac-laser/fiber-3d/4.jpg" alt="View 4">
-                        </div>
+                    <div class="prestige-mini-spec">
+                        <span class="material-symbols-outlined">aspect_ratio</span>
+                        <span class="prestige-mini-spec-label">VÙNG LÀM VIỆC</span>
+                        <span class="prestige-mini-spec-value">110x110-300mm</span>
+                    </div>
+                    <div class="prestige-mini-spec">
+                        <span class="material-symbols-outlined">layers</span>
+                        <span class="prestige-mini-spec-label">KHẮC 3D</span>
+                        <span class="prestige-mini-spec-value">Trục Z tự động</span>
+                    </div>
+                    <div class="prestige-mini-spec">
+                        <span class="material-symbols-outlined">vertical_align_bottom</span>
+                        <span class="prestige-mini-spec-label">ĐỘ SÂU</span>
+                        <span class="prestige-mini-spec-value">Lên đến 1mm</span>
                     </div>
                 </div>
 
-                <!-- Right Side - Product Info (40%) -->
-                <div class="product-info-premium">
-                    
-                    <!-- Category Badge -->
-                    <span class="product-category-badge">Máy Khắc Laser 3D</span>
-                    
-                    <!-- Product Title -->
-                    <h1 class="product-title-premium">Máy Khắc Laser Fiber 3D</h1>
-                    
-                    <!-- Value Proposition -->
-                    <p class="product-value-prop">
-                        Máy khắc laser fiber với khả năng khắc cong 3D tự động, tích hợp trục Z thông minh. Giải pháp hoàn hảo cho khắc kim loại và nhựa cứng.
-                    </p>
-
-                    <!-- Mini Tech Specs Grid -->
-                    <div class="mini-specs-grid">
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Công Suất</span>
-                            <span class="mini-spec-value">20W / 30W / 50W</span>
-                        </div>
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Vùng Làm Việc</span>
-                            <span class="mini-spec-value">110x110 - 300x300mm</span>
-                        </div>
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Khắc 3D</span>
-                            <span class="mini-spec-value">Trục Z tự động</span>
-                        </div>
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Độ Sâu Khắc</span>
-                            <span class="mini-spec-value">Lên đến 1mm</span>
-                        </div>
-                    </div>
-
-                    <!-- CTA Buttons -->
-                    <div class="cta-buttons">
-                        <a href="contact.html" class="btn-cta-primary">Nhận Báo Giá</a>
-                        <a href="catalog.html" class="btn-cta-secondary">Tải Catalog PDF</a>
-                    </div>
-
+                <div class="prestige-ctas">
+                    <a href="contact.html" class="prestige-btn-primary">Nhận Báo Giá</a>
+                    <a href="catalog.html" class="prestige-btn-secondary">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">download</span>
+                        Tải Catalog PDF
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Advantages Section -->
-    <section class="advantages-section">
-        <div class="container">
-            
-            <!-- Advantage Block 1 - Image Left, Text Right -->
-            <div class="advantage-block">
-                <div class="advantage-image">
-                    <img src="images/san-pham/may-khac-laser/fiber-3d/2.jpg" alt="Khắc cong 3D tự động">
+    <!-- ===== ADVANTAGES SECTION ===== -->
+    <section class="prestige-advantages animate-on-scroll">
+        <div class="prestige-adv-title">
+            <h2>Ưu Điểm Vượt Trội</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="prestige-adv-blocks">
+            <!-- Feature 1 -->
+            <div class="prestige-adv-block">
+                <div class="prestige-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="images/san-pham/may-khac-laser/fiber-3d/2.jpg" alt="Khắc cong 3D tự động" class="inner-gold-border">
                 </div>
-                <div class="advantage-content">
-                    <div class="advantage-icon">🎯</div>
+                <div class="prestige-adv-text">
+                    <span class="material-symbols-outlined icon">3d_rotation</span>
                     <h3>Khắc Cong 3D Tự Động</h3>
-                    <p>
-                        Tích hợp trục Z thông minh tự động điều chỉnh tiêu cự theo bề mặt cong của sản phẩm. Khắc hoàn hảo trên các bề mặt không phẳng như nhẫn, vòng, cúp, kỷ niệm chương mà không cần điều chỉnh thủ công.
-                    </p>
-                    <p>
-                        Độ sâu khắc lên đến 1mm trên kim loại cho phép tạo ra các họa tiết nổi, logo 3D và các chi tiết phức tạp với độ chính xác tuyệt đối.
-                    </p>
+                    <p>Công nghệ độc quyền cho phép hệ thống tự động nhận diện và điều chỉnh tiêu cự theo độ cong của bề mặt vật liệu. Không cần căn chỉnh thủ công, đảm bảo mọi chi tiết khắc đều sắc nét đồng nhất từ đỉnh đến đáy của vật thể 3D.</p>
+                    <div class="status-dot">
+                        <div class="dot"></div>
+                        <span>Công Nghệ Thông Minh</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Advantage Block 2 - Text Left, Image Right (Reversed) -->
-            <div class="advantage-block reverse">
-                <div class="advantage-image">
-                    <img src="images/san-pham/may-khac-laser/fiber-3d/3.jpg" alt="Nguồn laser fiber bền bỉ">
+            <!-- Feature 2 - Reversed -->
+            <div class="prestige-adv-block reverse">
+                <div class="prestige-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="images/san-pham/may-khac-laser/fiber-3d/3.jpg" alt="Nguồn laser fiber bền bỉ" class="inner-gold-border">
                 </div>
-                <div class="advantage-content">
-                    <div class="advantage-icon">💪</div>
+                <div class="prestige-adv-text">
+                    <span class="material-symbols-outlined icon">timer</span>
                     <h3>Nguồn Laser Fiber Bền Bỉ</h3>
-                    <p>
-                        Nguồn laser fiber chính hãng với tuổi thọ trên 100,000 giờ hoạt động. Công suất từ 20W đến 50W đáp ứng mọi nhu cầu khắc từ mã vạch, QR code đến họa tiết phức tạp.
-                    </p>
-                    <p>
-                        Phần mềm EzCad2 hỗ trợ khắc 3D chuyên nghiệp với khả năng nhập file STL, tạo hiệu ứng nổi và điều chỉnh độ sâu khắc linh hoạt.
-                    </p>
+                    <p>Sử dụng nguồn phát laser Fiber cao cấp từ các thương hiệu hàng đầu thế giới (Raycus/IPG). Tuổi thọ vận hành lên tới 100,000 giờ, tương đương với 10 năm hoạt động liên tục mà không cần bảo trì định kỳ phức tạp.</p>
+                    <div class="status-dot">
+                        <div class="dot"></div>
+                        <span>Hiệu Suất Vĩnh Cửu</span>
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Detailed Specifications Section -->
-    <section class="specs-section">
-        <div class="container">
-            <h2>Thông Số Kỹ Thuật Chi Tiết</h2>
-            
-            <table class="premium-specs-table">
+    <!-- ===== SPECIFICATIONS TABLE ===== -->
+    <section class="prestige-specs animate-on-scroll">
+        <h2>Thông Số Kỹ Thuật Chi Tiết</h2>
+        <div class="divider"></div>
+        <div class="prestige-table-wrap">
+            <table class="prestige-table">
+                <thead>
+                    <tr>
+                        <th>Đặc Tính Kỹ Thuật</th>
+                        <th>Giá Trị Chi Tiết</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
                         <td>Công suất laser</td>
@@ -253,7 +919,7 @@
                     </tr>
                     <tr>
                         <td>Tuổi thọ laser</td>
-                        <td>> 100,000 giờ</td>
+                        <td>&gt; 100,000 giờ</td>
                     </tr>
                     <tr>
                         <td>Độ chính xác</td>
@@ -277,6 +943,20 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="prestige-cta-section animate-on-scroll">
+        <div class="prestige-cta-card">
+            <div class="glow-1"></div>
+            <div class="glow-2"></div>
+            <h2>Sẵn sàng nâng tầm sản xuất của bạn?</h2>
+            <p>Liên hệ ngay với chuyên gia kỹ thuật của chúng tôi để được tư vấn cấu hình phù hợp nhất với nhu cầu của doanh nghiệp.</p>
+            <div class="prestige-cta-btns">
+                <a href="contact.html" class="prestige-cta-primary">Gửi Yêu Cầu Tư Vấn</a>
+                <a href="tel:1900xxxx" class="prestige-cta-secondary">Hotline: 1900 xxxx</a>
+            </div>
         </div>
     </section>
 
@@ -321,11 +1001,24 @@
         // Image Gallery Script
         function changeImage(imageSrc, thumbnailElement) {
             document.getElementById('main-image').src = imageSrc;
-            document.querySelectorAll('.thumbnail-item').forEach(thumb => {
+            document.querySelectorAll('.prestige-thumb').forEach(thumb => {
                 thumb.classList.remove('active');
             });
             thumbnailElement.classList.add('active');
         }
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>

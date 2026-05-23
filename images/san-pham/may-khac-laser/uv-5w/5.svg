@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d3748"/>
+      <stop offset="100%" stop-color="#1a202c"/>
+    </linearGradient>
+    <radialGradient id="uvGlow5" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#9f7aea" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1a202c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="chipBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2d3748"/>
+      <stop offset="100%" stop-color="#1a202c"/>
+    </linearGradient>
+    <filter id="shadow5">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00000033"/>
+    </filter>
+    <filter id="uvGlow5f">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad5)"/>
+  <circle cx="400" cy="300" r="250" fill="url(#uvGlow5)" filter="url(#uvGlow5f)"/>
+
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16" font-weight="bold">ỨNG DỤNG KHẮC LINH KIỆN ĐIỆN TỬ · UV 355nm</text>
+
+  <!-- Large IC Chip -->
+  <rect x="280" y="70" width="240" height="240" rx="8" fill="url(#chipBody)" stroke="#4a5568" stroke-width="2" filter="url(#shadow5)"/>
+  <!-- Central core -->
+  <circle cx="400" cy="190" r="60" fill="#1a202c" stroke="#2d3748" stroke-width="1.5"/>
+
+  <!-- IC Pins (TOP) -->
+  <g fill="#e2e8f0">
+    <rect x="290" y="80" width="4" height="20" rx="1"/>
+    <rect x="306" y="80" width="4" height="20" rx="1"/>
+    <rect x="322" y="80" width="4" height="20" rx="1"/>
+    <rect x="338" y="80" width="4" height="20" rx="1"/>
+    <rect x="354" y="80" width="4" height="20" rx="1"/>
+    <rect x="370" y="80" width="4" height="20" rx="1"/>
+    <rect x="386" y="80" width="4" height="20" rx="1"/>
+    <rect x="402" y="80" width="4" height="20" rx="1"/>
+    <rect x="418" y="80" width="4" height="20" rx="1"/>
+    <rect x="434" y="80" width="4" height="20" rx="1"/>
+    <rect x="450" y="80" width="4" height="20" rx="1"/>
+    <rect x="466" y="80" width="4" height="20" rx="1"/>
+    <rect x="482" y="80" width="4" height="20" rx="1"/>
+    <rect x="498" y="80" width="4" height="20" rx="1"/>
+  </g>
+  <!-- IC Pins (BOTTOM) -->
+  <g fill="#e2e8f0">
+    <rect x="290" y="280" width="4" height="20" rx="1"/>
+    <rect x="306" y="280" width="4" height="20" rx="1"/>
+    <rect x="322" y="280" width="4" height="20" rx="1"/>
+    <rect x="338" y="280" width="4" height="20" rx="1"/>
+    <rect x="354" y="280" width="4" height="20" rx="1"/>
+    <rect x="370" y="280" width="4" height="20" rx="1"/>
+    <rect x="386" y="280" width="4" height="20" rx="1"/>
+    <rect x="402" y="280" width="4" height="20" rx="1"/>
+    <rect x="418" y="280" width="4" height="20" rx="1"/>
+    <rect x="434" y="280" width="4" height="20" rx="1"/>
+    <rect x="450" y="280" width="4" height="20" rx="1"/>
+    <rect x="466" y="280" width="4" height="20" rx="1"/>
+    <rect x="482" y="280" width="4" height="20" rx="1"/>
+    <rect x="498" y="280" width="4" height="20" rx="1"/>
+  </g>
+  <!-- IC Pins (LEFT) -->
+  <g fill="#e2e8f0">
+    <rect x="275" y="100" width="20" height="4" rx="1"/>
+    <rect x="275" y="116" width="20" height="4" rx="1"/>
+    <rect x="275" y="132" width="20" height="4" rx="1"/>
+    <rect x="275" y="148" width="20" height="4" rx="1"/>
+    <rect x="275" y="164" width="20" height="4" rx="1"/>
+    <rect x="275" y="180" width="20" height="4" rx="1"/>
+    <rect x="275" y="196" width="20" height="4" rx="1"/>
+    <rect x="275" y="212" width="20" height="4" rx="1"/>
+    <rect x="275" y="228" width="20" height="4" rx="1"/>
+    <rect x="275" y="244" width="20" height="4" rx="1"/>
+    <rect x="275" y="260" width="20" height="4" rx="1"/>
+  </g>
+  <!-- IC Pins (RIGHT) -->
+  <g fill="#e2e8f0">
+    <rect x="505" y="100" width="20" height="4" rx="1"/>
+    <rect x="505" y="116" width="20" height="4" rx="1"/>
+    <rect x="505" y="132" width="20" height="4" rx="1"/>
+    <rect x="505" y="148" width="20" height="4" rx="1"/>
+    <rect x="505" y="164" width="20" height="4" rx="1"/>
+    <rect x="505" y="180" width="20" height="4" rx="1"/>
+    <rect x="505" y="196" width="20" height="4" rx="1"/>
+    <rect x="505" y="212" width="20" height="4" rx="1"/>
+    <rect x="505" y="228" width="20" height="4" rx="1"/>
+    <rect x="505" y="244" width="20" height="4" rx="1"/>
+    <rect x="505" y="260" width="20" height="4" rx="1"/>
+  </g>
+
+  <!-- UV laser marking on chip -->
+  <rect x="330" y="135" width="140" height="110" rx="2" fill="#1a202c" stroke="#2d3748" stroke-width="0.5"/>
+  <!-- Engraved text on chip (white frosted look) -->
+  <text x="400" y="165" text-anchor="middle" fill="#cbd5e0" font-family="monospace" font-size="14" font-weight="bold">MQLASER</text>
+  <rect x="345" y="175" width="110" height="1" fill="#9f7aea" opacity="0.5"/>
+  <text x="400" y="195" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="9">UV355-SN2024</text>
+  <text x="400" y="212" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="9">MADE IN VIETNAM</text>
+  <!-- QR on chip -->
+  <g opacity="0.5">
+    <rect x="360" y="220" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="370" y="220" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="380" y="220" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="390" y="220" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="355" y="230" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="375" y="230" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="385" y="230" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="400" y="230" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="355" y="240" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="365" y="240" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="385" y="240" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="400" y="240" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="355" y="250" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="370" y="250" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="380" y="250" width="5" height="5" fill="#e2e8f0"/>
+    <rect x="395" y="250" width="5" height="5" fill="#e2e8f0"/>
+  </g>
+
+  <!-- PCB board below chip -->
+  <rect x="200" y="340" width="400" height="100" rx="6" fill="#0d472a" stroke="#38b2ac" stroke-width="1"/>
+  <!-- PCB traces -->
+  <path d="M 220 360 L 320 360 L 320 390 L 380 390" stroke="#2f855a" stroke-width="1.5" fill="none"/>
+  <path d="M 220 380 L 280 380 L 280 410 L 500 410" stroke="#2f855a" stroke-width="1.5" fill="none"/>
+  <path d="M 220 400 L 350 400 L 350 420 L 450 420" stroke="#2f855a" stroke-width="1.5" fill="none"/>
+  <!-- Components on PCB -->
+  <rect x="460" y="355" width="15" height="20" rx="2" fill="#1a202c"/>
+  <rect x="500" y="365" width="10" height="15" rx="2" fill="#1a202c"/>
+  <circle cx="430" cy="385" r="6" fill="#f6e05e"/>
+  <circle cx="520" cy="395" r="6" fill="#f6e05e"/>
+
+  <!-- UV beam hitting the chip -->
+  <polygon points="385,70 395,70 400,140 380,140" fill="#9f7aea" opacity="0.15"/>
+  <circle cx="390" cy="135" r="8" fill="#9f7aea" opacity="0.3" filter="url(#uvGlow5f)"/>
+
+  <!-- Laser head (small, top of chip) -->
+  <rect x="360" y="55" width="60" height="20" rx="4" fill="#4a5568"/>
+  <rect x="370" y="58" width="15" height="14" rx="2" fill="#2d3748"/>
+  <circle cx="390" cy="78" r="5" fill="#1a202c"/>
+  <circle cx="390" cy="78" r="2.5" fill="#9f7aea" filter="url(#uvGlow5f)"/>
+
+  <!-- Bottom info -->
+  <rect x="250" y="460" width="300" height="40" rx="20" fill="#234e52" opacity="0.8"/>
+  <text x="400" y="485" text-anchor="middle" fill="#38b2ac" font-family="Arial,sans-serif" font-size="13" font-weight="bold">✓ KHẮC IC · PCB · LINH KIỆN · ±0.01mm</text>
+
+  <!-- Specs sidebar -->
+  <rect x="630" y="70" width="130" height="340" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="695" y="100" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="10">THÔNG SỐ</text>
+  <rect x="645" y="110" width="100" height="1" fill="#334155"/>
+
+  <text x="650" y="140" fill="#64748b" font-family="Arial,sans-serif" font-size="9">Bước sóng</text>
+  <text x="650" y="155" fill="#9f7aea" font-family="Arial,sans-serif" font-size="12" font-weight="bold">355nm UV</text>
+
+  <text x="650" y="185" fill="#64748b" font-family="Arial,sans-serif" font-size="9">Độ chính xác</text>
+  <text x="650" y="200" fill="#48bb78" font-family="Arial,sans-serif" font-size="12" font-weight="bold">±0.01mm</text>
+
+  <text x="650" y="230" fill="#64748b" font-family="Arial,sans-serif" font-size="9">Công suất</text>
+  <text x="650" y="245" fill="#ed8936" font-family="Arial,sans-serif" font-size="12" font-weight="bold">3W-10W</text>
+
+  <text x="650" y="275" fill="#64748b" font-family="Arial,sans-serif" font-size="9">Tuổi thọ</text>
+  <text x="650" y="290" fill="#38b2ac" font-family="Arial,sans-serif" font-size="12" font-weight="bold">&gt;20,000h</text>
+
+  <rect x="645" y="310" width="100" height="1" fill="#334155"/>
+  <text x="695" y="335" text-anchor="middle" fill="#64748b" font-family="Arial,sans-serif" font-size="9">NGÀNH:</text>
+  <text x="695" y="355" text-anchor="middle" fill="#a0aec0" font-family="Arial,sans-serif" font-size="10">Điện tử</text>
+  <text x="695" y="375" text-anchor="middle" fill="#a0aec0" font-family="Arial,sans-serif" font-size="10">Bán dẫn</text>
+  <text x="695" y="395" text-anchor="middle" fill="#a0aec0" font-family="Arial,sans-serif" font-size="10">Y tế</text>
+</svg>

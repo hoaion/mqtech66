@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="speedBeam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38b2ac" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#38b2ac" stop-opacity="0.8"/>
+      <stop offset="80%" stop-color="#38b2ac" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#38b2ac" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="speedBeam2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ed8936" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#ed8936" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#ed8936" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ed8936" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="laserDot" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#38b2ac" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#38b2ac" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#38b2ac" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glowTeal">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="800" height="600" fill="url(#bgGrad3)"/>
+
+  <!-- Grid floor -->
+  <g opacity="0.08">
+    <line x1="0" y1="200" x2="800" y2="200" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="0" y1="280" x2="800" y2="280" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="0" y1="360" x2="800" y2="360" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="0" y1="440" x2="800" y2="440" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="200" y1="0" x2="200" y2="600" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="400" y1="0" x2="400" y2="600" stroke="#e2e8f0" stroke-width="0.5"/>
+    <line x1="600" y1="0" x2="600" y2="600" stroke="#e2e8f0" stroke-width="0.5"/>
+  </g>
+
+  <!-- Laser head unit -->
+  <rect x="160" y="80" width="120" height="80" rx="10" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+  <rect x="175" y="95" width="30" height="15" rx="3" fill="#1e293b"/>
+  <rect x="235" y="95" width="30" height="15" rx="3" fill="#1e293b"/>
+  <circle cx="220" cy="140" r="12" fill="#1e293b" stroke="#38b2ac" stroke-width="1.5"/>
+  <circle cx="220" cy="140" r="5" fill="#38b2ac" filter="url(#glowTeal)"/>
+
+  <!-- High-speed laser beam #1 -->
+  <polygon points="220,152 220,380 230,380 230,152" fill="url(#speedBeam)" opacity="0.5"/>
+  <line x1="220" y1="152" x2="225" y2="380" stroke="#38b2ac" stroke-width="1" opacity="0.7"/>
+
+  <!-- High-speed laser beam #2 -->
+  <polygon points="300,152 300,420 310,420 310,152" fill="url(#speedBeam2)" opacity="0.4"/>
+  <line x1="300" y1="152" x2="305" y2="420" stroke="#ed8936" stroke-width="1" opacity="0.6"/>
+
+  <!-- Product being engraved - Circuit board -->
+  <rect x="120" y="420" width="280" height="140" rx="6" fill="#0d472a" stroke="#38b2ac" stroke-width="1.5"/>
+  <!-- PCB traces -->
+  <path d="M 140 440 L 200 440 L 200 460 L 280 460" stroke="#2f855a" stroke-width="1.5" fill="none"/>
+  <path d="M 140 470 L 180 470 L 180 490 L 280 490" stroke="#2f855a" stroke-width="1.5" fill="none"/>
+  <path d="M 140 500 L 200 500 L 200 520 L 280 520" stroke="#2f855a" stroke-width="1.5" fill="none"/>
+  <!-- Components -->
+  <rect x="250" y="435" width="20" height="15" rx="2" fill="#1a202c"/>
+  <rect x="310" y="450" width="15" height="25" rx="2" fill="#1a202c"/>
+  <circle cx="165" cy="440" r="5" fill="#f6e05e"/>
+  <circle cx="165" cy="470" r="5" fill="#f6e05e"/>
+  <circle cx="165" cy="500" r="5" fill="#f6e05e"/>
+
+  <!-- QR Code engraving on PCB (laser engraving in progress area) -->
+  <rect x="310" y="480" width="40" height="40" fill="none" stroke="#38b2ac" stroke-width="0.5" opacity="0.7"/>
+  <g opacity="0.6">
+    <rect x="312" y="482" width="6" height="6" fill="#38b2ac"/>
+    <rect x="320" y="482" width="6" height="6" fill="#38b2ac"/>
+    <rect x="328" y="482" width="6" height="6" fill="#38b2ac"/>
+    <rect x="342" y="482" width="6" height="6" fill="#38b2ac"/>
+    <rect x="312" y="490" width="6" height="6" fill="#38b2ac"/>
+    <rect x="328" y="490" width="6" height="6" fill="#38b2ac"/>
+    <rect x="342" y="490" width="6" height="6" fill="#38b2ac"/>
+    <rect x="312" y="498" width="6" height="6" fill="#38b2ac"/>
+    <rect x="320" y="498" width="6" height="6" fill="#38b2ac"/>
+    <rect x="328" y="498" width="6" height="6" fill="#38b2ac"/>
+    <rect x="312" y="506" width="6" height="6" fill="#38b2ac"/>
+    <rect x="342" y="506" width="6" height="6" fill="#38b2ac"/>
+    <rect x="312" y="514" width="6" height="6" fill="#38b2ac"/>
+    <rect x="320" y="514" width="6" height="6" fill="#38b2ac"/>
+    <rect x="328" y="514" width="6" height="6" fill="#38b2ac"/>
+    <rect x="342" y="514" width="6" height="6" fill="#38b2ac"/>
+  </g>
+
+  <!-- Speed indicator panel -->
+  <rect x="460" y="80" width="220" height="180" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="570" y="115" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">TỐC ĐỘ KHẮC</text>
+  <text x="570" y="155" text-anchor="middle" fill="#38b2ac" font-family="Arial,sans-serif" font-size="48" font-weight="bold" filter="url(#glowTeal)">10,000</text>
+  <text x="570" y="180" text-anchor="middle" fill="#38b2ac" font-family="Arial,sans-serif" font-size="18" font-weight="bold">mm/s</text>
+  <rect x="490" y="200" width="160" height="3" rx="2" fill="#38b2ac" opacity="0.5"/>
+  <text x="570" y="225" text-anchor="middle" fill="#ed8936" font-family="Arial,sans-serif" font-size="15" font-weight="bold">×3 NHANH HƠN</text>
+  <text x="570" y="245" text-anchor="middle" fill="#64748b" font-family="Arial,sans-serif" font-size="10">So với máy thông thường</text>
+
+  <!-- Perf comparison -->
+  <rect x="460" y="290" width="220" height="120" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <!-- Bar charts -->
+  <text x="490" y="320" fill="#94a3b8" font-family="Arial,sans-serif" font-size="9">Máy Thường</text>
+  <rect x="490" y="325" width="60" height="10" rx="3" fill="#64748b" opacity="0.5"/>
+  <text x="555" y="335" fill="#64748b" font-family="Arial,sans-serif" font-size="8">3,333 mm/s</text>
+
+  <text x="490" y="355" fill="#94a3b8" font-family="Arial,sans-serif" font-size="9">UV 5W</text>
+  <rect x="490" y="360" width="155" height="10" rx="3" fill="#38b2ac" opacity="0.8"/>
+  <text x="650" y="370" fill="#38b2ac" font-family="Arial,sans-serif" font-size="9" font-weight="bold">10,000 mm/s</text>
+
+  <text x="570" y="400" text-anchor="middle" fill="#48bb78" font-family="Arial,sans-serif" font-size="12">✓ Tuổi thọ &gt; 20,000 giờ</text>
+
+  <!-- Motion lines -->
+  <g opacity="0.3">
+    <line x1="120" y1="300" x2="200" y2="300" stroke="#38b2ac" stroke-width="1.5"/>
+    <line x1="130" y1="320" x2="230" y2="320" stroke="#38b2ac" stroke-width="1.5"/>
+    <line x1="125" y1="340" x2="215" y2="340" stroke="#38b2ac" stroke-width="1.5"/>
+  </g>
+
+  <!-- Bottom label -->
+  <rect x="250" y="530" width="300" height="40" rx="20" fill="#234e52" opacity="0.9"/>
+  <text x="400" y="555" text-anchor="middle" fill="#38b2ac" font-family="Arial,sans-serif" font-size="13" font-weight="bold">⚡ TỐC ĐỘ SIÊU NHANH · 10,000mm/s</text>
+</svg>

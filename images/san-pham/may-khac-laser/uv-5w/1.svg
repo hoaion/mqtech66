@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0f2f5"/>
+      <stop offset="100%" stop-color="#e2e6eb"/>
+    </linearGradient>
+    <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a5568"/>
+      <stop offset="100%" stop-color="#2d3748"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a0aec0"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#718096"/>
+    </linearGradient>
+    <linearGradient id="uvBeam" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#9f7aea" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#805ad5" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#6b46c1" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#bee3f8" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#e6f6ff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#90cdf4" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="shadow1">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00000022"/>
+    </filter>
+    <filter id="glowUV">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <rect x="50" y="50" width="700" height="500" rx="16" fill="white" filter="url(#shadow1)"/>
+
+  <!-- Table surface -->
+  <rect x="50" y="420" width="700" height="130" rx="0" fill="#edf2f7"/>
+  <line x1="50" y1="420" x2="750" y2="420" stroke="#cbd5e0" stroke-width="1"/>
+
+  <!-- Machine Body -->
+  <rect x="180" y="120" width="440" height="340" rx="12" fill="url(#bodyGrad)" filter="url(#shadow1)"/>
+  <rect x="180" y="120" width="440" height="340" rx="12" fill="none" stroke="#2d3748" stroke-width="2"/>
+
+  <!-- Top panel -->
+  <rect x="200" y="130" width="400" height="50" rx="6" fill="#4a5568"/>
+  <text x="400" y="160" text-anchor="middle" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="18" font-weight="bold">LASER UV MARKING SYSTEM</text>
+
+  <!-- Control panel side -->
+  <rect x="565" y="200" width="38" height="240" rx="4" fill="#1a202c"/>
+  <!-- Buttons -->
+  <circle cx="584" cy="220" r="6" fill="#48bb78"/>
+  <circle cx="584" cy="245" r="6" fill="#ecc94b"/>
+  <circle cx="584" cy="270" r="6" fill="#fc8181"/>
+  <rect x="576" y="295" width="16" height="8" rx="2" fill="#38b2ac"/>
+  <rect x="576" y="315" width="16" height="8" rx="2" fill="#38b2ac"/>
+  <!-- Screen -->
+  <rect x="573" y="350" width="22" height="30" rx="3" fill="#1a365d"/>
+  <rect x="575" y="355" width="18" height="12" rx="2" fill="#2b6cb0"/>
+  <line x1="578" y1="372" x2="590" y2="372" stroke="#48bb78" stroke-width="1.5"/>
+  <line x1="578" y1="376" x2="586" y2="376" stroke="#48bb78" stroke-width="1"/>
+
+  <!-- Glass door -->
+  <rect x="320" y="195" width="230" height="235" rx="4" fill="url(#glassGrad)" stroke="#718096" stroke-width="3"/>
+  <!-- Door handle -->
+  <rect x="537" y="280" width="5" height="40" rx="2" fill="url(#metalGrad)"/>
+
+  <!-- Laser head visible through glass -->
+  <rect x="400" y="250" width="50" height="60" rx="6" fill="#718096"/>
+  <rect x="410" y="280" width="12" height="30" rx="2" fill="#e2e8f0"/>
+  <circle cx="416" cy="316" r="8" fill="#2d3748"/>
+  <circle cx="416" cy="316" r="4" fill="#9f7aea" filter="url(#glowUV)"/>
+
+  <!-- UV Laser beam -->
+  <polygon points="416,320 416,355 430,355 430,320" fill="url(#uvBeam)" opacity="0.7"/>
+  <line x1="416" y1="320" x2="423" y2="355" stroke="#9f7aea" stroke-width="1" filter="url(#glowUV)"/>
+
+  <!-- Work stage -->
+  <rect x="370" y="355" width="110" height="8" rx="2" fill="#e2e8f0"/>
+
+  <!-- Sample product on stage -->
+  <rect x="410" y="348" width="30" height="7" rx="2" fill="#4a5568"/>
+
+  <!-- Engraved marks on product -->
+  <text x="425" y="353" text-anchor="middle" fill="white" font-size="3" font-family="monospace" opacity="0.8">UV</text>
+
+  <!-- Base feet -->
+  <rect x="220" y="460" width="60" height="12" rx="4" fill="#718096"/>
+  <rect x="520" y="460" width="60" height="12" rx="4" fill="#718096"/>
+
+  <!-- Brand plate -->
+  <rect x="350" y="462" width="100" height="16" rx="3" fill="#e2e8f0"/>
+  <text x="400" y="474" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="9" font-weight="bold">MINH QUANG TECH</text>
+
+  <!-- Laser source module (side) -->
+  <rect x="200" y="200" width="55" height="150" rx="6" fill="#2d3748"/>
+  <rect x="210" y="215" width="35" height="20" rx="3" fill="#4a5568"/>
+  <rect x="210" y="250" width="35" height="20" rx="3" fill="#4a5568"/>
+  <rect x="210" y="285" width="35" height="20" rx="3" fill="#4a5568"/>
+  <!-- UV label -->
+  <text x="227" y="325" text-anchor="middle" fill="#9f7aea" font-family="Arial,sans-serif" font-size="10" font-weight="bold">UV</text>
+  <text x="227" y="338" text-anchor="middle" fill="#9f7aea" font-family="Arial,sans-serif" font-size="8">355nm</text>
+
+  <!-- Emergency stop -->
+  <circle cx="195" cy="145" r="14" fill="#e53e3e" stroke="#c53030" stroke-width="2"/>
+  <text x="195" y="149" text-anchor="middle" fill="white" font-size="7" font-family="Arial,sans-serif" font-weight="bold">STOP</text>
+
+  <!-- Cooling pipes -->
+  <path d="M 260 340 Q 280 330 300 340" stroke="#5a9bd5" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 500 340 Q 520 330 540 340" stroke="#5a9bd5" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Specs overlay bottom -->
+  <rect x="50" y="480" width="700" height="70" rx="0" fill="white"/>
+  <text x="155" y="510" text-anchor="middle" fill="#4a5568" font-family="Arial,sans-serif" font-size="11">POWER: 3W/5W/10W</text>
+  <text x="400" y="510" text-anchor="middle" fill="#4a5568" font-family="Arial,sans-serif" font-size="11">WAVELENGTH: 355nm UV</text>
+  <text x="645" y="510" text-anchor="middle" fill="#4a5568" font-family="Arial,sans-serif" font-size="11">SPEED: 10,000mm/s</text>
+  <text x="400" y="535" text-anchor="middle" fill="#9f7aea" font-family="Arial,sans-serif" font-size="10" font-weight="bold">COLD MARKING TECHNOLOGY · NO HEAT · NO DEFORMATION</text>
+</svg>
