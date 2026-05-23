@@ -4,10 +4,530 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaserMQ - Công Nghệ Laser Tương Lai</title>
-    <meta name="description" content="Nhà cung cấp máy cắt, khắc, hàn laser chuyên nghiệp hàng đầu.">
+    <title>MINH QUANG - Công Nghệ Laser Công Nghiệp | NAMTURE</title>
+    <meta name="description" content="Nhà cung cấp máy cắt, khắc, hàn laser công nghiệp chuyên nghiệp hàng đầu Việt Nam. Giải pháp laser toàn diện cho mọi nhu cầu sản xuất.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/fluent-ui.css">
+    
+    <!-- Namture-Inspired Design System -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== NAMTURE DESIGN SYSTEM ===== */
+        :root {
+            --earth-bg: #f6f4ef;
+            --earth-bg-warm: #ede9df;
+            --earth-bg-light: #fbfaf7;
+            --earth-card: #ffffff;
+            --earth-card-hover: #f9f7f3;
+            
+            --sage: #88a34f;
+            --sage-dark: #7a9247;
+            --sage-light: rgba(136, 163, 79, 0.12);
+            --sage-glow: rgba(136, 163, 79, 0.2);
+            --sage-border: rgba(136, 163, 79, 0.25);
+            
+            --beige: #e0d3b2;
+            --beige-dark: #d4c4a0;
+            --beige-light: rgba(224, 211, 178, 0.3);
+            --gold: #d8ccae;
+            --gold-dark: #c4b694;
+            
+            --text-primary: #1f1d1a;
+            --text-secondary: #5a5648;
+            --text-tertiary: #8c887a;
+            
+            --headline-font: 'Playfair Display', serif;
+            --body-font: 'Inter', sans-serif;
+            
+            --shadow-card: 0 2px 12px rgba(31, 29, 26, 0.06);
+            --shadow-hover: 0 8px 24px rgba(31, 29, 26, 0.1);
+            --shadow-btn: 0 4px 12px rgba(136, 163, 79, 0.25);
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        body {
+            background-color: var(--earth-bg) !important;
+            color: var(--text-primary) !important;
+            font-family: var(--body-font);
+        }
+
+        header.mica-bg {
+            background-color: rgba(246, 244, 239, 0.88) !important;
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            border-bottom: 1px solid var(--beige) !important;
+        }
+        header .brand-text {
+            color: var(--text-primary) !important;
+        }
+        header .nav-links a {
+            color: var(--text-secondary) !important;
+        }
+        header .nav-links a:hover {
+            color: var(--sage) !important;
+        }
+
+        .mq-squircle-logo {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%) !important;
+            color: white !important;
+            box-shadow: 0 4px 15px var(--sage-glow) !important;
+        }
+
+        .mega-menu, .submenu {
+            background-color: var(--earth-card) !important;
+            border: 1px solid var(--beige) !important;
+        }
+        .mega-menu-category span {
+            color: var(--text-secondary) !important;
+        }
+        .mega-menu-category:hover span {
+            color: var(--sage) !important;
+        }
+        .mega-menu-category:hover {
+            background-color: var(--sage-light) !important;
+        }
+        .submenu-item {
+            color: var(--text-secondary) !important;
+        }
+        .submenu-item:hover {
+            background-color: var(--sage-light) !important;
+            color: var(--sage) !important;
+        }
+
+        /* ===== NAMTURE COMPONENTS ===== */
+        .nmt-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+            border-color: var(--sage-border);
+        }
+        .nmt-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            background: var(--sage-light);
+            color: var(--sage-dark);
+            font-family: var(--body-font);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1px solid var(--sage-border);
+            width: fit-content;
+        }
+        .nmt-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+            color: #fff !important;
+            font-family: var(--body-font);
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-btn);
+        }
+        .nmt-btn-primary:hover {
+            box-shadow: 0 6px 20px var(--sage-glow);
+            transform: translateY(-2px);
+            color: #fff !important;
+        }
+        .nmt-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--sage-dark) !important;
+            font-family: var(--body-font);
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--sage-border);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .nmt-btn-secondary:hover {
+            background: var(--sage-light);
+            transform: translateY(-2px);
+            color: var(--sage-dark) !important;
+        }
+        .nmt-section-title {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .nmt-section-title h2 {
+            font-family: var(--headline-font);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+        .nmt-section-title p {
+            font-family: var(--body-font);
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .nmt-section-title .divider {
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, var(--sage), var(--beige));
+            border-radius: 9999px;
+            margin: 16px auto 0;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .nmt-hero-section {
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        .nmt-hero-section::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: var(--sage-light);
+            border-radius: 50%;
+            filter: blur(120px);
+        }
+        .nmt-hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: var(--beige-light);
+            border-radius: 50%;
+            filter: blur(100px);
+        }
+        .nmt-hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+        .nmt-hero-content h1 {
+            font-family: var(--headline-font);
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin: 0 0 16px 0;
+        }
+        .nmt-hero-content h1 .highlight {
+            color: var(--sage);
+        }
+        .nmt-hero-underline {
+            height: 3px;
+            width: 100px;
+            background: linear-gradient(90deg, var(--sage), var(--beige));
+            border-radius: 9999px;
+            margin-bottom: 24px;
+        }
+        .nmt-hero-content p {
+            font-family: var(--body-font);
+            font-size: 19px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 0 36px;
+        }
+        .nmt-hero-ctas {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .nmt-features {
+            padding: 96px 0;
+            background: var(--earth-bg-warm);
+        }
+        .nmt-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .nmt-feature-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .nmt-feature-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--sage-border);
+        }
+        .nmt-feature-icon {
+            font-size: 40px;
+            color: var(--sage);
+            font-variation-settings: 'FILL' 1;
+        }
+        .nmt-feature-card h3 {
+            font-family: var(--headline-font);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        .nmt-feature-card p {
+            font-family: var(--body-font);
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .nmt-products {
+            padding: 96px 0;
+        }
+        .nmt-products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .nmt-product-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .nmt-product-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--sage-border);
+        }
+        .nmt-product-img {
+            height: 220px;
+            background: var(--earth-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .nmt-product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .nmt-product-card:hover .nmt-product-img img {
+            transform: scale(1.08);
+        }
+        .nmt-product-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .nmt-product-body h3 {
+            font-family: var(--headline-font);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        .nmt-product-body p {
+            font-family: var(--body-font);
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .nmt-product-btn {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: var(--sage-light);
+            color: var(--sage-dark) !important;
+            font-family: var(--body-font);
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--sage-border);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+        .nmt-product-btn:hover {
+            background: var(--sage);
+            color: #fff !important;
+        }
+        .nmt-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .nmt-section-header h2 {
+            font-family: var(--headline-font);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        .nmt-projects {
+            padding: 96px 0;
+            background: var(--earth-bg-warm);
+        }
+        .nmt-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .nmt-project-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-project-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--sage-border);
+        }
+        .nmt-project-img {
+            height: 280px;
+            overflow: hidden;
+        }
+        .nmt-project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .nmt-project-card:hover .nmt-project-img img {
+            transform: scale(1.06);
+        }
+        .nmt-project-body {
+            padding: 28px;
+        }
+        .nmt-project-body h3 {
+            font-family: var(--headline-font);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+        }
+        .nmt-project-body p {
+            font-family: var(--body-font);
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* ===== FOOTER OVERRIDES ===== */
+        footer {
+            background: var(--beige) !important;
+            border-top: none !important;
+        }
+        footer, footer * {
+            color: var(--text-primary) !important;
+        }
+        footer h4 {
+            color: var(--sage-dark) !important;
+        }
+        footer a:hover {
+            color: var(--sage) !important;
+        }
+        footer .brand-text {
+            color: var(--text-primary) !important;
+        }
+        .footer-bottom {
+            border-top-color: rgba(31, 29, 26, 0.1) !important;
+            color: var(--text-tertiary) !important;
+        }
+        footer .footer-bottom {
+            border-top: 1px solid rgba(31, 29, 26, 0.1) !important;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .nmt-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .nmt-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nmt-animate-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s ease;
+        }
+        .nmt-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .nmt-animate-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s ease;
+        }
+        .nmt-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .nmt-hero-content h1 { font-size: 48px; }
+            .nmt-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .nmt-products-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nmt-hero-section { padding: 100px 0 60px; }
+            .nmt-hero-content h1 { font-size: 36px; }
+            .nmt-hero-ctas { flex-direction: column; }
+            .nmt-features-grid { grid-template-columns: 1fr; }
+            .nmt-products-grid { grid-template-columns: 1fr; }
+            .nmt-projects-grid { grid-template-columns: 1fr; }
+            .nmt-section-header { flex-direction: column; gap: 16px; text-align: center; }
+            .nmt-section-title h2 { font-size: 30px; }
+        }
+    </style>
 </head>
 
 <body>
@@ -96,45 +616,49 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="section" style="padding-top: 120px; padding-bottom: 80px;">
+    <!-- Hero Section (Namture) -->
+    <section class="nmt-hero-section nmt-animate">
         <div class="container">
-            <div class="grid grid-cols-2 items-center">
-                <div class="hero-content animate-fade-in">
-                    <span class="fluent-badge" style="margin-bottom: 16px;">Công nghệ mới 2026</span>
-                    <h1 style="font-size: 3rem; margin-bottom: 24px; line-height: 1.1;">Giải pháp Laser Công nghiệp Toàn
-                        diện</h1>
-                    <p style="font-size: 1.2rem; margin-bottom: 32px; max-width: 500px;">Nâng tầm hiệu suất sản xuất với
-                        công nghệ cắt, khắc và hàn laser độ chính xác cao. Độ bền tối đa, vận hành dễ dàng.</p>
-                    <div class="flex gap-4">
-                        <a href="products.html" class="btn btn-primary">Khám Phá Sản Phẩm</a>
-                        <a href="contact.html" class="btn btn-secondary">Liên Hệ Chuyên Gia</a>
-                    </div>
+            <div class="nmt-hero-content">
+                <span class="nmt-badge" style="margin-bottom: 20px;">Công Nghệ Mới 2026</span>
+                <h1>Giải pháp Laser <span class="highlight">Công nghiệp</span> Toàn diện</h1>
+                <div class="nmt-hero-underline"></div>
+                <p>Nâng tầm hiệu suất sản xuất với công nghệ cắt, khắc và hàn laser độ chính xác cao. Độ bền tối đa, vận hành dễ dàng.</p>
+                <div class="nmt-hero-ctas">
+                    <a href="products.html" class="nmt-btn-primary">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">explore</span>
+                        Khám Phá Sản Phẩm
+                    </a>
+                    <a href="contact.html" class="nmt-btn-secondary">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">support</span>
+                        Liên Hệ Chuyên Gia
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Values -->
-    <section class="section" style="background-color: var(--fluent-bg-secondary);">
+    <!-- Core Values (Features) -->
+    <section class="nmt-features">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 48px;">
+            <div class="nmt-section-title nmt-animate">
                 <h2>Tại Sao Chọn Minh Quang ?</h2>
                 <p>Những giá trị cốt lõi làm nên thương hiệu của chúng tôi</p>
+                <div class="divider"></div>
             </div>
-            <div class="grid grid-cols-3">
-                <div class="fluent-card feature-card">
-                    <div class="icon-wrapper" style="font-size: 2rem; color: var(--fluent-accent); margin-bottom: 16px;">⚡</div>
+            <div class="nmt-features-grid">
+                <div class="nmt-feature-card nmt-animate" style="transition-delay: 0.1s;">
+                    <span class="material-symbols-outlined nmt-feature-icon">target</span>
                     <h3>Độ Chính Xác Cao</h3>
                     <p>Sai số nhỏ hơn 0.01mm, đảm bảo chi tiết tinh xảo trên mọi vật liệu cắt khắc.</p>
                 </div>
-                <div class="fluent-card feature-card">
-                    <div class="icon-wrapper" style="font-size: 2rem; color: var(--fluent-accent); margin-bottom: 16px;">🛡️</div>
+                <div class="nmt-feature-card nmt-animate" style="transition-delay: 0.2s;">
+                    <span class="material-symbols-outlined nmt-feature-icon">shield</span>
                     <h3>Độ Bền Công Nghiệp</h3>
                     <p>Thiết kế dành cho hoạt động 24/7 trong môi trường nhà máy khắc nghiệt.</p>
                 </div>
-                <div class="fluent-card feature-card">
-                    <div class="icon-wrapper" style="font-size: 2rem; color: var(--fluent-accent); margin-bottom: 16px;">🔧</div>
+                <div class="nmt-feature-card nmt-animate" style="transition-delay: 0.3s;">
+                    <span class="material-symbols-outlined nmt-feature-icon">build</span>
                     <h3>Hỗ Trợ Tận Tâm</h3>
                     <p>Đội ngũ kỹ sư giàu kinh nghiệm, hỗ trợ kỹ thuật và bảo hành nhanh chóng.</p>
                 </div>
@@ -142,86 +666,78 @@
         </div>
     </section>
 
-    <!-- Featured Products -->
-    <section class="section">
+    <!-- Featured Products (Namture) -->
+    <section class="nmt-products">
         <div class="container">
-            <div class="flex justify-between items-center" style="margin-bottom: 40px;">
+            <div class="nmt-section-header nmt-animate">
                 <h2>Sản Phẩm Nổi Bật</h2>
-                <a href="products.html" class="btn btn-secondary">Xem Tất Cả -></a>
+                <a href="products.html" class="nmt-btn-secondary" style="padding: 12px 24px; font-size: 14px;">
+                    Xem Tất Cả
+                    <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+                </a>
             </div>
 
-            <div class="grid grid-cols-3">
+            <div class="nmt-products-grid">
                 <!-- Product 1 -->
-                <a href="chi-tiet-fiber-f-series.html" style="text-decoration: none; color: inherit;">
-                    <div class="fluent-card">
-                        <div
-                            style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <img src="images/san-pham/may-cat-laser/fiber-f-series/main.jpg" alt="Máy Cắt Laser Fiber"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
+                <a href="chi-tiet-fiber-f-series.html" class="nmt-product-card nmt-animate" style="transition-delay: 0.1s;">
+                    <div class="nmt-product-img">
+                        <img src="images/san-pham/may-cat-laser/fiber-f-series/main.jpg" alt="Máy Cắt Laser Fiber">
+                    </div>
+                    <div class="nmt-product-body">
                         <h3>Máy Cắt Laser Fiber F-Series</h3>
-                        <p class="fluent-text-secondary" style="font-size: 0.9rem;">Công suất: 1000W - 12000W<br>Phù hợp cắt
-                            thép đen, inox, nhôm.</p>
-                        <span class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Chi tiết sản phẩm</span>
+                        <p>Công suất: 1000W - 12000W · Phù hợp cắt thép đen, inox, nhôm.</p>
+                        <span class="nmt-product-btn">Chi Tiết Sản Phẩm</span>
                     </div>
                 </a>
                 <!-- Product 2 -->
-                <a href="chi-tiet-cam-tay-w-series.html" style="text-decoration: none; color: inherit;">
-                    <div class="fluent-card">
-                        <div
-                            style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <img src="images/san-pham/may-han-laser/cam-tay-w-series/main.jpg" alt="Máy Hàn Laser Cầm Tay"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
+                <a href="chi-tiet-cam-tay-w-series.html" class="nmt-product-card nmt-animate" style="transition-delay: 0.2s;">
+                    <div class="nmt-product-img">
+                        <img src="images/san-pham/may-han-laser/cam-tay-w-series/main.jpg" alt="Máy Hàn Laser Cầm Tay">
+                    </div>
+                    <div class="nmt-product-body">
                         <h3>Máy Hàn Laser Cầm Tay</h3>
-                        <p class="fluent-text-secondary" style="font-size: 0.9rem;">Công suất: 1000W - 2000W<br>Hàn nhanh,
-                            mối hàn đẹp, không cần đánh bóng.</p>
-                        <span class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Chi tiết sản phẩm</span>
+                        <p>Công suất: 1000W - 2000W · Hàn nhanh, mối hàn đẹp, không cần đánh bóng.</p>
+                        <span class="nmt-product-btn">Chi Tiết Sản Phẩm</span>
                     </div>
                 </a>
                 <!-- Product 3 -->
-                <a href="chi-tiet-uv-5w.html" style="text-decoration: none; color: inherit;">
-                    <div class="fluent-card">
-                        <div
-                            style="height: 200px; background-color: var(--fluent-bg-secondary); border-radius: var(--radius-md); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                            <img src="images/san-pham/may-khac-laser/uv-5w/main.jpg" alt="Máy Khắc Laser UV"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
+                <a href="chi-tiet-uv-5w.html" class="nmt-product-card nmt-animate" style="transition-delay: 0.3s;">
+                    <div class="nmt-product-img">
+                        <img src="images/san-pham/may-khac-laser/uv-5w/main.jpg" alt="Máy Khắc Laser UV">
+                    </div>
+                    <div class="nmt-product-body">
                         <h3>Máy Khắc Laser UV 3W/5W</h3>
-                        <p class="fluent-text-secondary" style="font-size: 0.9rem;">Khắc cực nét trên nhựa, thủy tinh, linh
-                            kiện điện tử.</p>
-                        <span class="btn btn-primary" style="width: 100%; display: block; text-align: center;">Chi tiết sản phẩm</span>
+                        <p>Khắc cực nét trên nhựa, thủy tinh, linh kiện điện tử.</p>
+                        <span class="nmt-product-btn">Chi Tiết Sản Phẩm</span>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Latest Projects -->
-    <section class="section" style="background-color: var(--fluent-bg-secondary);">
+    <!-- Latest Projects (Namture) -->
+    <section class="nmt-projects">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 48px;">
+            <div class="nmt-section-title nmt-animate">
                 <h2>Dự Án Tích Hợp Tiêu Biểu</h2>
                 <p>Tự động hóa quy trình sản xuất với giải pháp laser tích hợp</p>
+                <div class="divider"></div>
             </div>
-            <div class="grid grid-cols-2">
-                <div class="fluent-card hover-scale" style="padding: 0; overflow: hidden;">
-                    <div style="height: 250px; background-color: #ddd;">
-                        <img src="images/san-pham/du-an-tich-hop/tram-han-robot-tu-dong/main.jpg"
-                            alt="Dây chuyền tích hợp" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="nmt-projects-grid">
+                <div class="nmt-project-card nmt-animate-left">
+                    <div class="nmt-project-img">
+                        <img src="images/san-pham/du-an-tich-hop/tram-han-robot-tu-dong/main.jpg" alt="Dây chuyền tích hợp">
                     </div>
-                    <div style="padding: 24px;">
+                    <div class="nmt-project-body">
                         <h3>Dây chuyền hàn tự động vỏ pin xe điện</h3>
-                        <p>Tích hợp robot 6 trục và nguồn laser fiber 3000W, nâng cao năng suất gấp 3 lần so với hàn thủ
-                            công.</p>
+                        <p>Tích hợp robot 6 trục và nguồn laser fiber 3000W, nâng cao năng suất gấp 3 lần so với hàn thủ công.</p>
                     </div>
                 </div>
-                <div class="fluent-card hover-scale" style="padding: 0; overflow: hidden;">
-                    <div style="height: 250px; background-color: #ddd;">
-                        <img src="images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/main.jpg"
-                            alt="Dây chuyền cắt khắc" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="nmt-project-card nmt-animate-right">
+                    <div class="nmt-project-img">
+                        <img src="images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/main.jpg" alt="Dây chuyền cắt khắc">
                     </div>
-                    <div style="padding: 24px;">
+                    <div class="nmt-project-body">
                         <h3>Hệ thống khắc mã QR tốc độ cao</h3>
                         <p>Khắc laser on-the-fly trên băng chuyền di chuyển liên tục, tốc độ lên đến 120m/phút.</p>
                     </div>
@@ -239,8 +755,7 @@
                         <div class="mq-squircle-logo footer-logo">MQ</div>
                         <span class="brand-text">MINH QUANG</span>
                     </div>
-                    <p style="max-width: 300px;">Đối tác tin cậy cung cấp giải pháp, máy móc thiết bị laser công nghiệp
-                        với công nghệ hiện đại nhất hiện nay.</p>
+                    <p style="max-width: 300px; color: var(--text-secondary);">Đối tác tin cậy cung cấp giải pháp, máy móc thiết bị laser công nghiệp với công nghệ hiện đại nhất hiện nay.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Sản Phẩm</h4>
@@ -262,12 +777,27 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 LaserMQ. All rights reserved. Thiết kế với Windows 11 Fluent Design.
+                &copy; 2026 MINH QUANG. All rights reserved. Thiết kế với phong cách NAMTURE.
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll Animation Observer
+            const animateEls = document.querySelectorAll('.nmt-animate, .nmt-animate-left, .nmt-animate-right');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            animateEls.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 
 </html>
