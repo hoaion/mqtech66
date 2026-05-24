@@ -303,6 +303,54 @@
             border-radius: 50%;
         }
 
+        /* ===== GALLERY NAVIGATION ARROWS ===== */
+        .nmt-main-image {
+            position: relative;
+        }
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            box-shadow: 0 4px 16px rgba(31, 29, 26, 0.12);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--text-primary);
+            transition: all 0.25s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .nmt-main-image:hover .nav-btn,
+        .nav-btn:focus-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .nav-btn:hover {
+            background: var(--sage);
+            color: #fff;
+            border-color: var(--sage);
+            box-shadow: 0 4px 16px var(--sage-glow);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .nav-btn.prev { left: 12px; }
+        .nav-btn.next { right: 12px; }
+
+        /* ===== IMAGE FADE TRANSITION ===== */
+        #main-image {
+            transition: opacity 0.35s ease;
+        }
+        #main-image.fade-out {
+            opacity: 0.3;
+        }
+
         /* Product Info */
         .nmt-info {
             display: flex;
@@ -830,6 +878,8 @@
             <div class="nmt-gallery">
                 <div class="nmt-main-image" id="main-showcase">
                     <img src="images/san-pham/du-an-tich-hop/tram-han-robot-tu-dong/1.jpg" alt="Trạm Hàn Robot Tự Động" id="main-image">
+                    <button class="nav-btn prev" id="gallery-prev" aria-label="Ảnh trước">‹</button>
+                    <button class="nav-btn next" id="gallery-next" aria-label="Ảnh tiếp">›</button>
                 </div>
                 <div class="nmt-thumbnails">
                     <div class="nmt-thumb active" onclick="changeImage('images/san-pham/du-an-tich-hop/tram-han-robot-tu-dong/1.jpg', this)">
@@ -1066,14 +1116,99 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Image Gallery Script
-        function changeImage(imageSrc, thumbnailElement) {
-            document.getElementById('main-image').src = imageSrc;
-            document.querySelectorAll('.nmt-thumb').forEach(thumb => {
-                thumb.classList.remove('active');
+        // ===== ENHANCED GALLERY SCRIPT =====
+        (function() {
+            'use strict';
+            const mainImg = document.getElementById('main-image');
+            const thumbs = document.querySelectorAll('.nmt-thumb');
+            const prevBtn = document.getElementById('gallery-prev');
+            const nextBtn = document.getElementById('gallery-next');
+            if (!mainImg || thumbs.length === 0) return;
+
+            // Build image list from thumb data attributes
+            const images = [];
+            thumbs.forEach(function(t) {
+                var onclickAttr = t.getAttribute('onclick');
+                if (onclickAttr) {
+                    var match = onclickAttr.match(/changeImage\('([^']+)'/);
+                    if (match) images.push(match[1]);
+                }
             });
-            thumbnailElement.classList.add('active');
-        }
+
+            var currentIndex = 0;
+
+            // Update active thumbnail
+            function setActive(idx) {
+                thumbs.forEach(function(t) { t.classList.remove('active'); });
+                if (thumbs[idx]) thumbs[idx].classList.add('active');
+            }
+
+            // Change image with fade effect
+            function switchImage(index) {
+                if (index < 0) index = images.length - 1;
+                if (index >= images.length) index = 0;
+                currentIndex = index;
+
+                // Fade out effect
+                mainImg.classList.add('fade-out');
+                setTimeout(function() {
+                    mainImg.src = images[currentIndex];
+                    setActive(currentIndex);
+                    mainImg.classList.remove('fade-out');
+                }, 200);
+            }
+
+            // === THUMBNAIL HOVER ===
+            thumbs.forEach(function(t, i) {
+                // Hover: đổi ảnh lớn tạm thời
+                t.addEventListener('mouseenter', function() {
+                    var src = images[i];
+                    if (src) {
+                        mainImg.src = src;
+                    }
+                });
+            });
+
+            // === ARROW NAVIGATION ===
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    switchImage(currentIndex - 1);
+                });
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    switchImage(currentIndex + 1);
+                });
+            }
+
+            // === KEYBOARD SUPPORT ===
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    switchImage(currentIndex - 1);
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    switchImage(currentIndex + 1);
+                }
+            });
+
+            // Override global changeImage to keep currentIndex synced
+            window.changeImage = function(imageSrc, thumbElement) {
+                var idx = images.indexOf(imageSrc);
+                if (idx !== -1) {
+                    currentIndex = idx;
+                    mainImg.src = images[currentIndex];
+                    setActive(currentIndex);
+                }
+            };
+
+            // Init active state
+            setActive(0);
+        })();
 
         // Scroll Animation using IntersectionObserver
         const nmtObserver = new IntersectionObserver((entries) => {
