@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự Án Nâng Cấp Máy Fiber - LaserMQ | NAMTURE</title>
+    <meta name="description" content="Dự án nâng cấp máy CO2 Trumpf cũ: thay mới toàn bộ hệ thống điện và hệ truyền động Servo, giữ lại hệ cơ khí, biến máy cũ thành máy CO2 hiện đại, vận hành ổn định.">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/fluent-ui.css">
+    
+    <!-- Namture-Inspired Design System -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== NAMTURE DESIGN SYSTEM ===== */
+        :root {
+            --earth-bg: #f6f4ef;
+            --earth-bg-warm: #ede9df;
+            --earth-bg-light: #fbfaf7;
+            --earth-card: #ffffff;
+            --earth-card-hover: #f9f7f3;
+            
+            --sage: #88a34f;
+            --sage-dark: #7a9247;
+            --sage-light: rgba(136, 163, 79, 0.12);
+            --sage-glow: rgba(136, 163, 79, 0.2);
+            --sage-border: rgba(136, 163, 79, 0.25);
+            
+            --beige: #e0d3b2;
+            --beige-dark: #d4c4a0;
+            --beige-light: rgba(224, 211, 178, 0.3);
+            --gold: #d8ccae;
+            --gold-dark: #c4b694;
+            
+            --text-primary: #1f1d1a;
+            --text-secondary: #5a5648;
+            --text-tertiary: #8c887a;
+            
+            --headline-font: 'Playfair Display', serif;
+            --body-font: 'Inter', sans-serif;
+            
+            --shadow-card: 0 2px 12px rgba(31, 29, 26, 0.06);
+            --shadow-hover: 0 8px 24px rgba(31, 29, 26, 0.1);
+            --shadow-btn: 0 4px 12px rgba(136, 163, 79, 0.25);
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        body {
+            background-color: var(--earth-bg) !important;
+            color: var(--text-primary) !important;
+            font-family: var(--body-font);
+        }
+
+        header.mica-bg {
+            background-color: rgba(246, 244, 239, 0.88) !important;
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            border-bottom: 1px solid var(--beige) !important;
+        }
+        header .brand-text {
+            color: var(--text-primary) !important;
+        }
+        header .nav-links a {
+            color: var(--text-secondary) !important;
+        }
+        header .nav-links a:hover {
+            color: var(--sage) !important;
+        }
+
+        .mq-squircle-logo {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%) !important;
+            color: white !important;
+            box-shadow: 0 4px 15px var(--sage-glow) !important;
+        }
+
+        .mega-menu, .submenu {
+            background-color: var(--earth-card) !important;
+            border: 1px solid var(--beige) !important;
+        }
+        .mega-menu-category span {
+            color: var(--text-secondary) !important;
+        }
+        .mega-menu-category:hover span {
+            color: var(--sage) !important;
+        }
+        .mega-menu-category:hover {
+            background-color: var(--sage-light) !important;
+        }
+        .submenu-item {
+            color: var(--text-secondary) !important;
+        }
+        .submenu-item:hover {
+            background-color: var(--sage-light) !important;
+            color: var(--sage) !important;
+        }
+
+        section[style*="background-color: #ffffff"] {
+            background-color: var(--earth-bg-warm) !important;
+            border-bottom: 1px solid var(--beige) !important;
+        }
+        section[style*="background-color: #ffffff"] a,
+        section[style*="background-color: #ffffff"] span {
+            color: var(--text-tertiary) !important;
+        }
+        section[style*="background-color: #ffffff"] span:last-child {
+            color: var(--sage-dark) !important;
+            font-weight: 600;
+        }
+
+        /* ===== NAMTURE COMPONENTS ===== */
+        .nmt-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+            border-color: var(--sage-border);
+        }
+        .nmt-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            background: var(--sage-light);
+            color: var(--sage-dark);
+            font-family: var(--body-font);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1px solid var(--sage-border);
+            width: fit-content;
+        }
+        .nmt-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+            color: #fff !important;
+            font-family: var(--body-font);
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-btn);
+        }
+        .nmt-btn-primary:hover {
+            box-shadow: 0 6px 20px var(--sage-glow);
+            transform: translateY(-2px);
+            color: #fff !important;
+        }
+        .nmt-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--sage-dark) !important;
+            font-family: var(--body-font);
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--sage-border);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .nmt-btn-secondary:hover {
+            background: var(--sage-light);
+            transform: translateY(-2px);
+            color: var(--sage-dark) !important;
+        }
+        .nmt-section-title {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .nmt-section-title h2 {
+            font-family: var(--headline-font);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+        .nmt-section-title p {
+            font-family: var(--body-font);
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .nmt-section-title .divider {
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, var(--sage), var(--beige));
+            border-radius: 9999px;
+            margin: 16px auto 0;
+        }
+        .nmt-divider {
+            height: 3px;
+            width: 64px;
+            background: linear-gradient(90deg, var(--sage), var(--beige));
+            border-radius: 9999px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .nmt-hero {
+            padding: 60px 0;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .nmt-hero-grid {
+            display: grid;
+            grid-template-columns: 6fr 4fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        /* Image Gallery */
+        .nmt-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .nmt-main-image {
+            position: relative;
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            padding: 16px;
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-main-image:hover {
+            box-shadow: var(--shadow-hover);
+        }
+        .nmt-main-image img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: contain;
+            border-radius: 12px;
+            background: var(--earth-bg);
+            transition: transform 0.6s ease;
+        }
+        .nmt-main-image:hover img {
+            transform: scale(1.04);
+        }
+        .nmt-thumbnails {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: flex-start;
+        }
+        .nmt-thumb {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            overflow: hidden;
+            padding: 4px;
+            background: var(--earth-card);
+            border-color: var(--beige);
+            cursor: pointer;
+            transition: all 0.35s ease;
+            box-shadow: var(--shadow-card);
+            flex-shrink: 0;
+        }
+        .nmt-thumb:hover {
+            border-color: var(--sage);
+            transform: scale(1.1);
+            box-shadow: var(--shadow-hover);
+        }
+        .nmt-thumb.active {
+            border-color: var(--sage-dark);
+            box-shadow: 0 0 0 2px var(--sage-border);
+        }
+        .nmt-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Gallery Navigation Arrows */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            box-shadow: 0 4px 16px rgba(31, 29, 26, 0.12);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--text-primary);
+            transition: all 0.25s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .nmt-main-image:hover .nav-btn,
+        .nav-btn:focus-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .nav-btn:hover {
+            background: var(--sage);
+            color: #fff;
+            border-color: var(--sage);
+            box-shadow: 0 4px 16px var(--sage-glow);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .nav-btn.prev { left: 12px; }
+        .nav-btn.next { right: 12px; }
+
+        #main-image {
+            transition: opacity 0.35s ease;
+        }
+        #main-image.fade-out {
+            opacity: 0.3;
+        }
+
+        /* Product Info */
+        .nmt-info {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            padding: 16px 0;
+        }
+        .nmt-info-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            background: var(--beige-light);
+            color: var(--sage-dark);
+            font-family: var(--body-font);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1px solid var(--beige);
+            width: fit-content;
+        }
+        .nmt-info h1 {
+            font-family: var(--headline-font);
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        .nmt-info h1 .highlight {
+            color: var(--sage);
+        }
+        .nmt-info-underline {
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, var(--sage), var(--beige));
+            border-radius: 9999px;
+        }
+        .nmt-info-desc {
+            font-family: var(--body-font);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .nmt-mini-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .nmt-mini-spec {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-card);
+        }
+        .nmt-mini-spec:hover {
+            border-color: var(--sage-border);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+        .nmt-mini-spec .material-symbols-outlined {
+            color: var(--sage);
+            font-size: 24px;
+            font-variation-settings: 'FILL' 1;
+        }
+        .nmt-mini-spec-label {
+            font-family: var(--body-font);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+        .nmt-mini-spec-value {
+            font-family: var(--body-font);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .nmt-ctas {
+            display: flex;
+            gap: 14px;
+            padding-top: 8px;
+        }
+
+        /* ===== ADVANTAGES SECTION ===== */
+        .nmt-advantages {
+            padding: 96px 0;
+            background: var(--earth-bg-warm);
+            overflow: hidden;
+        }
+        .nmt-adv-blocks {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+        .nmt-adv-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .nmt-adv-block.reverse .nmt-adv-image {
+            order: 2;
+        }
+        .nmt-adv-block.reverse .nmt-adv-text {
+            order: 1;
+        }
+        .nmt-adv-image-wrap {
+            position: relative;
+        }
+        .nmt-adv-image-wrap .glow-bg {
+            position: absolute;
+            inset: -16px;
+            background: var(--sage-light);
+            border-radius: var(--radius-lg);
+            filter: blur(40px);
+            transition: all 0.4s ease;
+        }
+        .nmt-adv-image-wrap:hover .glow-bg {
+            background: var(--sage-glow);
+        }
+        .nmt-adv-image-wrap img {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: contain;
+            border-radius: var(--radius-lg);
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            padding: 12px;
+            box-shadow: var(--shadow-card);
+        }
+        .nmt-adv-text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .nmt-adv-text .icon {
+            font-size: 44px;
+            color: var(--sage);
+            font-variation-settings: 'FILL' 1;
+        }
+        .nmt-adv-text h3 {
+            font-family: var(--headline-font);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.2;
+        }
+        .nmt-adv-text p {
+            font-family: var(--body-font);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .nmt-adv-text .feature-tag {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        .nmt-adv-text .feature-tag .dot {
+            width: 10px;
+            height: 10px;
+            background: var(--sage);
+            border-radius: 50%;
+            animation: nmtPulse 2s infinite;
+            box-shadow: 0 0 8px var(--sage-glow);
+        }
+        .nmt-adv-text .feature-tag span {
+            font-family: var(--body-font);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--sage-dark);
+        }
+        @keyframes nmtPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ===== BEFORE/AFTER COMPARISON ===== */
+        .nmt-comparison {
+            padding: 96px 0;
+            background: var(--earth-bg);
+        }
+        .nmt-comp-grid {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .nmt-comp-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-comp-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+            border-color: var(--sage-border);
+        }
+        .nmt-comp-label {
+            padding: 16px 24px;
+            font-family: var(--body-font);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .nmt-comp-label.old {
+            background: var(--earth-bg-warm);
+            color: var(--text-tertiary);
+        }
+        .nmt-comp-label.new {
+            background: var(--sage-light);
+            color: var(--sage-dark);
+        }
+        .nmt-comp-card img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: contain;
+            padding: 16px;
+            background: var(--earth-bg);
+        }
+
+        /* ===== SPECS TABLE ===== */
+        .nmt-specs {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 80px;
+            padding-bottom: 80px;
+        }
+        .nmt-specs-header {
+            margin-bottom: 40px;
+        }
+        .nmt-specs-header h2 {
+            font-family: var(--headline-font);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+        }
+        .nmt-specs-header p {
+            font-family: var(--body-font);
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .nmt-table-wrap {
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            background: var(--earth-card);
+        }
+        .nmt-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .nmt-table thead tr {
+            background: var(--earth-bg-warm);
+            border-bottom: 2px solid var(--sage-border);
+        }
+        .nmt-table th {
+            padding: 20px 28px;
+            font-family: var(--body-font);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--sage-dark);
+        }
+        .nmt-table tbody tr {
+            border-bottom: 1px solid var(--beige);
+            transition: background 0.25s ease;
+        }
+        .nmt-table tbody tr:last-child {
+            border-bottom: none;
+        }
+        .nmt-table tbody tr:hover {
+            background: var(--sage-light);
+        }
+        .nmt-table tbody tr:nth-child(even) {
+            background: var(--earth-bg);
+        }
+        .nmt-table tbody tr:nth-child(even):hover {
+            background: var(--sage-light);
+        }
+        .nmt-table td {
+            padding: 18px 28px;
+            font-family: var(--body-font);
+            font-size: 15px;
+        }
+        .nmt-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 600;
+            width: 35%;
+        }
+        .nmt-table td:last-child {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .nmt-cta-section {
+            max-width: 1440px;
+            margin: 0 auto 80px;
+            padding: 0 80px;
+        }
+        .nmt-cta-card {
+            background: linear-gradient(135deg, var(--earth-card) 0%, var(--earth-bg-warm) 100%);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-xl);
+            padding: 64px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+        .nmt-cta-card .glow-1 {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 240px;
+            height: 240px;
+            background: var(--sage-light);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+        .nmt-cta-card .glow-2 {
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 200px;
+            height: 200px;
+            background: var(--beige-light);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+        .nmt-cta-card h2 {
+            font-family: var(--headline-font);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .nmt-cta-card p {
+            font-family: var(--body-font);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto 36px;
+            position: relative;
+            z-index: 1;
+        }
+        .nmt-cta-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== FOOTER OVERRIDES ===== */
+        footer {
+            background: var(--beige) !important;
+            border-top: none !important;
+        }
+        footer, footer * {
+            color: var(--text-primary) !important;
+        }
+        footer h4 {
+            color: var(--sage-dark) !important;
+        }
+        footer a:hover {
+            color: var(--sage) !important;
+        }
+        footer .brand-text {
+            color: var(--text-primary) !important;
+        }
+        .footer-bottom {
+            border-top-color: rgba(31, 29, 26, 0.1) !important;
+            color: var(--text-tertiary) !important;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .nmt-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .nmt-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nmt-animate-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s ease;
+        }
+        .nmt-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .nmt-animate-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s ease;
+        }
+        .nmt-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .nmt-hero { padding-left: 40px; padding-right: 40px; }
+            .nmt-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .nmt-info h1 { font-size: 40px; }
+            .nmt-adv-blocks { padding: 0 40px; }
+            .nmt-adv-block { grid-template-columns: 1fr; gap: 40px; }
+            .nmt-adv-block.reverse .nmt-adv-image { order: 1; }
+            .nmt-adv-block.reverse .nmt-adv-text { order: 2; }
+            .nmt-comp-grid { padding: 0 40px; grid-template-columns: 1fr; }
+            .nmt-specs { padding: 0 40px; }
+            .nmt-cta-section { padding: 0 40px; }
+        }
+        @media (max-width: 768px) {
+            .nmt-hero { padding-left: 20px; padding-right: 20px; }
+            .nmt-hero-grid { gap: 32px; }
+            .nmt-info h1 { font-size: 34px; }
+            .nmt-mini-specs { grid-template-columns: 1fr; }
+            .nmt-ctas { flex-direction: column; }
+            .nmt-adv-blocks { padding: 0 20px; gap: 48px; }
+            .nmt-adv-block { gap: 32px; }
+            .nmt-adv-text h3 { font-size: 26px; }
+            .nmt-section-title h2 { font-size: 32px; }
+            .nmt-comp-grid { padding: 0 20px; }
+            .nmt-cta-card { padding: 40px 24px; }
+            .nmt-cta-card h2 { font-size: 30px; }
+            .nmt-cta-btns { flex-direction: column; align-items: center; }
+            .nmt-specs { padding: 0 20px; }
+            .nmt-cta-section { padding: 0 20px; }
+            .nmt-table th, .nmt-table td { padding: 14px 18px; }
+            .nmt-thumbnails { gap: 10px; }
+            .nmt-thumb { width: 64px; height: 64px; }
+            .nmt-info-underline { width: 60px; }
+        }
+    </style>
+</head>
+<body class="product-detail-page">
+
+    <!-- Header -->
+    <header class="mica-bg">
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="brand-container">
+                    <div class="mq-squircle-logo">MQ</div>
+                    <span class="brand-text">MINH QUANG</span>
+                </a>
+
+                <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    ☰
+                </button>
+
+                <div class="nav-links" id="nav-links">
+                    <a href="../index.html">Trang Chủ</a>
+                    
+                    <!-- Multi-level Mega Menu for Products -->
+                    <div class="nav-item">
+                        <a href="products.html">
+                            Sản Phẩm
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        
+                        <!-- Level 2 - Main Categories -->
+                        <div class="mega-menu">
+                            
+                            <!-- Category 1: Máy Cắt Laser -->
+                            <div class="mega-menu-category">
+                                <span>Máy Cắt Laser</span>
+                                <span class="right-arrow">▶</span>
+                                
+                                <!-- Level 3 - Products under Máy Cắt Laser -->
+                                <div class="submenu">
+                                    <a href="chi-tiet-fiber-f-series.html" class="submenu-item">Máy Cắt Laser Fiber F-Series</a>
+                                    <a href="chi-tiet-ong-chuyen-dung.html" class="submenu-item">Máy Cắt Laser Ống Chuyên Dụng</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 2: Máy Hàn Laser -->
+                            <div class="mega-menu-category">
+                                <span>Máy Hàn Laser</span>
+                                <span class="right-arrow">▶</span>
+                                
+                                <!-- Level 3 - Products under Máy Hàn Laser -->
+                                <div class="submenu">
+                                    <a href="chi-tiet-cam-tay-w-series.html" class="submenu-item">Máy Hàn Laser Cầm Tay W-Series</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 3: Máy Khắc Laser -->
+                            <div class="mega-menu-category">
+                                <span>Máy Khắc Laser</span>
+                                <span class="right-arrow">▶</span>
+                                
+                                <!-- Level 3 - Products under Máy Khắc Laser -->
+                                <div class="submenu">
+                                    <a href="chi-tiet-uv-5w.html" class="submenu-item">Máy Khắc Laser UV 5W</a>
+                                    <a href="chi-tiet-fiber-3d.html" class="submenu-item">Máy Khắc Laser Fiber 3D</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Category 4: Dự Án Tích Hợp -->
+                            <div class="mega-menu-category">
+                                <span>Dự Án Tích Hợp</span>
+                                <span class="right-arrow">▶</span>
+                                
+                                <!-- Level 3 - Products under Dự Án Tích Hợp -->
+                                <div class="submenu">
+                                    <a href="chi-tiet-tram-han-robot-tu-dong.html" class="submenu-item">Trạm Hàn Laser Robot Tự Động</a>
+                                    <a href="chi-tiet-truyen-tu-dong-in-bao-bi.html" class="submenu-item">Hệ Thống Khắc Laser Trên Băng Chuyền</a>
+                                    <a href="chi-tiet-nang-cap-fiber.html" class="submenu-item">Dự Án Nâng Cấp Máy Fiber</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <a href="catalog.html">Tài Liệu</a>
+                    <a href="contact.html">Liên Hệ</a>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section style="padding: 20px 0; background-color: #ffffff;">
+        <div class="container">
+            <div style="display: flex; gap: 8px; align-items: center; color: #888; font-size: 0.9rem;">
+                <a href="../index.html" style="color: #888;">Trang Chủ</a>
+                <span>/</span>
+                <a href="products.html" style="color: #888;">Sản Phẩm</a>
+                <span>/</span>
+                <a href="products.html" style="color: #888;">Dự Án Tích Hợp</a>
+                <span>/</span>
+                <span style="color: #1a1a1a; font-weight: 500;">Dự Án Nâng Cấp Máy Fiber</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NAMTURE HERO SECTION ===== -->
+    <section class="nmt-hero nmt-animate">
+        <div class="nmt-hero-grid">
+            <!-- Left: Image Gallery (60%) -->
+            <div class="nmt-gallery">
+                <div class="nmt-main-image" id="main-showcase">
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/1.jpg" alt="Dự Án Nâng Cấp Máy Fiber" id="main-image">
+                    <button class="nav-btn prev" id="gallery-prev" aria-label="Ảnh trước">‹</button>
+                    <button class="nav-btn next" id="gallery-next" aria-label="Ảnh tiếp">›</button>
+                </div>
+                <div class="nmt-thumbnails">
+                    <div class="nmt-thumb active" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/1.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/1.jpg" alt="View 1">
+                    </div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/2.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/2.jpg" alt="View 2">
+                    </div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/3.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/3.jpg" alt="View 3">
+                    </div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/4.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/4.jpg" alt="View 4">
+                    </div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/14.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/14.jpg" alt="View 5">
+                    </div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/16.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/16.jpg" alt="View 6">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Product Info (40%) -->
+            <div class="nmt-info">
+                <span class="nmt-info-badge">Dự Án Tích Hợp</span>
+                <h1>Nâng Cấp Máy <span class="highlight">CO2 Fiber</span></h1>
+                <div class="nmt-info-underline"></div>
+                <p class="nmt-info-desc">
+                    Dự án nâng cấp máy CO2 Trumpf cũ đã không sử dụng được — thay mới toàn bộ hệ thống điện, hệ truyền động Servo, 
+                    giữ lại hệ cơ khí nguyên bản, biến máy cũ thành một máy CO2 hiện đại, vận hành ổn định và chính xác.
+                </p>
+                
+                <div class="nmt-mini-specs">
+                    <div class="nmt-mini-spec">
+                        <span class="material-symbols-outlined">settings</span>
+                        <span class="nmt-mini-spec-label">Hệ Điều Khiển</span>
+                        <span class="nmt-mini-spec-value">Bochu BCL 4566E</span>
+                    </div>
+                    <div class="nmt-mini-spec">
+                        <span class="material-symbols-outlined">bolt</span>
+                        <span class="nmt-mini-spec-label">Nguồn Laser</span>
+                        <span class="nmt-mini-spec-value">Max 6kW CO2</span>
+                    </div>
+                    <div class="nmt-mini-spec">
+                        <span class="material-symbols-outlined">sensors</span>
+                        <span class="nmt-mini-spec-label">Truyền Động</span>
+                        <span class="nmt-mini-spec-value">Servo EtherCAT</span>
+                    </div>
+                    <div class="nmt-mini-spec">
+                        <span class="material-symbols-outlined">build_circle</span>
+                        <span class="nmt-mini-spec-label">Phạm Vi</span>
+                        <span class="nmt-mini-spec-value">Điện + Truyền Động</span>
+                    </div>
+                </div>
+
+                <div class="nmt-ctas">
+                    <a href="contact.html" class="nmt-btn-primary">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">support_agent</span>
+                        Nhận Tư Vấn
+                    </a>
+                    <a href="catalog.html" class="nmt-btn-secondary">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">download</span>
+                        Tải Catalog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ADVANTAGES SECTION ===== -->
+    <section class="nmt-advantages">
+        <div class="nmt-section-title">
+            <h2>Quy Trình Nâng Cấp</h2>
+            <p>Biến máy CO2 Trumpf cũ thành máy vận hành hiệu quả, ổn định</p>
+            <div class="divider"></div>
+        </div>
+        <div class="nmt-adv-blocks">
+            <!-- Advantage 1 -->
+            <div class="nmt-adv-block nmt-animate-left">
+                <div class="nmt-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/8.jpg" alt="Thay mới hệ thống điện">
+                </div>
+                <div class="nmt-adv-text">
+                    <span class="material-symbols-outlined icon">bolt</span>
+                    <h3>Thay Mới Toàn Bộ Hệ Thống Điện</h3>
+                    <p>Hệ thống điện cũ đã xuống cấp được thay thế hoàn toàn bằng tủ điện công nghiệp mới với các thiết bị đóng cắt chính hãng. 
+                    Dây dẫn, cáp tín hiệu và các jack kết nối công nghiệp được thay mới đảm bảo an toàn tuyệt đối và ổn định tín hiệu truyền thông.</p>
+                    <p>Thiết kế tủ điện khoa học, dễ dàng bảo trì và kiểm tra, với các thiết bị bảo vệ quá tải, chống giật và chống nhiễu theo tiêu chuẩn công nghiệp Châu Âu.</p>
+                    <div class="feature-tag">
+                        <div class="dot"></div>
+                        <span>An Toàn Tuyệt Đối - Tiêu Chuẩn Châu Âu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advantage 2 - Reverse -->
+            <div class="nmt-adv-block reverse nmt-animate-right">
+                <div class="nmt-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/16.jpg" alt="Nâng cấp hệ truyền động Servo">
+                </div>
+                <div class="nmt-adv-text">
+                    <span class="material-symbols-outlined icon">sensors</span>
+                    <h3>Nâng Cấp Hệ Truyền Động Servo</h3>
+                    <p>Thay thế động cơ cũ bằng hệ thống Servo EtherCAT hiện đại với độ chính xác cao, phản hồi nhanh và khả năng đồng bộ vượt trội.</p>
+                    <p>Hệ thống xích nhựa trục X được thay mới, đảm bảo chuyển động êm ái, không rung lắc, giúp đường cắt chính xác và mịn hơn. 
+                    Cáp động lực và cáp tín hiệu được bó gọn theo tiêu chuẩn EMC chống nhiễu.</p>
+                    <div class="feature-tag">
+                        <div class="dot"></div>
+                        <span>Độ Chính Xác Cao - Servo EtherCAT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advantage 3 -->
+            <div class="nmt-adv-block nmt-animate-left">
+                <div class="nmt-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/3.jpg" alt="Giữ lại hệ cơ khí nguyên bản">
+                </div>
+                <div class="nmt-adv-text">
+                    <span class="material-symbols-outlined icon">precision_manufacturing</span>
+                    <h3>Giữ Lại Hệ Cơ Khí Nguyên Bản</h3>
+                    <p>Hệ cơ khí của máy Trumpf CO2 cũ được giữ nguyên nhờ chất lượng gia công cơ khí vượt trội của Đức. 
+                    Các bộ phận như khung máy, bàn máy, đường trượt, vít me được kiểm tra và bảo dưỡng kỹ lưỡng.</p>
+                    <p>Điều này giúp tiết kiệm chi phí đáng kể so với mua máy mới, đồng thời vẫn đảm bảo độ cứng vững và độ chính xác cơ khí vốn có của máy Trumpf.</p>
+                    <div class="feature-tag">
+                        <div class="dot"></div>
+                        <span>Tiết Kiệm 50% Chi Phí So Với Máy Mới</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advantage 4 - Reverse -->
+            <div class="nmt-adv-block reverse nmt-animate-right">
+                <div class="nmt-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/1.jpg" alt="Hệ thống điều khiển Bochu">
+                </div>
+                <div class="nmt-adv-text">
+                    <span class="material-symbols-outlined icon">computer</span>
+                    <h3>Hệ Thống Điều Khiển Bochu BCL 4566E</h3>
+                    <p>Trang bị bộ điều khiển Bochu BCL 4566E thế hệ mới, hỗ trợ đầy đủ các tính năng cắt laser CO2 hiện đại như: cắt tự động (Auto Cut), 
+                    bù hao phí (Fly Cut), điều khiển chiều cao đầu cắt tự động (AHC - Auto Height Control).</p>
+                    <p>Bộ điều khiển FSCut 4000E cho phép vận hành máy với giao diện thân thiện, hỗ trợ kết nối mạng và cập nhật phần mềm từ xa, 
+                    giúp việc vận hành và bảo trì trở nên dễ dàng hơn bao giờ hết.</p>
+                    <div class="feature-tag">
+                        <div class="dot"></div>
+                        <span>Điều Khiển Số Hiện Đại - Dễ Dàng Vận Hành</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BEFORE/AFTER COMPARISON ===== -->
+    <section class="nmt-comparison">
+        <div class="nmt-section-title">
+            <h2>Trước & Sau Khi Nâng Cấp</h2>
+            <p>Hình ảnh so sánh rõ nét quá trình cải tạo máy</p>
+            <div class="divider"></div>
+        </div>
+        <div class="nmt-comp-grid">
+            <div class="nmt-comp-card nmt-animate-left">
+                <div class="nmt-comp-label old">TRƯỚC KHI NÂNG CẤP</div>
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/5.jpg" alt="Hệ thống khí nén cũ">
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/10.jpg" alt="Điện cũ">
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/15.jpg" alt="Motor cũ">
+            </div>
+            <div class="nmt-comp-card nmt-animate-right">
+                <div class="nmt-comp-label new">SAU KHI NÂNG CẤP</div>
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/7.jpg" alt="Hệ thống khí nén mới">
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/9.jpg" alt="Điện mới">
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/16.jpg" alt="Servo EtherCAT mới">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SPECIFICATIONS TABLE ===== -->
+    <section class="nmt-specs nmt-animate">
+        <div class="nmt-specs-header">
+            <h2>Thông Số Kỹ Thuật Chi Tiết</h2>
+            <p>Thông số kỹ thuật của máy sau khi nâng cấp</p>
+            <div class="nmt-divider" style="margin-top: 12px;"></div>
+        </div>
+        <div class="nmt-table-wrap">
+            <table class="nmt-table">
+                <thead>
+                    <tr>
+                        <th>Đặc Tính Kỹ Thuật</th>
+                        <th>Giá Trị Chi Tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hệ điều khiển</td>
+                        <td>Bochu BCL 4566E + FSCut 4000E</td>
+                    </tr>
+                    <tr>
+                        <td>Nguồn Laser</td>
+                        <td>Max CO2 6kW</td>
+                    </tr>
+                    <tr>
+                        <td>Hệ truyền động</td>
+                        <td>Servo EtherCAT</td>
+                    </tr>
+                    <tr>
+                        <td>Đầu cắt</td>
+                        <td>Đầu cắt Laser CO2 (Thay mới)</td>
+                    </tr>
+                    <tr>
+                        <td>Hệ thống điện</td>
+                        <td>Tủ điện công nghiệp - thay mới hoàn toàn</td>
+                    </tr>
+                    <tr>
+                        <td>Hệ thống khí nén</td>
+                        <td>Thay mới bộ lọc, van, xi lanh khí nén</td>
+                    </tr>
+                    <tr>
+                        <td>Xích nhựa trục X</td>
+                        <td>Thay mới - chuyển động êm ái</td>
+                    </tr>
+                    <tr>
+                        <td>Hệ cơ khí</td>
+                        <td>Giữ nguyên - Bảo dưỡng tổng thể</td>
+                    </tr>
+                    <tr>
+                        <td>Ferrite / Chống nhiễu</td>
+                        <td>Bổ sung Ferrite chống nhiễu EMI</td>
+                    </tr>
+                    <tr>
+                        <td>Jack kết nối công nghiệp</td>
+                        <td>Thay mới - tiêu chuẩn IP67</td>
+                    </tr>
+                    <tr>
+                        <td>Tính năng cắt</td>
+                        <td>Auto Cut, Fly Cut, AHC (Auto Height Control)</td>
+                    </tr>
+                    <tr>
+                        <td>Nguồn điện</td>
+                        <td>380V / 3 pha / 50Hz</td>
+                    </tr>
+                    <tr>
+                        <td>Dịch vụ đi kèm</td>
+                        <td>Tư vấn thiết kế, Lắp đặt, Đào tạo vận hành, Bảo hành</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="nmt-cta-section nmt-animate">
+        <div class="nmt-cta-card">
+            <div class="glow-1"></div>
+            <div class="glow-2"></div>
+            <h2>Bạn Có Máy CO2 Cũ Cần Nâng Cấp?</h2>
+            <p>Chúng tôi chuyên nâng cấp và phục hồi các dòng máy laser CO2 công nghiệp. Liên hệ ngay để được khảo sát và tư vấn giải pháp tối ưu nhất cho máy của bạn.</p>
+            <div class="nmt-cta-btns">
+                <a href="contact.html" class="nmt-btn-primary">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">mail</span>
+                    Gửi Yêu Cầu Tư Vấn
+                </a>
+                <a href="tel:1900xxxx" class="nmt-btn-secondary">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">call</span>
+                    Hotline: 1900 xxxx
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="brand-container" style="margin-bottom: 16px;">
+                        <div class="mq-squircle-logo footer-logo">MQ</div>
+                        <span class="brand-text">MINH QUANG</span>
+                    </div>
+                    <p style="max-width: 300px;">Đối tác tin cậy cung cấp giải pháp, máy móc thiết bị laser công nghiệp với công nghệ hiện đại nhất hiện nay.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Sản Phẩm</h4>
+                    <ul>
+                        <li><a href="products.html">Máy Cắt Laser</a></li>
+                        <li><a href="products.html">Máy Hàn Laser</a></li>
+                        <li><a href="products.html">Máy Khắc Laser</a></li>
+                        <li><a href="products.html">Dự Án Tích Hợp</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Công Ty</h4>
+                    <ul>
+                        <li><a href="#">Về Chúng Tôi</a></li>
+                        <li><a href="catalog.html">Tài Liệu Kỹ Thuật</a></li>
+                        <li><a href="contact.html">Liên Hệ</a></li>
+                        <li><a href="#">Chính Sách Bảo Hành</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 LaserMQ. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // ===== ENHANCED GALLERY SCRIPT =====
+        (function() {
+            'use strict';
+            const mainImg = document.getElementById('main-image');
+            const thumbs = document.querySelectorAll('.nmt-thumb');
+            const prevBtn = document.getElementById('gallery-prev');
+            const nextBtn = document.getElementById('gallery-next');
+            if (!mainImg || thumbs.length === 0) return;
+
+            // Build image list from thumb data attributes
+            const images = [];
+            thumbs.forEach(function(t) {
+                var onclickAttr = t.getAttribute('onclick');
+                if (onclickAttr) {
+                    var match = onclickAttr.match(/changeImage\('([^']+)'/);
+                    if (match) images.push(match[1]);
+                }
+            });
+
+            var currentIndex = 0;
+
+            // Update active thumbnail
+            function setActive(idx) {
+                thumbs.forEach(function(t) { t.classList.remove('active'); });
+                if (thumbs[idx]) thumbs[idx].classList.add('active');
+            }
+
+            // Change image with fade effect
+            function switchImage(index) {
+                if (index < 0) index = images.length - 1;
+                if (index >= images.length) index = 0;
+                currentIndex = index;
+
+                mainImg.classList.add('fade-out');
+                setTimeout(function() {
+                    mainImg.src = images[currentIndex];
+                    setActive(currentIndex);
+                    mainImg.classList.remove('fade-out');
+                }, 200);
+            }
+
+            // Thumbnail hover
+            thumbs.forEach(function(t, i) {
+                t.addEventListener('mouseenter', function() {
+                    var src = images[i];
+                    if (src) {
+                        mainImg.src = src;
+                    }
+                });
+            });
+
+            // Arrow Navigation
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    switchImage(currentIndex - 1);
+                });
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    switchImage(currentIndex + 1);
+                });
+            }
+
+            // Keyboard Support
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    switchImage(currentIndex - 1);
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    switchImage(currentIndex + 1);
+                }
+            });
+
+            window.changeImage = function(imageSrc, thumbElement) {
+                var idx = images.indexOf(imageSrc);
+                if (idx !== -1) {
+                    currentIndex = idx;
+                    mainImg.src = images[currentIndex];
+                    setActive(currentIndex);
+                }
+            };
+
+            setActive(0);
+        })();
+
+        // Scroll Animation using IntersectionObserver
+        const nmtObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.nmt-animate, .nmt-animate-left, .nmt-animate-right').forEach(el => {
+            nmtObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
