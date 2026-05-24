@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Máy Hàn Laser Cầm Tay W-Series - LaserMQ</title>
     <meta name="description" content="Máy hàn laser cầm tay W-Series công suất 1000W-2000W, hàn nhanh, mối hàn đẹp, đa chức năng hàn-cắt-tẩy gỉ.">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/fluent-ui.css">
+    <link rel="stylesheet" href="css/fluent-ui.css?v=2.1">
+    <link rel="stylesheet" href="css/main.css?v=2.1">
 </head>
 <body class="product-detail-page">
 
@@ -114,9 +114,17 @@
             <div class="product-hero-grid">
                 
                 <!-- Left Side - Image Gallery (60%) -->
-                <div class="product-gallery-premium">
+                <div class="product-gallery-premium" id="product-gallery">
                     <div class="main-showcase" id="main-showcase">
                         <img src="images/san-pham/may-han-laser/cam-tay-w-series/1.jpg" alt="Máy Hàn Laser Cầm Tay" id="main-image">
+                        
+                        <!-- Navigation Arrows -->
+                        <button class="gallery-nav gallery-nav-prev" onclick="prevImage()" aria-label="Previous image">
+                            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button class="gallery-nav gallery-nav-next" onclick="nextImage()" aria-label="Next image">
+                            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+                        </button>
                     </div>
                     <div class="thumbnail-strip">
                         <div class="thumbnail-item active" onclick="changeImage('images/san-pham/may-han-laser/cam-tay-w-series/1.jpg', this)">
@@ -132,6 +140,21 @@
                             <img src="images/san-pham/may-han-laser/cam-tay-w-series/4.jpg" alt="View 4">
                         </div>
                     </div>
+                </div>
+
+                <!-- Lightbox Modal -->
+                <div class="lightbox-overlay" id="lightbox-overlay" onclick="closeLightbox(event)">
+                    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close zoom">
+                        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                    <button class="lightbox-nav lightbox-nav-prev" onclick="event.stopPropagation(); prevImage(); updateLightbox();" aria-label="Previous">
+                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <img class="lightbox-image" id="lightbox-image" src="" alt="Zoomed view">
+                    <button class="lightbox-nav lightbox-nav-next" onclick="event.stopPropagation(); nextImage(); updateLightbox();" aria-label="Next">
+                        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+                    </button>
+                    <div class="lightbox-counter" id="lightbox-counter">1 / 4</div>
                 </div>
 
                 <!-- Right Side - Product Info (40%) -->
@@ -318,13 +341,157 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Image Gallery Script
+        // ==========================================
+        // Interactive Product Gallery
+        // ==========================================
+        
+        // Get all image sources from thumbnails
+        const galleryImages = Array.from(document.querySelectorAll('.thumbnail-item img')).map(img => img.src);
+        let currentIndex = 0;
+        let isTransitioning = false;
+
         function changeImage(imageSrc, thumbnailElement) {
-            document.getElementById('main-image').src = imageSrc;
+            if (isTransitioning) return;
+            
+            const mainImg = document.getElementById('main-image');
+            
+            // Update current index
+            currentIndex = galleryImages.indexOf(imageSrc);
+            if (currentIndex === -1) currentIndex = 0;
+
+            // Fade out animation
+            isTransitioning = true;
+            mainImg.classList.add('fade-transition');
+
+            setTimeout(() => {
+                mainImg.src = imageSrc;
+                updateActiveThumbnail(thumbnailElement);
+                
+                // Update counter if lightbox is open
+                const counter = document.getElementById('lightbox-counter');
+                if (counter) {
+                    counter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+                }
+
+                // Fade in
+                mainImg.classList.remove('fade-transition');
+                isTransitioning = false;
+            }, 250);
+        }
+
+        function updateActiveThumbnail(thumbnailElement) {
             document.querySelectorAll('.thumbnail-item').forEach(thumb => {
                 thumb.classList.remove('active');
             });
-            thumbnailElement.classList.add('active');
+            if (thumbnailElement) {
+                thumbnailElement.classList.add('active');
+            } else {
+                // Find thumbnail by current image
+                const thumbs = document.querySelectorAll('.thumbnail-item');
+                if (thumbs[currentIndex]) {
+                    thumbs[currentIndex].classList.add('active');
+                }
+            }
+        }
+
+        function prevImage() {
+            if (galleryImages.length === 0) return;
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+            const thumbnails = document.querySelectorAll('.thumbnail-item');
+            changeImage(galleryImages[currentIndex], thumbnails[currentIndex]);
+        }
+
+        function nextImage() {
+            if (galleryImages.length === 0) return;
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            const thumbnails = document.querySelectorAll('.thumbnail-item');
+            changeImage(galleryImages[currentIndex], thumbnails[currentIndex]);
+        }
+
+        // Hover on thumbnails - change main image on hover
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.thumbnail-item');
+            
+            thumbnails.forEach(function(thumb) {
+                thumb.addEventListener('mouseenter', function() {
+                    const img = this.querySelector('img');
+                    if (img) {
+                        const mainImg = document.getElementById('main-image');
+                        if (mainImg.src !== img.src) {
+                            changeImage(img.src, this);
+                        }
+                    }
+                });
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                const lightbox = document.getElementById('lightbox-overlay');
+                if (lightbox && lightbox.classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        prevImage();
+                        updateLightbox();
+                    } else if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        nextImage();
+                        updateLightbox();
+                    } else if (e.key === 'Escape') {
+                        e.preventDefault();
+                        closeLightbox();
+                    }
+                } else {
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        prevImage();
+                    } else if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        nextImage();
+                    }
+                }
+            });
+
+            // Click to zoom
+            const showcase = document.getElementById('main-showcase');
+            if (showcase) {
+                showcase.addEventListener('click', function(e) {
+                    // Don't open lightbox if clicking on nav arrows
+                    if (e.target.closest('.gallery-nav')) return;
+                    openLightbox();
+                });
+            }
+        });
+
+        // ==========================================
+        // Lightbox / Zoom
+        // ==========================================
+        
+        function openLightbox() {
+            const overlay = document.getElementById('lightbox-overlay');
+            const lightboxImg = document.getElementById('lightbox-image');
+            const mainImg = document.getElementById('main-image');
+            
+            lightboxImg.src = mainImg.src;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const lightboxImg = document.getElementById('lightbox-image');
+            const mainImg = document.getElementById('main-image');
+            const counter = document.getElementById('lightbox-counter');
+            
+            if (lightboxImg) lightboxImg.src = mainImg.src;
+            if (counter) counter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+        }
+
+        function closeLightbox(event) {
+            if (event && event.target !== event.currentTarget) return;
+            
+            const overlay = document.getElementById('lightbox-overlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
     </script>
 </body>
