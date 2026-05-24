@@ -225,8 +225,20 @@
             border-radius: 50%;
             filter: blur(100px);
         }
+        .nmt-hero-overlay {
+            background: rgba(246, 244, 239, 0.65);
+            backdrop-filter: blur(12px) saturate(120%);
+            -webkit-backdrop-filter: blur(12px) saturate(120%);
+            border: 1px solid rgba(224, 211, 178, 0.4);
+            border-radius: var(--radius-xl);
+            padding: 48px 56px;
+            max-width: 780px;
+            box-shadow: 0 8px 40px rgba(31, 29, 26, 0.12);
+            position: relative;
+            z-index: 1;
+            transform: translateX(-30%);
+        }
         .nmt-hero-content {
-            max-width: 800px;
             position: relative;
             z-index: 1;
         }
@@ -236,11 +248,11 @@
             font-weight: 700;
             line-height: 1.1;
             letter-spacing: -0.02em;
-            color: #ffffff;
+            color: var(--text-primary);
             margin: 0 0 16px 0;
         }
         .nmt-hero-content h1 .highlight {
-            color: #9fc85e;
+            color: var(--sage);
         }
         .nmt-hero-underline {
             height: 3px;
@@ -253,7 +265,7 @@
             font-family: var(--body-font);
             font-size: 19px;
             line-height: 1.7;
-            color: rgba(255, 255, 255, 0.85);
+            color: var(--text-secondary);
             max-width: 560px;
             margin: 0 0 36px;
         }
@@ -620,20 +632,22 @@
     <!-- Hero Section (Namture) -->
     <section class="nmt-hero-section nmt-animate">
         <div class="container">
-            <div class="nmt-hero-content">
-                <span class="nmt-badge" style="margin-bottom: 20px;">Công Nghệ Mới 2026</span>
-                <h1>Giải pháp Laser <span class="highlight">Công nghiệp</span> Toàn diện</h1>
-                <div class="nmt-hero-underline"></div>
-                <p>Nâng tầm hiệu suất sản xuất với công nghệ cắt, khắc và hàn laser độ chính xác cao. Độ bền tối đa, vận hành dễ dàng.</p>
-                <div class="nmt-hero-ctas">
-                    <a href="products.html" class="nmt-btn-primary">
-                        <span class="material-symbols-outlined" style="font-size: 20px;">explore</span>
-                        Khám Phá Sản Phẩm
-                    </a>
-                    <a href="contact.html" class="nmt-btn-secondary">
-                        <span class="material-symbols-outlined" style="font-size: 20px;">support</span>
-                        Liên Hệ Chuyên Gia
-                    </a>
+            <div class="nmt-hero-overlay">
+                <div class="nmt-hero-content">
+                    <span class="nmt-badge" style="margin-bottom: 20px;">Công Nghệ Mới 2026</span>
+                    <h1>Giải pháp Laser <span class="highlight">Công nghiệp</span> Toàn diện</h1>
+                    <div class="nmt-hero-underline"></div>
+                    <p>Nâng tầm hiệu suất sản xuất với công nghệ cắt, khắc và hàn laser độ chính xác cao. Độ bền tối đa, vận hành dễ dàng.</p>
+                    <div class="nmt-hero-ctas">
+                        <a href="products.html" class="nmt-btn-primary">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">explore</span>
+                            Khám Phá Sản Phẩm
+                        </a>
+                        <a href="contact.html" class="nmt-btn-secondary">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">support</span>
+                            Liên Hệ Chuyên Gia
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
