@@ -312,19 +312,22 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: var(--earth-card);
-            border: 1px solid var(--beige);
-            box-shadow: 0 4px 16px rgba(31, 29, 26, 0.12);
+            background: rgba(255, 255, 255, 0.92);
+            border: 2px solid var(--beige);
+            color: var(--text-secondary);
+            font-size: 22px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
-            color: var(--text-primary);
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(31, 29, 26, 0.1);
+            backdrop-filter: blur(4px);
+            padding: 0;
+            line-height: 1;
             opacity: 0;
             pointer-events: none;
         }
@@ -334,21 +337,38 @@
             pointer-events: auto;
         }
         .nav-btn:hover {
-            background: var(--sage);
-            color: #fff;
+            background: var(--earth-card);
             border-color: var(--sage);
+            color: var(--sage);
             box-shadow: 0 4px 16px var(--sage-glow);
             transform: translateY(-50%) scale(1.1);
         }
-        .nav-btn.prev { left: 12px; }
-        .nav-btn.next { right: 12px; }
+        .nav-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        .nav-btn.prev {
+            left: 12px;
+        }
+        .nav-btn.next {
+            right: 12px;
+        }
 
         /* ===== IMAGE FADE TRANSITION ===== */
         #main-image {
-            transition: opacity 0.35s ease;
+            transition: opacity 0.35s ease, transform 0.6s ease !important;
         }
         #main-image.fade-out {
-            opacity: 0.3;
+            opacity: 0;
+        }
+
+        /* ===== THUMBNAIL HOVER EFFECT ===== */
+        .nmt-thumb {
+            transition: all 0.25s ease;
+        }
+        .nmt-thumb:hover {
+            border-color: var(--sage) !important;
+            transform: scale(1.12) !important;
+            box-shadow: 0 4px 16px var(--sage-glow) !important;
         }
 
         /* Product Info */
@@ -1105,102 +1125,71 @@
 
     <script src="../js/main.js"></script>
     <script>
-        // ===== ENHANCED GALLERY SCRIPT =====
-        (function() {
-            'use strict';
-            const mainImg = document.getElementById('main-image');
-            const thumbs = document.querySelectorAll('.nmt-thumb');
-            const prevBtn = document.getElementById('gallery-prev');
-            const nextBtn = document.getElementById('gallery-next');
-            if (!mainImg || thumbs.length === 0) return;
+        // ===== GALLERY CONFIGURATION =====
+        const imageList = [
+            '../images/san-pham/may-cat-laser/fiber-f-series/1.jpg',
+            '../images/san-pham/may-cat-laser/fiber-f-series/2.jpg',
+            '../images/san-pham/may-cat-laser/fiber-f-series/3.jpg',
+            '../images/san-pham/may-cat-laser/fiber-f-series/4.jpg'
+        ];
+        let currentIndex = 0;
+        const mainImage = document.getElementById('main-image');
+        const thumbs = document.querySelectorAll('.nmt-thumb');
+        let fadeTimeout = null;
 
-            // Build image list from thumb data attributes
-            const images = [];
-            thumbs.forEach(function(t) {
-                var onclickAttr = t.getAttribute('onclick');
-                if (onclickAttr) {
-                    var match = onclickAttr.match(/changeImage\('([^']+)'/);
-                    if (match) images.push(match[1]);
-                }
-            });
-
-            var currentIndex = 0;
-
-            // Update active thumbnail
-            function setActive(idx) {
-                thumbs.forEach(function(t) { t.classList.remove('active'); });
-                if (thumbs[idx]) thumbs[idx].classList.add('active');
-            }
-
-            // Change image with fade effect
-            function switchImage(index) {
-                if (index < 0) index = images.length - 1;
-                if (index >= images.length) index = 0;
+        // ===== IMAGE SWITCH WITH FADE =====
+        function switchImage(index) {
+            if (index === currentIndex) return;
+            if (index < 0) index = imageList.length - 1;
+            if (index >= imageList.length) index = 0;
+            
+            // Fade out
+            mainImage.classList.add('fade-out');
+            
+            clearTimeout(fadeTimeout);
+            fadeTimeout = setTimeout(() => {
                 currentIndex = index;
-
-                // Fade out effect
-                mainImg.classList.add('fade-out');
-                setTimeout(function() {
-                    mainImg.src = images[currentIndex];
-                    setActive(currentIndex);
-                    mainImg.classList.remove('fade-out');
-                }, 200);
-            }
-
-            // === THUMBNAIL HOVER ===
-            thumbs.forEach(function(t, i) {
-                // Hover: đổi ảnh lớn tạm thời
-                t.addEventListener('mouseenter', function() {
-                    var src = images[i];
-                    if (src) {
-                        mainImg.src = src;
-                    }
+                mainImage.src = imageList[currentIndex];
+                
+                // Update active thumbnail
+                thumbs.forEach((t, i) => {
+                    t.classList.toggle('active', i === currentIndex);
                 });
+                
+                // Fade in
+                mainImage.classList.remove('fade-out');
+            }, 300);
+        }
+
+        // ===== CLICK ON THUMBNAIL =====
+        function changeImage(imageSrc, thumbEl) {
+            const idx = Array.from(thumbs).indexOf(thumbEl);
+            if (idx !== -1) switchImage(idx);
+        }
+
+        // ===== HOVER ON THUMBNAIL =====
+        thumbs.forEach((thumb, idx) => {
+            thumb.addEventListener('mouseenter', () => {
+                switchImage(idx);
             });
+        });
 
-            // === ARROW NAVIGATION ===
-            if (prevBtn) {
-                prevBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    switchImage(currentIndex - 1);
-                });
-            }
-            if (nextBtn) {
-                nextBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    switchImage(currentIndex + 1);
-                });
-            }
+        // ===== ARROW NAVIGATION =====
+        document.getElementById('gallery-prev').addEventListener('click', () => {
+            switchImage(currentIndex - 1);
+        });
+        document.getElementById('gallery-next').addEventListener('click', () => {
+            switchImage(currentIndex + 1);
+        });
 
-            // === KEYBOARD SUPPORT ===
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    switchImage(currentIndex - 1);
-                } else if (e.key === 'ArrowRight') {
-                    e.preventDefault();
-                    switchImage(currentIndex + 1);
-                }
-            });
+        // ===== KEYBOARD NAVIGATION =====
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') switchImage(currentIndex - 1);
+            if (e.key === 'ArrowRight') switchImage(currentIndex + 1);
+        });
 
-            // Override global changeImage to keep currentIndex synced
-            window.changeImage = function(imageSrc, thumbElement) {
-                var idx = images.indexOf(imageSrc);
-                if (idx !== -1) {
-                    currentIndex = idx;
-                    mainImg.src = images[currentIndex];
-                    setActive(currentIndex);
-                }
-            };
-
-            // Init active state
-            setActive(0);
-        })();
-
-        // Scroll Animation using IntersectionObserver
-        const nmtObserver = new IntersectionObserver((entries) => {
+        // ===== SCROLL ANIMATION =====
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -1209,7 +1198,7 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.nmt-animate, .nmt-animate-left, .nmt-animate-right').forEach(el => {
-            nmtObserver.observe(el);
+            observer.observe(el);
         });
     </script>
 </body>
