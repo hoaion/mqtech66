@@ -303,6 +303,67 @@
             border-radius: 50%;
         }
 
+        /* ===== GALLERY NAVIGATION ARROWS ===== */
+        .nmt-main-image {
+            position: relative;
+        }
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.92);
+            border: 2px solid var(--beige);
+            color: var(--text-secondary);
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(31, 29, 26, 0.1);
+            backdrop-filter: blur(4px);
+            padding: 0;
+            line-height: 1;
+        }
+        .nav-btn:hover {
+            background: var(--earth-card);
+            border-color: var(--sage);
+            color: var(--sage);
+            box-shadow: 0 4px 16px var(--sage-glow);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .nav-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        .nav-btn.prev {
+            left: 12px;
+        }
+        .nav-btn.next {
+            right: 12px;
+        }
+
+        /* ===== IMAGE FADE TRANSITION ===== */
+        #main-image {
+            transition: opacity 0.35s ease, transform 0.6s ease !important;
+        }
+        #main-image.fade-out {
+            opacity: 0;
+        }
+
+        /* ===== THUMBNAIL HOVER EFFECT ===== */
+        .nmt-thumb {
+            transition: all 0.25s ease;
+        }
+        .nmt-thumb:hover {
+            border-color: var(--sage) !important;
+            transform: scale(1.12) !important;
+            box-shadow: 0 4px 16px var(--sage-glow) !important;
+        }
+
         /* Product Info */
         .nmt-info {
             display: flex;
@@ -830,6 +891,8 @@
             <div class="nmt-gallery">
                 <div class="nmt-main-image" id="main-showcase">
                     <img src="images/san-pham/may-cat-laser/fiber-f-series/1.jpg" alt="Máy Cắt Laser Fiber F-Series" id="main-image">
+                    <button class="nav-btn prev" id="gallery-prev" aria-label="Ảnh trước">‹</button>
+                    <button class="nav-btn next" id="gallery-next" aria-label="Ảnh tiếp">›</button>
                 </div>
                 <div class="nmt-thumbnails">
                     <div class="nmt-thumb active" onclick="changeImage('images/san-pham/may-cat-laser/fiber-f-series/1.jpg', this)">
@@ -1055,16 +1118,70 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Image Gallery Script
-        function changeImage(imageSrc, thumbnailElement) {
-            document.getElementById('main-image').src = imageSrc;
-            document.querySelectorAll('.nmt-thumb').forEach(thumb => {
-                thumb.classList.remove('active');
-            });
-            thumbnailElement.classList.add('active');
+        // ===== GALLERY CONFIGURATION =====
+        const imageList = [
+            'images/san-pham/may-cat-laser/fiber-f-series/1.jpg',
+            'images/san-pham/may-cat-laser/fiber-f-series/2.jpg',
+            'images/san-pham/may-cat-laser/fiber-f-series/3.jpg',
+            'images/san-pham/may-cat-laser/fiber-f-series/4.jpg'
+        ];
+        let currentIndex = 0;
+        const mainImage = document.getElementById('main-image');
+        const thumbs = document.querySelectorAll('.nmt-thumb');
+        let fadeTimeout = null;
+
+        // ===== IMAGE SWITCH WITH FADE =====
+        function switchImage(index) {
+            if (index === currentIndex) return;
+            if (index < 0) index = imageList.length - 1;
+            if (index >= imageList.length) index = 0;
+            
+            // Fade out
+            mainImage.classList.add('fade-out');
+            
+            clearTimeout(fadeTimeout);
+            fadeTimeout = setTimeout(() => {
+                currentIndex = index;
+                mainImage.src = imageList[currentIndex];
+                
+                // Update active thumbnail
+                thumbs.forEach((t, i) => {
+                    t.classList.toggle('active', i === currentIndex);
+                });
+                
+                // Fade in
+                mainImage.classList.remove('fade-out');
+            }, 300);
         }
 
-        // Scroll Animation
+        // ===== CLICK ON THUMBNAIL =====
+        function changeImage(imageSrc, thumbEl) {
+            const idx = Array.from(thumbs).indexOf(thumbEl);
+            if (idx !== -1) switchImage(idx);
+        }
+
+        // ===== HOVER ON THUMBNAIL =====
+        thumbs.forEach((thumb, idx) => {
+            thumb.addEventListener('mouseenter', () => {
+                switchImage(idx);
+            });
+        });
+
+        // ===== ARROW NAVIGATION =====
+        document.getElementById('gallery-prev').addEventListener('click', () => {
+            switchImage(currentIndex - 1);
+        });
+        document.getElementById('gallery-next').addEventListener('click', () => {
+            switchImage(currentIndex + 1);
+        });
+
+        // ===== KEYBOARD NAVIGATION =====
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') switchImage(currentIndex - 1);
+            if (e.key === 'ArrowRight') switchImage(currentIndex + 1);
+        });
+
+        // ===== SCROLL ANIMATION =====
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
