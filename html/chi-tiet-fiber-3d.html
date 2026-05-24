@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Máy Khắc Laser UV 5W - LaserMQ | NAMTURE</title>
-    <meta name="description" content="Máy khắc laser UV 5W cho khắc siêu mịn trên nhựa, thủy tinh, gốm sứ và kim loại, bước sóng 355nm cho kết quả khắc lạnh không gây cháy.">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/fluent-ui.css">
+    <title>Máy Khắc Laser Fiber 3D - LaserMQ | NAMTURE</title>
+    <meta name="description" content="Máy khắc laser Fiber 3D với trục Z tự động cho khắc trên bề mặt cong, không đều và sản phẩm 3D, công suất 20W-50W.">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/fluent-ui.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <style>
@@ -57,6 +57,7 @@
         .nmt-thumb:hover { border-color: var(--sage); transform: scale(1.1); box-shadow: var(--shadow-hover); }
         .nmt-thumb.active { border-color: var(--sage-dark); box-shadow: 0 0 0 2px var(--sage-border); }
         .nmt-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
         /* ===== GALLERY NAVIGATION ARROWS ===== */
         .nmt-main-image {
             position: relative;
@@ -104,18 +105,19 @@
         #main-image.fade-out {
             opacity: 0.3;
         }
+
         .nmt-info { display: flex; flex-direction: column; gap: 28px; padding: 16px 0; }
-        .nmt-info-badge { display: inline-block; padding: 6px 18px; border-radius: 9999px; background: var(--beige-light); color: var(--sage-dark); font-family: var(--body-font); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--beige); width: fit-content; }
+        .nmt-info-badge { display: inline-block; padding: 6px 18px; border-radius: 9999px; background: var(--beige-light); color: var(--sage-dark); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--beige); width: fit-content; }
         .nmt-info h1 { font-family: var(--headline-font); font-size: 56px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--text-primary); margin: 0; }
         .nmt-info h1 .highlight { color: var(--sage); }
         .nmt-info-underline { height: 3px; width: 80px; background: linear-gradient(90deg,var(--sage),var(--beige)); border-radius: 9999px; }
-        .nmt-info-desc { font-family: var(--body-font); font-size: 17px; line-height: 1.7; color: var(--text-secondary); margin: 0; }
+        .nmt-info-desc { font-size: 17px; line-height: 1.7; color: var(--text-secondary); margin: 0; }
         .nmt-mini-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .nmt-mini-spec { background: var(--earth-card); border: 1px solid var(--beige); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px; transition: all 0.3s ease; box-shadow: var(--shadow-card); }
         .nmt-mini-spec:hover { border-color: var(--sage-border); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
         .nmt-mini-spec .material-symbols-outlined { color: var(--sage); font-size: 24px; font-variation-settings:'FILL'1; }
-        .nmt-mini-spec-label { font-family: var(--body-font); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); }
-        .nmt-mini-spec-value { font-family: var(--body-font); font-size: 15px; font-weight: 700; color: var(--text-primary); }
+        .nmt-mini-spec-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); }
+        .nmt-mini-spec-value { font-size: 15px; font-weight: 700; color: var(--text-primary); }
         .nmt-ctas { display: flex; gap: 14px; padding-top: 8px; }
 
         .nmt-advantages { padding: 96px 0; background: var(--earth-bg-warm); overflow: hidden; }
@@ -130,27 +132,26 @@
         .nmt-adv-text { display: flex; flex-direction: column; gap: 20px; }
         .nmt-adv-text .icon { font-size: 44px; color: var(--sage); font-variation-settings:'FILL'1; }
         .nmt-adv-text h3 { font-family: var(--headline-font); font-size: 32px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.2; }
-        .nmt-adv-text p { font-family: var(--body-font); font-size: 17px; line-height: 1.7; color: var(--text-secondary); margin: 0; }
+        .nmt-adv-text p { font-size: 17px; line-height: 1.7; color: var(--text-secondary); margin: 0; }
         .nmt-adv-text .feature-tag { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
         .nmt-adv-text .feature-tag .dot { width: 10px; height: 10px; background: var(--sage); border-radius: 50%; animation: nmtPulse 2s infinite; box-shadow: 0 0 8px var(--sage-glow); }
-        .nmt-adv-text .feature-tag span { font-family: var(--body-font); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage-dark); }
+        .nmt-adv-text .feature-tag span { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage-dark); }
         @keyframes nmtPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 
         .nmt-specs { max-width: 1440px; margin: 80px auto; padding: 0 80px; }
-        .nmt-specs-header { margin-bottom: 40px; }
         .nmt-specs-header h2 { font-family: var(--headline-font); font-size: 36px; font-weight: 700; color: var(--text-primary); margin: 0 0 8px 0; }
-        .nmt-specs-header p { font-family: var(--body-font); font-size: 16px; color: var(--text-secondary); margin: 0; }
+        .nmt-specs-header p { font-size: 16px; color: var(--text-secondary); margin: 0; }
         .nmt-divider { height: 3px; width: 64px; background: linear-gradient(90deg,var(--sage),var(--beige)); border-radius: 9999px; }
         .nmt-table-wrap { border: 1px solid var(--beige); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); background: var(--earth-card); }
         .nmt-table { width: 100%; border-collapse: collapse; text-align: left; }
         .nmt-table thead tr { background: var(--earth-bg-warm); border-bottom: 2px solid var(--sage-border); }
-        .nmt-table th { padding: 20px 28px; font-family: var(--body-font); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage-dark); }
-        .nmt-table tbody tr { border-bottom: 1px solid var(--beige); transition: background 0.25s ease; }
+        .nmt-table th { padding: 20px 28px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage-dark); }
+        .nmt-table tbody tr { border-bottom: 1px solid var(--beige); }
         .nmt-table tbody tr:last-child { border-bottom: none; }
         .nmt-table tbody tr:hover { background: var(--sage-light); }
         .nmt-table tbody tr:nth-child(even) { background: var(--earth-bg); }
         .nmt-table tbody tr:nth-child(even):hover { background: var(--sage-light); }
-        .nmt-table td { padding: 18px 28px; font-family: var(--body-font); font-size: 15px; }
+        .nmt-table td { padding: 18px 28px; font-size: 15px; }
         .nmt-table td:first-child { color: var(--text-secondary); font-weight: 600; width: 35%; }
         .nmt-table td:last-child { color: var(--text-primary); font-weight: 500; }
 
@@ -158,18 +159,18 @@
         .nmt-cta-card { background: linear-gradient(135deg,var(--earth-card) 0%,var(--earth-bg-warm) 100%); border: 1px solid var(--beige); border-radius: var(--radius-xl); padding: 64px 48px; text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow-card); }
         .nmt-cta-card .glow-1 { position: absolute; top: -80px; right: -80px; width: 240px; height: 240px; background: var(--sage-light); border-radius: 50%; filter: blur(80px); }
         .nmt-cta-card .glow-2 { position: absolute; bottom: -80px; left: -80px; width: 200px; height: 200px; background: var(--beige-light); border-radius: 50%; filter: blur(80px); }
-        .nmt-cta-card h2 { font-family: var(--headline-font); font-size: 42px; font-weight: 700; color: var(--text-primary); margin: 0 0 12px 0; position: relative; z-index: 1; }
-        .nmt-cta-card p { font-family: var(--body-font); font-size: 17px; line-height: 1.7; color: var(--text-secondary); max-width: 560px; margin: 0 auto 36px; position: relative; z-index: 1; }
+        .nmt-cta-card h2 { font-family: var(--headline-font); font-size: 42px; color: var(--text-primary); margin: 0 0 12px 0; position: relative; z-index: 1; }
+        .nmt-cta-card p { font-size: 17px; line-height: 1.7; color: var(--text-secondary); max-width: 560px; margin: 0 auto 36px; position: relative; z-index: 1; }
         .nmt-cta-btns { display: flex; gap: 20px; justify-content: center; position: relative; z-index: 1; }
 
-        .nmt-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg,var(--sage) 0%,var(--sage-dark) 100%); color: #fff !important; font-family: var(--body-font); font-weight: 600; padding: 16px 32px; border-radius: var(--radius-sm); text-decoration: none; transition: all 0.3s ease; box-shadow: var(--shadow-btn); }
+        .nmt-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg,var(--sage) 0%,var(--sage-dark) 100%); color: #fff !important; font-weight: 600; padding: 16px 32px; border-radius: var(--radius-sm); text-decoration: none; transition: all 0.3s ease; box-shadow: var(--shadow-btn); }
         .nmt-btn-primary:hover { box-shadow: 0 6px 20px var(--sage-glow); transform: translateY(-2px); color: #fff !important; }
-        .nmt-btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--sage-dark) !important; font-family: var(--body-font); font-weight: 600; padding: 16px 32px; border-radius: var(--radius-sm); border: 2px solid var(--sage-border); text-decoration: none; transition: all 0.3s ease; }
+        .nmt-btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--sage-dark) !important; font-weight: 600; padding: 16px 32px; border-radius: var(--radius-sm); border: 2px solid var(--sage-border); text-decoration: none; transition: all 0.3s ease; }
         .nmt-btn-secondary:hover { background: var(--sage-light); transform: translateY(-2px); color: var(--sage-dark) !important; }
 
         .nmt-section-title { text-align: center; margin-bottom: 48px; }
         .nmt-section-title h2 { font-family: var(--headline-font); font-size: 42px; color: var(--text-primary); margin: 0 0 12px 0; }
-        .nmt-section-title p { font-family: var(--body-font); font-size: 18px; color: var(--text-secondary); max-width: 520px; margin: 0 auto; }
+        .nmt-section-title p { font-size: 18px; color: var(--text-secondary); max-width: 520px; margin: 0 auto; }
         .nmt-section-title .divider { height: 3px; width: 80px; background: linear-gradient(90deg,var(--sage),var(--beige)); border-radius: 9999px; margin: 16px auto 0; }
 
         .nmt-animate { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
@@ -211,10 +212,10 @@
     <header class="mica-bg">
         <div class="container">
             <nav>
-                <a href="index.html" class="brand-container"><div class="mq-squircle-logo">MQ</div><span class="brand-text">MINH QUANG</span></a>
+                <a href="../index.html" class="brand-container"><div class="mq-squircle-logo">MQ</div><span class="brand-text">MINH QUANG</span></a>
                 <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
                 <div class="nav-links" id="nav-links">
-                    <a href="index.html">Trang Chủ</a>
+                    <a href="../index.html">Trang Chủ</a>
                     <div class="nav-item">
                         <a href="products.html">Sản Phẩm <span class="dropdown-arrow">▼</span></a>
                         <div class="mega-menu">
@@ -257,11 +258,9 @@
     <section style="padding: 20px 0; background-color: #ffffff;">
         <div class="container">
             <div style="display: flex; gap: 8px; align-items: center; color: #888; font-size: 0.9rem;">
-                <a href="index.html" style="color: #888;">Trang Chủ</a>
-                <span>/</span>
-                <a href="products.html" style="color: #888;">Sản Phẩm</a>
-                <span>/</span>
-                <span style="color: #1a1a1a; font-weight: 500;">Máy Khắc Laser UV 5W</span>
+                <a href="../index.html" style="color: #888;">Trang Chủ</a><span>/</span>
+                <a href="products.html" style="color: #888;">Sản Phẩm</a><span>/</span>
+                <span style="color: #1a1a1a; font-weight: 500;">Máy Khắc Laser Fiber 3D</span>
             </div>
         </div>
     </section>
@@ -270,27 +269,27 @@
         <div class="nmt-hero-grid">
             <div class="nmt-gallery">
                 <div class="nmt-main-image" id="main-showcase">
-                    <img src="images/san-pham/may-khac-laser/uv-5w/1.jpg" alt="Máy Khắc Laser UV 5W" id="main-image">
+                    <img src="../images/san-pham/may-khac-laser/fiber-3d/1.jpg" alt="Máy Khắc Laser Fiber 3D" id="main-image">
                     <button class="nav-btn prev" id="gallery-prev" aria-label="Ảnh trước">‹</button>
                     <button class="nav-btn next" id="gallery-next" aria-label="Ảnh tiếp">›</button>
                 </div>
                 <div class="nmt-thumbnails">
-                    <div class="nmt-thumb active" onclick="changeImage('images/san-pham/may-khac-laser/uv-5w/1.jpg',this)"><img src="images/san-pham/may-khac-laser/uv-5w/1.jpg" alt="View 1"></div>
-                    <div class="nmt-thumb" onclick="changeImage('images/san-pham/may-khac-laser/uv-5w/2.jpg',this)"><img src="images/san-pham/may-khac-laser/uv-5w/2.jpg" alt="View 2"></div>
-                    <div class="nmt-thumb" onclick="changeImage('images/san-pham/may-khac-laser/uv-5w/3.jpg',this)"><img src="images/san-pham/may-khac-laser/uv-5w/3.jpg" alt="View 3"></div>
-                    <div class="nmt-thumb" onclick="changeImage('images/san-pham/may-khac-laser/uv-5w/4.jpg',this)"><img src="images/san-pham/may-khac-laser/uv-5w/4.jpg" alt="View 4"></div>
+                    <div class="nmt-thumb active" onclick="changeImage('../images/san-pham/may-khac-laser/fiber-3d/1.jpg',this)"><img src="../images/san-pham/may-khac-laser/fiber-3d/1.jpg" alt="View 1"></div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-khac-laser/fiber-3d/2.jpg',this)"><img src="../images/san-pham/may-khac-laser/fiber-3d/2.jpg" alt="View 2"></div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-khac-laser/fiber-3d/3.jpg',this)"><img src="../images/san-pham/may-khac-laser/fiber-3d/3.jpg" alt="View 3"></div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-khac-laser/fiber-3d/4.jpg',this)"><img src="../images/san-pham/may-khac-laser/fiber-3d/4.jpg" alt="View 4"></div>
                 </div>
             </div>
             <div class="nmt-info">
-                <span class="nmt-info-badge">Máy Khắc Laser UV</span>
-                <h1>Máy Khắc Laser <span class="highlight">UV 5W</span></h1>
+                <span class="nmt-info-badge">Máy Khắc Laser Fiber 3D</span>
+                <h1>Máy Khắc Laser <span class="highlight">Fiber 3D</span></h1>
                 <div class="nmt-info-underline"></div>
-                <p class="nmt-info-desc">Công nghệ laser UV bước sóng 355nm khắc siêu mịn trên nhựa, thủy tinh, gốm sứ và kim loại. Khắc lạnh không gây cháy, phù hợp cho linh kiện điện tử và trang sức.</p>
+                <p class="nmt-info-desc">Công nghệ khắc laser Fiber 3D với trục Z tự động và camera định vị, cho phép khắc trên bề mặt cong, không đều và sản phẩm 3D đa dạng.</p>
                 <div class="nmt-mini-specs">
-                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">bolt</span><span class="nmt-mini-spec-label">Công Suất</span><span class="nmt-mini-spec-value">5W (UV)</span></div>
-                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">light</span><span class="nmt-mini-spec-label">Bước Sóng</span><span class="nmt-mini-spec-value">355nm</span></div>
-                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">straighten</span><span class="nmt-mini-spec-label">Độ Chính Xác</span><span class="nmt-mini-spec-value">±0.001mm</span></div>
-                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">ac_unit</span><span class="nmt-mini-spec-label">Khắc Lạnh</span><span class="nmt-mini-spec-value">Không gây cháy</span></div>
+                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">bolt</span><span class="nmt-mini-spec-label">Công Suất</span><span class="nmt-mini-spec-value">20W / 30W / 50W</span></div>
+                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">height</span><span class="nmt-mini-spec-label">Trục Z</span><span class="nmt-mini-spec-value">Tự động 300mm</span></div>
+                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">straighten</span><span class="nmt-mini-spec-label">Độ Chính Xác</span><span class="nmt-mini-spec-value">±0.002mm</span></div>
+                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">videocam</span><span class="nmt-mini-spec-label">Camera</span><span class="nmt-mini-spec-value">Định vị tự động</span></div>
                 </div>
                 <div class="nmt-ctas">
                     <a href="contact.html" class="nmt-btn-primary"><span class="material-symbols-outlined" style="font-size:20px;">support_agent</span> Nhận Báo Giá</a>
@@ -301,48 +300,48 @@
     </section>
 
     <section class="nmt-advantages">
-        <div class="nmt-section-title"><h2>Ưu Điểm Vượt Trội</h2><p>Khắc laser UV siêu mịn cho mọi bề mặt</p><div class="divider"></div></div>
+        <div class="nmt-section-title"><h2>Ưu Điểm Vượt Trội</h2><p>Khắc laser 3D trên mọi bề mặt phức tạp</p><div class="divider"></div></div>
         <div class="nmt-adv-blocks">
             <div class="nmt-adv-block nmt-animate-left">
-                <div class="nmt-adv-image-wrap"><div class="glow-bg"></div><img src="images/san-pham/may-khac-laser/uv-5w/2.jpg" alt="Khắc siêu mịn"></div>
+                <div class="nmt-adv-image-wrap"><div class="glow-bg"></div><img src="../images/san-pham/may-khac-laser/fiber-3d/2.jpg" alt="Khắc 3D thông minh"></div>
                 <div class="nmt-adv-text">
-                    <span class="material-symbols-outlined icon">auto_fix_high</span>
-                    <h3>Khắc Siêu Mịn - Công Nghệ Lạnh</h3>
-                    <p>Laser UV bước sóng 355nm cho phép khắc với độ chính xác ±0.001mm, tạo ra những chi tiết siêu nhỏ mà mắt thường khó nhìn thấy. Công nghệ khắc lạnh (cold marking) không gây cháy hay biến dạng bề mặt vật liệu, lý tưởng cho linh kiện điện tử nhạy cảm.</p>
-                    <p>Khắc được trên đa dạng vật liệu: nhựa, thủy tinh, gốm sứ, kim loại mạ, silicon, cao su và nhiều loại vật liệu khác mà laser CO2 không thể xử lý.</p>
-                    <div class="feature-tag"><div class="dot"></div><span>Độ Chính Xác ±0.001mm</span></div>
+                    <span class="material-symbols-outlined icon">3d_rotation</span>
+                    <h3>Công Nghệ Khắc 3D Thông Minh</h3>
+                    <p>Tích hợp trục Z servo tự động điều chỉnh khoảng cách tiêu cự khi khắc trên bề mặt cong, lồi, lõm và các sản phẩm có hình dạng phức tạp. Hệ thống quét 3D tự động đo bề mặt và tối ưu hóa đường khắc.</p>
+                    <p>Camera độ phân giải cao tích hợp sẵn giúp định vị và căn chỉnh vị trí khắc tự động, hỗ trợ nhận diện mã vạch và đọc dữ liệu từ database sản xuất.</p>
+                    <div class="feature-tag"><div class="dot"></div><span>Trục Z Tự Động 300mm</span></div>
                 </div>
             </div>
             <div class="nmt-adv-block reverse nmt-animate-right">
-                <div class="nmt-adv-image-wrap"><div class="glow-bg"></div><img src="images/san-pham/may-khac-laser/uv-5w/3.jpg" alt="Ứng dụng đa dạng"></div>
+                <div class="nmt-adv-image-wrap"><div class="glow-bg"></div><img src="../images/san-pham/may-khac-laser/fiber-3d/3.jpg" alt="Ứng dụng đa ngành"></div>
                 <div class="nmt-adv-text">
-                    <span class="material-symbols-outlined icon">category</span>
-                    <h3>Ứng Dụng Đa Dạng</h3>
-                    <p>Phù hợp cho khắc mã QR siêu nhỏ trên linh kiện điện tử, khắc logo trên trang sức và đồng hồ cao cấp, khắc số serial trên thiết bị y tế, khắc hoa văn trên thủy tinh và pha lê với độ sắc nét tuyệt đối.</p>
-                    <p>Tích hợp camera tự động định vị và căn chỉnh vị trí khắc chính xác. Phần mềm hỗ trợ đầy đủ các định dạng file thiết kế phổ biến (AI, DXF, PLT, BMP).</p>
-                    <div class="feature-tag"><div class="dot"></div><span>Đa Vật Liệu - Đa Ngành</span></div>
+                    <span class="material-symbols-outlined icon">precision_manufacturing</span>
+                    <h3>Đa Dạng Ứng Dụng Công Nghiệp</h3>
+                    <p>Khắc số serial, mã QR, logo trên khuôn mẫu, dụng cụ, linh kiện ô tô, thiết bị y tế và các sản phẩm công nghiệp có hình dạng phức tạp. Khả năng khắc sâu (deep engraving) trên kim loại tạo nhãn mác vĩnh viễn.</p>
+                    <p>Hệ thống quay 360° tùy chọn cho phép khắc xung quanh sản phẩm hình trụ như ống, trục, và các chi tiết tròn xoay.</p>
+                    <div class="feature-tag"><div class="dot"></div><span>Khắc Sâu + Quay 360°</span></div>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="nmt-specs nmt-animate">
-        <div class="nmt-specs-header"><h2>Thông Số Kỹ Thuật</h2><p>Chi tiết máy khắc laser UV 5W</p><div class="nmt-divider" style="margin-top:12px;"></div></div>
+        <div class="nmt-specs-header"><h2>Thông Số Kỹ Thuật</h2><p>Chi tiết máy khắc laser Fiber 3D</p><div class="nmt-divider" style="margin-top:12px;"></div></div>
         <div class="nmt-table-wrap">
             <table class="nmt-table">
                 <thead><tr><th>Đặc Tính</th><th>Giá Trị</th></tr></thead>
                 <tbody>
-                    <tr><td>Công suất laser</td><td>5W (UV)</td></tr>
-                    <tr><td>Bước sóng</td><td>355nm (Tia UV)</td></tr>
-                    <tr><td>Vùng khắc</td><td>110x110mm - 200x200mm</td></tr>
-                    <tr><td>Độ chính xác</td><td>±0.001mm</td></tr>
-                    <tr><td>Tốc độ khắc</td><td>Lên đến 8000mm/s</td></tr>
-                    <tr><td>Khoảng cách tiêu cự</td><td>F-Theta Lens 100mm / 160mm</td></tr>
-                    <tr><td>Vật liệu</td><td>Nhựa, Thủy tinh, Gốm sứ, Kim loại mạ, Silicon, Cao su</td></tr>
+                    <tr><td>Công suất laser</td><td>20W / 30W / 50W</td></tr>
+                    <tr><td>Loại Laser</td><td>Fiber (Bước sóng 1064nm)</td></tr>
+                    <tr><td>Vùng khắc</td><td>110x110mm - 300x300mm</td></tr>
+                    <tr><td>Hành trình trục Z</td><td>300mm (Tự động)</td></tr>
+                    <tr><td>Độ chính xác</td><td>±0.002mm</td></tr>
+                    <tr><td>Tốc độ khắc</td><td>Lên đến 12000mm/s</td></tr>
+                    <tr><td>Camera</td><td>Định vị tự động, nhận diện mã vạch</td></tr>
+                    <tr><td>Quét 3D</td><td>Có (Đo bề mặt tự động)</td></tr>
+                    <tr><td>Quay 360°</td><td>Tùy chọn (Cho sản phẩm hình trụ)</td></tr>
                     <tr><td>Làm mát</td><td>Làm mát không khí</td></tr>
                     <tr><td>Phần mềm</td><td>EZCAD / LightBurn</td></tr>
-                    <tr><td>Hỗ trợ file</td><td>AI, DXF, PLT, BMP, JPG, PNG</td></tr>
-                    <tr><td>Nguồn điện</td><td>220V / 1 pha / 50Hz</td></tr>
                     <tr><td>Bảo hành</td><td>12 tháng, hỗ trợ kỹ thuật trọn đời</td></tr>
                 </tbody>
             </table>
@@ -352,8 +351,8 @@
     <section class="nmt-cta-section nmt-animate">
         <div class="nmt-cta-card">
             <div class="glow-1"></div><div class="glow-2"></div>
-            <h2>Khám Phá Công Nghệ UV 5W</h2>
-            <p>Liên hệ với chuyên gia để được tư vấn giải pháp khắc laser UV phù hợp với sản phẩm và quy trình của bạn.</p>
+            <h2>Khắc 3D - Không Giới Hạn</h2>
+            <p>Liên hệ với chuyên gia để được tư vấn giải pháp khắc laser Fiber 3D phù hợp với sản phẩm và quy trình sản xuất của bạn.</p>
             <div class="nmt-cta-btns">
                 <a href="contact.html" class="nmt-btn-primary"><span class="material-symbols-outlined" style="font-size:20px;">mail</span> Gửi Yêu Cầu</a>
                 <a href="tel:1900xxxx" class="nmt-btn-secondary"><span class="material-symbols-outlined" style="font-size:20px;">call</span> Hotline: 1900 xxxx</a>
@@ -375,7 +374,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script>
         // ===== ENHANCED GALLERY SCRIPT =====
         (function() {
