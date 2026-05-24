@@ -3,12 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Máy Khắc Laser Fiber 3D - LaserMQ</title>
-    <meta name="description" content="Máy khắc laser fiber 3D công suất 20W-50W, khắc cong tự động với trục Z, phù hợp khắc kim loại và nhựa cứng.">
-    <link rel="stylesheet" href="css/fluent-ui.css?v=2.1">
-    <link rel="stylesheet" href="css/main.css?v=2.1">
-</head>
-<body class="product-detail-page">
+    <title>Máy Khắc Laser Fiber 3D - LaserMQ | NAMTURE</title>
+    <meta name="description" content="Máy khắc laser Fiber 3D với trục Z tự động cho khắc trên bề mặt cong, không đều và sản phẩm 3D, công suất 20W-50W.">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fluent-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --earth-bg: #f6f4ef; --earth-bg-warm: #ede9df; --earth-bg-light: #fbfaf7;
+            --earth-card: #ffffff; --earth-card-hover: #f9f7f3;
+            --sage: #88a34f; --sage-dark: #7a9247;
+            --sage-light: rgba(136,163,79,0.12); --sage-glow: rgba(136,163,79,0.2); --sage-border: rgba(136,163,79,0.25);
+            --beige: #e0d3b2; --beige-dark: #d4c4a0; --beige-light: rgba(224,211,178,0.3);
+            --gold: #d8ccae; --gold-dark: #c4b694;
+            --text-primary: #1f1d1a; --text-secondary: #5a5648; --text-tertiary: #8c887a;
+            --headline-font: 'Playfair Display', serif; --body-font: 'Inter', sans-serif;
+            --shadow-card: 0 2px 12px rgba(31,29,26,0.06);
+            --shadow-hover: 0 8px 24px rgba(31,29,26,0.1);
+            --shadow-btn: 0 4px 12px rgba(136,163,79,0.25);
+            --radius-sm: 4px; --radius-md: 8px; --radius-lg: 16px; --radius-xl: 24px;
+        }
+        body { background-color: var(--earth-bg) !important; color: var(--text-primary) !important; font-family: var(--body-font); }
+        header.mica-bg { background-color: rgba(246,244,239,0.88) !important; backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border-bottom: 1px solid var(--beige) !important; }
+        header .brand-text { color: var(--text-primary) !important; }
+        header .nav-links a { color: var(--text-secondary) !important; }
+        header .nav-links a:hover { color: var(--sage) !important; }
+        .mq-squircle-logo { background: linear-gradient(135deg,var(--sage) 0%,var(--sage-dark) 100%) !important; color: white !important; box-shadow: 0 4px 15px var(--sage-glow) !important; }
+        .mega-menu, .submenu { background-color: var(--earth-card) !important; border: 1px solid var(--beige) !important; }
+        .mega-menu-category span { color: var(--text-secondary) !important; }
+        .mega-menu-category:hover span { color: var(--sage) !important; }
+        .mega-menu-category:hover { background-color: var(--sage-light) !important; }
+        .submenu-item { color: var(--text-secondary) !important; }
+        .submenu-item:hover { background-color: var(--sage-light) !important; color: var(--sage) !important; }
+        section[style*="background-color: #ffffff"] { background-color: var(--earth-bg-warm) !important; border-bottom: 1px solid var(--beige) !important; }
+        section[style*="background-color: #ffffff"] a, section[style*="background-color: #ffffff"] span { color: var(--text-tertiary) !important; }
+        section[style*="background-color: #ffffff"] span:last-child { color: var(--sage-dark) !important; font-weight: 600; }
+        footer { background: var(--beige) !important; border-top: none !important; }
+        footer, footer * { color: var(--text-primary) !important; }
+        footer h4 { color: var(--sage-dark) !important; }
+        footer a:hover { color: var(--sage) !important; }
+        footer .brand-text { color: var(--text-primary) !important; }
+        .footer-bottom { border-top-color: rgba(31,29,26,0.1) !important; color: var(--text-tertiary) !important; }
+        .nmt-hero { padding: 60px 0; max-width: 1440px; margin: 0 auto; padding-left: 80px; padding-right: 80px; }
+        .nmt-hero-grid { display: grid; grid-template-columns: 6fr 4fr; gap: 64px; align-items: start; }
+        .nmt-gallery { display: flex; flex-direction: column; gap: 24px; }
+        .nmt-main-image { background: var(--earth-card); border: 1px solid var(--beige); border-radius: var(--radius-lg); overflow: hidden; padding: 16px; box-shadow: var(--shadow-card); transition: all 0.35s ease; }
+        .nmt-main-image:hover { box-shadow: var(--shadow-hover); }
+        .nmt-main-image img { width: 100%; aspect-ratio: 4/3; object-fit: contain; border-radius: 12px; background: var(--earth-bg); transition: transform 0.6s ease; }
+        .nmt-main-image:hover img { transform: scale(1.04); }
+        .nmt-thumbnails { display: flex; gap: 14px; }
+        .nmt-thumb { width: 82px; height: 82px; border-radius: 50%; border: 2px solid var(--beige); overflow: hidden; padding: 4px; background: var(--earth-card); cursor: pointer; transition: all 0.35s ease; box-shadow: var(--shadow-card); }
+        .nmt-thumb:hover { border-color: var(--sage); transform: scale(1.1); box-shadow: var(--shadow-hover); }
+        .nmt-thumb.active { border-color: var(--sage-dark); box-shadow: 0 0 0 2px var(--sage-border); }
+        .nmt-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .nmt-info { display: flex; flex-direction: column; gap: 28px; padding: 16px 0; }
+        .nmt-info-badge { display: inline-block; padding: 6px 18px; border-radius: 9999px; background: var(--beige-light); color: var(--sage-dark); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--beige); width: fit-content; }
+        .nmt-info h1 { font-family: var(--headline-font); font-size: 56px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--text-primary); margin: 0; }
+        .nmt-info h1 .highlight { color: var(--sage); }
+        .nmt-info-underline { height: 3px; width: 80px; background: linear-gradient(90deg,var(--sage),var(--beige)); border-radius: 9999px; }
+        .nmt-info-desc { font-size: 17px; line-height: 1.7; color: var(--text-secondary); margin: 0; }
+        .nmt-mini-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .nmt-mini-spec { background: var(--earth-card); border: 1px solid var(--beige); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px; transition: all 0.3s ease; box-shadow: var(--shadow-card); }
+        .nmt-mini-spec:hover { border-color: var(--sage-border); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+        .nmt-mini-spec .material-symbols-outlined { color: var(--sage); font-size: 24px; font-variation-settings:'FILL'1; }
+        .nmt-mini-spec-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); }
+        .nmt-mini-spec-value { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+        .nmt-ctas { display: flex; gap: 14px; padding-top: 8px; }
 
         .nmt-advantages { padding: 96px 0; background: var(--earth-bg-warm); overflow: hidden; }
         .nmt-adv-blocks { max-width: 1440px; margin: 0 auto; padding: 0 80px; display: flex; flex-direction: column; gap: 80px; }
@@ -155,95 +216,33 @@
         </div>
     </section>
 
-    <!-- Hero Section - 60/40 Split -->
-    <section class="product-hero">
-        <div class="container">
-            <div class="product-hero-grid">
-                
-                <!-- Left Side - Image Gallery (60%) -->
-                <div class="product-gallery-premium" id="product-gallery">
-                    <div class="main-showcase" id="main-showcase">
-                        <img src="images/san-pham/may-khac-laser/fiber-3d/1.jpg" alt="Máy Khắc Laser Fiber 3D" id="main-image">
-                        
-                        <!-- Navigation Arrows -->
-                        <button class="gallery-nav gallery-nav-prev" onclick="prevImage()" aria-label="Previous image">
-                            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-                        </button>
-                        <button class="gallery-nav gallery-nav-next" onclick="nextImage()" aria-label="Next image">
-                            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-                        </button>
-                    </div>
-                    <div class="thumbnail-strip">
-                        <div class="thumbnail-item active" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/1.jpg', this)">
-                            <img src="images/san-pham/may-khac-laser/fiber-3d/1.jpg" alt="View 1">
-                        </div>
-                        <div class="thumbnail-item" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/2.jpg', this)">
-                            <img src="images/san-pham/may-khac-laser/fiber-3d/2.jpg" alt="View 2">
-                        </div>
-                        <div class="thumbnail-item" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/3.jpg', this)">
-                            <img src="images/san-pham/may-khac-laser/fiber-3d/3.jpg" alt="View 3">
-                        </div>
-                        <div class="thumbnail-item" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/4.jpg', this)">
-                            <img src="images/san-pham/may-khac-laser/fiber-3d/4.jpg" alt="View 4">
-                        </div>
-                    </div>
+    <section class="nmt-hero nmt-animate">
+        <div class="nmt-hero-grid">
+            <div class="nmt-gallery">
+                <div class="nmt-main-image" id="main-showcase">
+                    <img src="images/san-pham/may-khac-laser/fiber-3d/1.jpg" alt="Máy Khắc Laser Fiber 3D" id="main-image">
                 </div>
-
-                <!-- Lightbox Modal -->
-                <div class="lightbox-overlay" id="lightbox-overlay" onclick="closeLightbox(event)">
-                    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close zoom">
-                        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    </button>
-                    <button class="lightbox-nav lightbox-nav-prev" onclick="event.stopPropagation(); prevImage(); updateLightbox();" aria-label="Previous">
-                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-                    </button>
-                    <img class="lightbox-image" id="lightbox-image" src="" alt="Zoomed view">
-                    <button class="lightbox-nav lightbox-nav-next" onclick="event.stopPropagation(); nextImage(); updateLightbox();" aria-label="Next">
-                        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-                    </button>
-                    <div class="lightbox-counter" id="lightbox-counter">1 / 4</div>
+                <div class="nmt-thumbnails">
+                    <div class="nmt-thumb active" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/1.jpg',this)"><img src="images/san-pham/may-khac-laser/fiber-3d/1.jpg" alt="View 1"></div>
+                    <div class="nmt-thumb" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/2.jpg',this)"><img src="images/san-pham/may-khac-laser/fiber-3d/2.jpg" alt="View 2"></div>
+                    <div class="nmt-thumb" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/3.jpg',this)"><img src="images/san-pham/may-khac-laser/fiber-3d/3.jpg" alt="View 3"></div>
+                    <div class="nmt-thumb" onclick="changeImage('images/san-pham/may-khac-laser/fiber-3d/4.jpg',this)"><img src="images/san-pham/may-khac-laser/fiber-3d/4.jpg" alt="View 4"></div>
                 </div>
-
-                <!-- Right Side - Product Info (40%) -->
-                <div class="product-info-premium">
-                    
-                    <!-- Category Badge -->
-                    <span class="product-category-badge">Máy Khắc Laser 3D</span>
-                    
-                    <!-- Product Title -->
-                    <h1 class="product-title-premium">Máy Khắc Laser Fiber 3D</h1>
-                    
-                    <!-- Value Proposition -->
-                    <p class="product-value-prop">
-                        Máy khắc laser fiber với khả năng khắc cong 3D tự động, tích hợp trục Z thông minh. Giải pháp hoàn hảo cho khắc kim loại và nhựa cứng.
-                    </p>
-
-                    <!-- Mini Tech Specs Grid -->
-                    <div class="mini-specs-grid">
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Công Suất</span>
-                            <span class="mini-spec-value">20W / 30W / 50W</span>
-                        </div>
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Vùng Làm Việc</span>
-                            <span class="mini-spec-value">110x110 - 300x300mm</span>
-                        </div>
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Khắc 3D</span>
-                            <span class="mini-spec-value">Trục Z tự động</span>
-                        </div>
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Độ Sâu Khắc</span>
-                            <span class="mini-spec-value">Lên đến 1mm</span>
-                        </div>
-                    </div>
-
-                    <!-- CTA Buttons -->
-                    <div class="cta-buttons">
-                        <a href="contact.html" class="btn-cta-primary">Nhận Báo Giá</a>
-                        <a href="catalog.html" class="btn-cta-secondary">Tải Catalog PDF</a>
-                    </div>
-
+            </div>
+            <div class="nmt-info">
+                <span class="nmt-info-badge">Máy Khắc Laser Fiber 3D</span>
+                <h1>Máy Khắc Laser <span class="highlight">Fiber 3D</span></h1>
+                <div class="nmt-info-underline"></div>
+                <p class="nmt-info-desc">Công nghệ khắc laser Fiber 3D với trục Z tự động và camera định vị, cho phép khắc trên bề mặt cong, không đều và sản phẩm 3D đa dạng.</p>
+                <div class="nmt-mini-specs">
+                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">bolt</span><span class="nmt-mini-spec-label">Công Suất</span><span class="nmt-mini-spec-value">20W / 30W / 50W</span></div>
+                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">height</span><span class="nmt-mini-spec-label">Trục Z</span><span class="nmt-mini-spec-value">Tự động 300mm</span></div>
+                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">straighten</span><span class="nmt-mini-spec-label">Độ Chính Xác</span><span class="nmt-mini-spec-value">±0.002mm</span></div>
+                    <div class="nmt-mini-spec"><span class="material-symbols-outlined">videocam</span><span class="nmt-mini-spec-label">Camera</span><span class="nmt-mini-spec-value">Định vị tự động</span></div>
+                </div>
+                <div class="nmt-ctas">
+                    <a href="contact.html" class="nmt-btn-primary"><span class="material-symbols-outlined" style="font-size:20px;">support_agent</span> Nhận Báo Giá</a>
+                    <a href="catalog.html" class="nmt-btn-secondary"><span class="material-symbols-outlined" style="font-size:20px;">download</span> Tải Catalog</a>
                 </div>
             </div>
         </div>
@@ -326,157 +325,10 @@
 
     <script src="js/main.js"></script>
     <script>
-        // ==========================================
-        // Interactive Product Gallery
-        // ==========================================
-        
-        // Get all image sources from thumbnails
-        const galleryImages = Array.from(document.querySelectorAll('.thumbnail-item img')).map(img => img.src);
-        let currentIndex = 0;
-        let isTransitioning = false;
-
-        function changeImage(imageSrc, thumbnailElement) {
-            if (isTransitioning) return;
-            
-            const mainImg = document.getElementById('main-image');
-            
-            // Update current index
-            currentIndex = galleryImages.indexOf(imageSrc);
-            if (currentIndex === -1) currentIndex = 0;
-
-            // Fade out animation
-            isTransitioning = true;
-            mainImg.classList.add('fade-transition');
-
-            setTimeout(() => {
-                mainImg.src = imageSrc;
-                updateActiveThumbnail(thumbnailElement);
-                
-                // Update counter if lightbox is open
-                const counter = document.getElementById('lightbox-counter');
-                if (counter) {
-                    counter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
-                }
-
-                // Fade in
-                mainImg.classList.remove('fade-transition');
-                isTransitioning = false;
-            }, 250);
-        }
-
-        function updateActiveThumbnail(thumbnailElement) {
-            document.querySelectorAll('.thumbnail-item').forEach(thumb => {
-                thumb.classList.remove('active');
-            });
-            if (thumbnailElement) {
-                thumbnailElement.classList.add('active');
-            } else {
-                // Find thumbnail by current image
-                const thumbs = document.querySelectorAll('.thumbnail-item');
-                if (thumbs[currentIndex]) {
-                    thumbs[currentIndex].classList.add('active');
-                }
-            }
-        }
-
-        function prevImage() {
-            if (galleryImages.length === 0) return;
-            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-            const thumbnails = document.querySelectorAll('.thumbnail-item');
-            changeImage(galleryImages[currentIndex], thumbnails[currentIndex]);
-        }
-
-        function nextImage() {
-            if (galleryImages.length === 0) return;
-            currentIndex = (currentIndex + 1) % galleryImages.length;
-            const thumbnails = document.querySelectorAll('.thumbnail-item');
-            changeImage(galleryImages[currentIndex], thumbnails[currentIndex]);
-        }
-
-        // Hover on thumbnails - change main image on hover
-        document.addEventListener('DOMContentLoaded', function() {
-            const thumbnails = document.querySelectorAll('.thumbnail-item');
-            
-            thumbnails.forEach(function(thumb) {
-                thumb.addEventListener('mouseenter', function() {
-                    const img = this.querySelector('img');
-                    if (img) {
-                        const mainImg = document.getElementById('main-image');
-                        if (mainImg.src !== img.src) {
-                            changeImage(img.src, this);
-                        }
-                    }
-                });
-            });
-
-            // Keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                const lightbox = document.getElementById('lightbox-overlay');
-                if (lightbox && lightbox.classList.contains('active')) {
-                    if (e.key === 'ArrowLeft') {
-                        e.preventDefault();
-                        prevImage();
-                        updateLightbox();
-                    } else if (e.key === 'ArrowRight') {
-                        e.preventDefault();
-                        nextImage();
-                        updateLightbox();
-                    } else if (e.key === 'Escape') {
-                        e.preventDefault();
-                        closeLightbox();
-                    }
-                } else {
-                    if (e.key === 'ArrowLeft') {
-                        e.preventDefault();
-                        prevImage();
-                    } else if (e.key === 'ArrowRight') {
-                        e.preventDefault();
-                        nextImage();
-                    }
-                }
-            });
-
-            // Click to zoom
-            const showcase = document.getElementById('main-showcase');
-            if (showcase) {
-                showcase.addEventListener('click', function(e) {
-                    // Don't open lightbox if clicking on nav arrows
-                    if (e.target.closest('.gallery-nav')) return;
-                    openLightbox();
-                });
-            }
-        });
-
-        // ==========================================
-        // Lightbox / Zoom
-        // ==========================================
-        
-        function openLightbox() {
-            const overlay = document.getElementById('lightbox-overlay');
-            const lightboxImg = document.getElementById('lightbox-image');
-            const mainImg = document.getElementById('main-image');
-            
-            lightboxImg.src = mainImg.src;
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            updateLightbox();
-        }
-
-        function updateLightbox() {
-            const lightboxImg = document.getElementById('lightbox-image');
-            const mainImg = document.getElementById('main-image');
-            const counter = document.getElementById('lightbox-counter');
-            
-            if (lightboxImg) lightboxImg.src = mainImg.src;
-            if (counter) counter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
-        }
-
-        function closeLightbox(event) {
-            if (event && event.target !== event.currentTarget) return;
-            
-            const overlay = document.getElementById('lightbox-overlay');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
+        function changeImage(imageSrc, thumb) {
+            document.getElementById('main-image').src = imageSrc;
+            document.querySelectorAll('.nmt-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
         }
         const nmtObserver = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });

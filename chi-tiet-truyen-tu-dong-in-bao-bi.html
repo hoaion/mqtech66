@@ -5,8 +5,724 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hệ Thống Khắc Laser Trên Băng Chuyền - LaserMQ | NAMTURE</title>
     <meta name="description" content="Hệ thống khắc laser tự động trên băng chuyền, khắc on-the-fly tốc độ cao lên đến 120m/phút, phù hợp cho ngành bao bì và in ấn.">
-    <link rel="stylesheet" href="css/fluent-ui.css?v=2.1">
-    <link rel="stylesheet" href="css/main.css?v=2.1">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fluent-ui.css">
+    
+    <!-- Namture-Inspired Design System -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== NAMTURE DESIGN SYSTEM ===== */
+        :root {
+            --earth-bg: #f6f4ef;
+            --earth-bg-warm: #ede9df;
+            --earth-bg-light: #fbfaf7;
+            --earth-card: #ffffff;
+            --earth-card-hover: #f9f7f3;
+            
+            --sage: #88a34f;
+            --sage-dark: #7a9247;
+            --sage-light: rgba(136, 163, 79, 0.12);
+            --sage-glow: rgba(136, 163, 79, 0.2);
+            --sage-border: rgba(136, 163, 79, 0.25);
+            
+            --beige: #e0d3b2;
+            --beige-dark: #d4c4a0;
+            --beige-light: rgba(224, 211, 178, 0.3);
+            --gold: #d8ccae;
+            --gold-dark: #c4b694;
+            
+            --text-primary: #1f1d1a;
+            --text-secondary: #5a5648;
+            --text-tertiary: #8c887a;
+            
+            --headline-font: 'Playfair Display', serif;
+            --body-font: 'Inter', sans-serif;
+            
+            --shadow-card: 0 2px 12px rgba(31, 29, 26, 0.06);
+            --shadow-hover: 0 8px 24px rgba(31, 29, 26, 0.1);
+            --shadow-btn: 0 4px 12px rgba(136, 163, 79, 0.25);
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        /* Warm Earth Overrides for existing page */
+        body {
+            background-color: var(--earth-bg) !important;
+            color: var(--text-primary) !important;
+            font-family: var(--body-font);
+        }
+
+        /* Header Warm */
+        header.mica-bg {
+            background-color: rgba(246, 244, 239, 0.88) !important;
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            border-bottom: 1px solid var(--beige) !important;
+        }
+        header .brand-text {
+            color: var(--text-primary) !important;
+        }
+        header .nav-links a {
+            color: var(--text-secondary) !important;
+        }
+        header .nav-links a:hover {
+            color: var(--sage) !important;
+        }
+
+        /* MQ Logo - Sage Green */
+        .mq-squircle-logo {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%) !important;
+            color: white !important;
+            box-shadow: 0 4px 15px var(--sage-glow) !important;
+        }
+
+        /* Dropdown / Mega Menu Warm */
+        .mega-menu, .submenu {
+            background-color: var(--earth-card) !important;
+            border: 1px solid var(--beige) !important;
+        }
+        .mega-menu-category span {
+            color: var(--text-secondary) !important;
+        }
+        .mega-menu-category:hover span {
+            color: var(--sage) !important;
+        }
+        .mega-menu-category:hover {
+            background-color: var(--sage-light) !important;
+        }
+        .submenu-item {
+            color: var(--text-secondary) !important;
+        }
+        .submenu-item:hover {
+            background-color: var(--sage-light) !important;
+            color: var(--sage) !important;
+        }
+
+        /* Breadcrumb Warm */
+        section[style*="background-color: #ffffff"] {
+            background-color: var(--earth-bg-warm) !important;
+            border-bottom: 1px solid var(--beige) !important;
+        }
+        section[style*="background-color: #ffffff"] a,
+        section[style*="background-color: #ffffff"] span {
+            color: var(--text-tertiary) !important;
+        }
+        section[style*="background-color: #ffffff"] span:last-child {
+            color: var(--sage-dark) !important;
+            font-weight: 600;
+        }
+
+        /* ===== NAMTURE COMPONENTS ===== */
+        .nmt-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+            border-color: var(--sage-border);
+        }
+        .nmt-card .card-top-glow {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--sage), transparent);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+        .nmt-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            background: var(--sage-light);
+            color: var(--sage-dark);
+            font-family: var(--body-font);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1px solid var(--sage-border);
+            width: fit-content;
+        }
+        .nmt-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+            color: #fff !important;
+            font-family: var(--body-font);
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-btn);
+        }
+        .nmt-btn-primary:hover {
+            box-shadow: 0 6px 20px var(--sage-glow);
+            transform: translateY(-2px);
+            color: #fff !important;
+        }
+        .nmt-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--sage-dark) !important;
+            font-family: var(--body-font);
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--sage-border);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .nmt-btn-secondary:hover {
+            background: var(--sage-light);
+            transform: translateY(-2px);
+            color: var(--sage-dark) !important;
+        }
+        .nmt-section-title {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .nmt-section-title h2 {
+            font-family: var(--headline-font);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+        .nmt-section-title p {
+            font-family: var(--body-font);
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .nmt-section-title .divider {
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, var(--sage), var(--beige));
+            border-radius: 9999px;
+            margin: 16px auto 0;
+        }
+        .nmt-divider {
+            height: 3px;
+            width: 64px;
+            background: linear-gradient(90deg, var(--sage), var(--beige));
+            border-radius: 9999px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .nmt-hero {
+            padding: 60px 0;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .nmt-hero-grid {
+            display: grid;
+            grid-template-columns: 6fr 4fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        /* Image Gallery */
+        .nmt-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .nmt-main-image {
+            position: relative;
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            padding: 16px;
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-main-image:hover {
+            box-shadow: var(--shadow-hover);
+        }
+        .nmt-main-image img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: contain;
+            border-radius: 12px;
+            background: var(--earth-bg);
+            transition: transform 0.6s ease;
+        }
+        .nmt-main-image:hover img {
+            transform: scale(1.04);
+        }
+        .nmt-thumbnails {
+            display: flex;
+            gap: 14px;
+            justify-content: flex-start;
+        }
+        .nmt-thumb {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            overflow: hidden;
+            padding: 4px;
+            background: var(--earth-card);
+            border-color: var(--beige);
+            cursor: pointer;
+            transition: all 0.35s ease;
+            box-shadow: var(--shadow-card);
+        }
+        .nmt-thumb:hover {
+            border-color: var(--sage);
+            transform: scale(1.1);
+            box-shadow: var(--shadow-hover);
+        }
+        .nmt-thumb.active {
+            border-color: var(--sage-dark);
+            box-shadow: 0 0 0 2px var(--sage-border);
+        }
+        .nmt-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Product Info */
+        .nmt-info {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            padding: 16px 0;
+        }
+        .nmt-info-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            background: var(--beige-light);
+            color: var(--sage-dark);
+            font-family: var(--body-font);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1px solid var(--beige);
+            width: fit-content;
+        }
+        .nmt-info h1 {
+            font-family: var(--headline-font);
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        .nmt-info h1 .highlight {
+            color: var(--sage);
+        }
+        .nmt-info-underline {
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(90deg, var(--sage), var(--beige));
+            border-radius: 9999px;
+        }
+        .nmt-info-desc {
+            font-family: var(--body-font);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .nmt-mini-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .nmt-mini-spec {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-card);
+        }
+        .nmt-mini-spec:hover {
+            border-color: var(--sage-border);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+        .nmt-mini-spec .material-symbols-outlined {
+            color: var(--sage);
+            font-size: 24px;
+            font-variation-settings: 'FILL' 1;
+        }
+        .nmt-mini-spec-label {
+            font-family: var(--body-font);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+        .nmt-mini-spec-value {
+            font-family: var(--body-font);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .nmt-ctas {
+            display: flex;
+            gap: 14px;
+            padding-top: 8px;
+        }
+
+        /* ===== ADVANTAGES SECTION ===== */
+        .nmt-advantages {
+            padding: 96px 0;
+            background: var(--earth-bg-warm);
+            overflow: hidden;
+        }
+        .nmt-adv-blocks {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+        .nmt-adv-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .nmt-adv-block.reverse .nmt-adv-image {
+            order: 2;
+        }
+        .nmt-adv-block.reverse .nmt-adv-text {
+            order: 1;
+        }
+        .nmt-adv-image-wrap {
+            position: relative;
+        }
+        .nmt-adv-image-wrap .glow-bg {
+            position: absolute;
+            inset: -16px;
+            background: var(--sage-light);
+            border-radius: var(--radius-lg);
+            filter: blur(40px);
+            transition: all 0.4s ease;
+        }
+        .nmt-adv-image-wrap:hover .glow-bg {
+            background: var(--sage-glow);
+        }
+        .nmt-adv-image-wrap img {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: contain;
+            border-radius: var(--radius-lg);
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            padding: 12px;
+            box-shadow: var(--shadow-card);
+        }
+        .nmt-adv-text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .nmt-adv-text .icon {
+            font-size: 44px;
+            color: var(--sage);
+            font-variation-settings: 'FILL' 1;
+        }
+        .nmt-adv-text h3 {
+            font-family: var(--headline-font);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.2;
+        }
+        .nmt-adv-text p {
+            font-family: var(--body-font);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .nmt-adv-text .feature-tag {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        .nmt-adv-text .feature-tag .dot {
+            width: 10px;
+            height: 10px;
+            background: var(--sage);
+            border-radius: 50%;
+            animation: nmtPulse 2s infinite;
+            box-shadow: 0 0 8px var(--sage-glow);
+        }
+        .nmt-adv-text .feature-tag span {
+            font-family: var(--body-font);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--sage-dark);
+        }
+        @keyframes nmtPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ===== SPECS TABLE ===== */
+        .nmt-specs {
+            max-width: 1440px;
+            margin: 80px auto;
+            padding: 0 80px;
+        }
+        .nmt-specs-header {
+            margin-bottom: 40px;
+        }
+        .nmt-specs-header h2 {
+            font-family: var(--headline-font);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+        }
+        .nmt-specs-header p {
+            font-family: var(--body-font);
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .nmt-table-wrap {
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            background: var(--earth-card);
+        }
+        .nmt-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .nmt-table thead tr {
+            background: var(--earth-bg-warm);
+            border-bottom: 2px solid var(--sage-border);
+        }
+        .nmt-table th {
+            padding: 20px 28px;
+            font-family: var(--body-font);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--sage-dark);
+        }
+        .nmt-table tbody tr {
+            border-bottom: 1px solid var(--beige);
+            transition: background 0.25s ease;
+        }
+        .nmt-table tbody tr:last-child {
+            border-bottom: none;
+        }
+        .nmt-table tbody tr:hover {
+            background: var(--sage-light);
+        }
+        .nmt-table tbody tr:nth-child(even) {
+            background: var(--earth-bg);
+        }
+        .nmt-table tbody tr:nth-child(even):hover {
+            background: var(--sage-light);
+        }
+        .nmt-table td {
+            padding: 18px 28px;
+            font-family: var(--body-font);
+            font-size: 15px;
+        }
+        .nmt-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 600;
+            width: 35%;
+        }
+        .nmt-table td:last-child {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .nmt-cta-section {
+            max-width: 1440px;
+            margin: 0 auto 80px;
+            padding: 0 80px;
+        }
+        .nmt-cta-card {
+            background: linear-gradient(135deg, var(--earth-card) 0%, var(--earth-bg-warm) 100%);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-xl);
+            padding: 64px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+        .nmt-cta-card .glow-1 {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 240px;
+            height: 240px;
+            background: var(--sage-light);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+        .nmt-cta-card .glow-2 {
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 200px;
+            height: 200px;
+            background: var(--beige-light);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+        .nmt-cta-card h2 {
+            font-family: var(--headline-font);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .nmt-cta-card p {
+            font-family: var(--body-font);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto 36px;
+            position: relative;
+            z-index: 1;
+        }
+        .nmt-cta-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== FOOTER OVERRIDES ===== */
+        footer {
+            background: var(--beige) !important;
+            border-top: none !important;
+        }
+        footer, footer * {
+            color: var(--text-primary) !important;
+        }
+        footer h4 {
+            color: var(--sage-dark) !important;
+        }
+        footer a:hover {
+            color: var(--sage) !important;
+        }
+        footer .brand-text {
+            color: var(--text-primary) !important;
+        }
+        .footer-bottom {
+            border-top-color: rgba(31, 29, 26, 0.1) !important;
+            color: var(--text-tertiary) !important;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .nmt-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .nmt-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nmt-animate-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s ease;
+        }
+        .nmt-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .nmt-animate-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s ease;
+        }
+        .nmt-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .nmt-hero { padding-left: 40px; padding-right: 40px; }
+            .nmt-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .nmt-info h1 { font-size: 42px; }
+            .nmt-adv-blocks { padding: 0 40px; }
+            .nmt-adv-block { grid-template-columns: 1fr; gap: 40px; }
+            .nmt-adv-block.reverse .nmt-adv-image { order: 1; }
+            .nmt-adv-block.reverse .nmt-adv-text { order: 2; }
+            .nmt-specs { padding: 0 40px; }
+            .nmt-cta-section { padding: 0 40px; }
+        }
+        @media (max-width: 768px) {
+            .nmt-hero { padding-left: 20px; padding-right: 20px; }
+            .nmt-hero-grid { gap: 32px; }
+            .nmt-info h1 { font-size: 34px; }
+            .nmt-mini-specs { grid-template-columns: 1fr; }
+            .nmt-ctas { flex-direction: column; }
+            .nmt-adv-blocks { padding: 0 20px; gap: 48px; }
+            .nmt-adv-block { gap: 32px; }
+            .nmt-adv-text h3 { font-size: 26px; }
+            .nmt-section-title h2 { font-size: 32px; }
+            .nmt-cta-card { padding: 40px 24px; }
+            .nmt-cta-card h2 { font-size: 30px; }
+            .nmt-cta-btns { flex-direction: column; align-items: center; }
+            .nmt-specs { padding: 0 20px; }
+            .nmt-cta-section { padding: 0 20px; }
+            .nmt-table th, .nmt-table td { padding: 14px 18px; }
+            .nmt-thumbnails { gap: 10px; }
+            .nmt-thumb { width: 64px; height: 64px; }
+            .nmt-info-underline { width: 60px; }
+        }
+    </style>
 </head>
 <body class="product-detail-page">
 
@@ -107,23 +823,17 @@
         </div>
     </section>
 
-    <!-- Hero Section - 60/40 Split -->
-    <section class="product-hero">
-        <div class="container">
-            <div class="product-hero-grid">
-                
-                <!-- Left Side - Image Gallery (60%) -->
-                <div class="product-gallery-premium" id="product-gallery">
-                    <div class="main-showcase" id="main-showcase">
-                        <img src="images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/1.jpg" alt="Hệ Thống Khắc Laser" id="main-image">
-                        
-                        <!-- Navigation Arrows -->
-                        <button class="gallery-nav gallery-nav-prev" onclick="prevImage()" aria-label="Previous image">
-                            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-                        </button>
-                        <button class="gallery-nav gallery-nav-next" onclick="nextImage()" aria-label="Next image">
-                            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-                        </button>
+    <!-- ===== NAMTURE HERO SECTION ===== -->
+    <section class="nmt-hero nmt-animate">
+        <div class="nmt-hero-grid">
+            <!-- Left: Image Gallery (60%) -->
+            <div class="nmt-gallery">
+                <div class="nmt-main-image" id="main-showcase">
+                    <img src="images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/1.jpg" alt="Hệ Thống Khắc Laser Trên Băng Chuyền" id="main-image">
+                </div>
+                <div class="nmt-thumbnails">
+                    <div class="nmt-thumb active" onclick="changeImage('images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/1.jpg', this)">
+                        <img src="images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/1.jpg" alt="View 1">
                     </div>
                     <div class="nmt-thumb" onclick="changeImage('images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/2.jpg', this)">
                         <img src="images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/2.jpg" alt="View 2">
@@ -169,61 +879,15 @@
                     </div>
                 </div>
 
-                <!-- Lightbox Modal -->
-                <div class="lightbox-overlay" id="lightbox-overlay" onclick="closeLightbox(event)">
-                    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close zoom">
-                        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    </button>
-                    <button class="lightbox-nav lightbox-nav-prev" onclick="event.stopPropagation(); prevImage(); updateLightbox();" aria-label="Previous">
-                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-                    </button>
-                    <img class="lightbox-image" id="lightbox-image" src="" alt="Zoomed view">
-                    <button class="lightbox-nav lightbox-nav-next" onclick="event.stopPropagation(); nextImage(); updateLightbox();" aria-label="Next">
-                        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
-                    </button>
-                    <div class="lightbox-counter" id="lightbox-counter">1 / 4</div>
-                </div>
-
-                <!-- Right Side - Product Info (40%) -->
-                <div class="product-info-premium">
-                    
-                    <!-- Category Badge -->
-                    <span class="product-category-badge">Dự Án Tích Hợp</span>
-                    
-                    <!-- Product Title -->
-                    <h1 class="product-title-premium">Hệ Thống Khắc Laser Trên Băng Chuyền</h1>
-                    
-                    <!-- Value Proposition -->
-                    <p class="product-value-prop">
-                        Giải pháp khắc laser on-the-fly trên băng chuyền di chuyển liên tục, tốc độ cao lên đến 120m/phút. Hoàn hảo cho ngành bao bì, in ấn và sản xuất hàng loạt.
-                    </p>
-
-                    <!-- Mini Tech Specs Grid -->
-                    <div class="mini-specs-grid">
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Công Suất</span>
-                            <span class="mini-spec-value">30W / 50W / 100W</span>
-                        </div>
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Tốc Độ Băng Chuyền</span>
-                            <span class="mini-spec-value">Lên đến 120m/phút</span>
-                        </div>
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Khắc On-the-fly</span>
-                            <span class="mini-spec-value">Có (khi di chuyển)</span>
-                        </div>
-                        <div class="mini-spec-item">
-                            <span class="mini-spec-label">Độ Chính Xác</span>
-                            <span class="mini-spec-value">±0.02mm</span>
-                        </div>
-                    </div>
-
-                    <!-- CTA Buttons -->
-                    <div class="cta-buttons">
-                        <a href="contact.html" class="btn-cta-primary">Nhận Tư Vấn</a>
-                        <a href="catalog.html" class="btn-cta-secondary">Tải Catalog PDF</a>
-                    </div>
-
+                <div class="nmt-ctas">
+                    <a href="contact.html" class="nmt-btn-primary">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">support_agent</span>
+                        Nhận Tư Vấn
+                    </a>
+                    <a href="catalog.html" class="nmt-btn-secondary">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">download</span>
+                        Tải Catalog
+                    </a>
                 </div>
             </div>
         </div>
@@ -402,157 +1066,13 @@
 
     <script src="js/main.js"></script>
     <script>
-        // ==========================================
-        // Interactive Product Gallery
-        // ==========================================
-        
-        // Get all image sources from thumbnails
-        const galleryImages = Array.from(document.querySelectorAll('.thumbnail-item img')).map(img => img.src);
-        let currentIndex = 0;
-        let isTransitioning = false;
-
+        // Image Gallery Script
         function changeImage(imageSrc, thumbnailElement) {
-            if (isTransitioning) return;
-            
-            const mainImg = document.getElementById('main-image');
-            
-            // Update current index
-            currentIndex = galleryImages.indexOf(imageSrc);
-            if (currentIndex === -1) currentIndex = 0;
-
-            // Fade out animation
-            isTransitioning = true;
-            mainImg.classList.add('fade-transition');
-
-            setTimeout(() => {
-                mainImg.src = imageSrc;
-                updateActiveThumbnail(thumbnailElement);
-                
-                // Update counter if lightbox is open
-                const counter = document.getElementById('lightbox-counter');
-                if (counter) {
-                    counter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
-                }
-
-                // Fade in
-                mainImg.classList.remove('fade-transition');
-                isTransitioning = false;
-            }, 250);
-        }
-
-        function updateActiveThumbnail(thumbnailElement) {
-            document.querySelectorAll('.thumbnail-item').forEach(thumb => {
+            document.getElementById('main-image').src = imageSrc;
+            document.querySelectorAll('.nmt-thumb').forEach(thumb => {
                 thumb.classList.remove('active');
             });
-            if (thumbnailElement) {
-                thumbnailElement.classList.add('active');
-            } else {
-                // Find thumbnail by current image
-                const thumbs = document.querySelectorAll('.thumbnail-item');
-                if (thumbs[currentIndex]) {
-                    thumbs[currentIndex].classList.add('active');
-                }
-            }
-        }
-
-        function prevImage() {
-            if (galleryImages.length === 0) return;
-            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-            const thumbnails = document.querySelectorAll('.thumbnail-item');
-            changeImage(galleryImages[currentIndex], thumbnails[currentIndex]);
-        }
-
-        function nextImage() {
-            if (galleryImages.length === 0) return;
-            currentIndex = (currentIndex + 1) % galleryImages.length;
-            const thumbnails = document.querySelectorAll('.thumbnail-item');
-            changeImage(galleryImages[currentIndex], thumbnails[currentIndex]);
-        }
-
-        // Hover on thumbnails - change main image on hover
-        document.addEventListener('DOMContentLoaded', function() {
-            const thumbnails = document.querySelectorAll('.thumbnail-item');
-            
-            thumbnails.forEach(function(thumb) {
-                thumb.addEventListener('mouseenter', function() {
-                    const img = this.querySelector('img');
-                    if (img) {
-                        const mainImg = document.getElementById('main-image');
-                        if (mainImg.src !== img.src) {
-                            changeImage(img.src, this);
-                        }
-                    }
-                });
-            });
-
-            // Keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                const lightbox = document.getElementById('lightbox-overlay');
-                if (lightbox && lightbox.classList.contains('active')) {
-                    if (e.key === 'ArrowLeft') {
-                        e.preventDefault();
-                        prevImage();
-                        updateLightbox();
-                    } else if (e.key === 'ArrowRight') {
-                        e.preventDefault();
-                        nextImage();
-                        updateLightbox();
-                    } else if (e.key === 'Escape') {
-                        e.preventDefault();
-                        closeLightbox();
-                    }
-                } else {
-                    if (e.key === 'ArrowLeft') {
-                        e.preventDefault();
-                        prevImage();
-                    } else if (e.key === 'ArrowRight') {
-                        e.preventDefault();
-                        nextImage();
-                    }
-                }
-            });
-
-            // Click to zoom
-            const showcase = document.getElementById('main-showcase');
-            if (showcase) {
-                showcase.addEventListener('click', function(e) {
-                    // Don't open lightbox if clicking on nav arrows
-                    if (e.target.closest('.gallery-nav')) return;
-                    openLightbox();
-                });
-            }
-        });
-
-        // ==========================================
-        // Lightbox / Zoom
-        // ==========================================
-        
-        function openLightbox() {
-            const overlay = document.getElementById('lightbox-overlay');
-            const lightboxImg = document.getElementById('lightbox-image');
-            const mainImg = document.getElementById('main-image');
-            
-            lightboxImg.src = mainImg.src;
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            updateLightbox();
-        }
-
-        function updateLightbox() {
-            const lightboxImg = document.getElementById('lightbox-image');
-            const mainImg = document.getElementById('main-image');
-            const counter = document.getElementById('lightbox-counter');
-            
-            if (lightboxImg) lightboxImg.src = mainImg.src;
-            if (counter) counter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
-        }
-
-        function closeLightbox(event) {
-            if (event && event.target !== event.currentTarget) return;
-            
-            const overlay = document.getElementById('lightbox-overlay');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
+            thumbnailElement.classList.add('active');
         }
 
         // Scroll Animation using IntersectionObserver
