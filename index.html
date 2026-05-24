@@ -225,6 +225,13 @@
             border-radius: 50%;
             filter: blur(100px);
         }
+        .nmt-hero-container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
         .nmt-hero-overlay {
             background: rgba(246, 244, 239, 0.65);
             backdrop-filter: blur(12px) saturate(120%);
@@ -232,11 +239,22 @@
             border: 1px solid rgba(224, 211, 178, 0.4);
             border-radius: var(--radius-xl);
             padding: 48px 56px;
-            max-width: 780px;
+            max-width: 650px;
+            flex: 1 1 auto;
             box-shadow: 0 8px 40px rgba(31, 29, 26, 0.12);
-            position: relative;
-            z-index: 1;
-            transform: translateX(-30%);
+        }
+        .nmt-hero-image {
+            flex: 0 0 auto;
+            max-width: 520px;
+            display: block;
+        }
+        .nmt-hero-image img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 8px 32px rgba(31, 29, 26, 0.15);
         }
         .nmt-hero-content {
             position: relative;
@@ -527,18 +545,58 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .nmt-hero-content h1 { font-size: 48px; }
+            .nmt-hero-image { max-width: 400px; }
             .nmt-features-grid { grid-template-columns: repeat(2, 1fr); }
             .nmt-products-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
-            .nmt-hero-section { padding: 100px 0 60px; }
-            .nmt-hero-content h1 { font-size: 36px; }
-            .nmt-hero-ctas { flex-direction: column; }
+            /* Hero: switch from row to column */
+            .nmt-hero-section { padding: 80px 0 40px; }
+            .nmt-hero-container {
+                flex-direction: column;
+                gap: 32px;
+            }
+            .nmt-hero-overlay {
+                padding: 32px 24px;
+                max-width: 100%;
+                width: 100%;
+            }
+            .nmt-hero-content h1 {
+                font-size: 32px;
+                max-width: 100%;
+                word-break: break-word;
+            }
+            .nmt-hero-content p {
+                font-size: 16px;
+                max-width: 100%;
+            }
+            .nmt-hero-ctas {
+                flex-direction: column;
+                width: 100%;
+                gap: 12px;
+            }
+            .nmt-btn-primary, .nmt-btn-secondary {
+                width: 100%;
+                text-align: center;
+                padding: 14px 24px;
+                white-space: normal;
+            }
+            .nmt-hero-image {
+                max-width: 100%;
+                width: 100%;
+            }
+            .nmt-hero-image img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+            /* Grid adjustments */
             .nmt-features-grid { grid-template-columns: 1fr; }
             .nmt-products-grid { grid-template-columns: 1fr; }
             .nmt-projects-grid { grid-template-columns: 1fr; }
             .nmt-section-header { flex-direction: column; gap: 16px; text-align: center; }
-            .nmt-section-title h2 { font-size: 30px; }
+            .nmt-section-title h2 { font-size: 28px; }
+            .nmt-section-title p { font-size: 16px; max-width: 100%; }
         }
     </style>
 </head>
@@ -633,22 +691,27 @@
     <!-- Hero Section (Namture) -->
     <section class="nmt-hero-section nmt-animate">
         <div class="container">
-            <div class="nmt-hero-overlay">
-                <div class="nmt-hero-content">
-                    <span class="nmt-badge" style="margin-bottom: 20px;">Công Nghệ Mới 2026</span>
-                    <h1>Giải pháp Laser <span class="highlight">Công nghiệp</span> Toàn diện</h1>
-                    <div class="nmt-hero-underline"></div>
-                    <p>Nâng tầm hiệu suất sản xuất với công nghệ cắt, khắc và hàn laser độ chính xác cao. Độ bền tối đa, vận hành dễ dàng.</p>
-                    <div class="nmt-hero-ctas">
-                        <a href="html/products.html" class="nmt-btn-primary">
-                            <span class="material-symbols-outlined" style="font-size: 20px;">explore</span>
-                            Khám Phá Sản Phẩm
-                        </a>
-                        <a href="html/contact.html" class="nmt-btn-secondary">
-                            <span class="material-symbols-outlined" style="font-size: 20px;">support</span>
-                            Liên Hệ Chuyên Gia
-                        </a>
+            <div class="nmt-hero-container">
+                <div class="nmt-hero-overlay">
+                    <div class="nmt-hero-content">
+                        <span class="nmt-badge" style="margin-bottom: 20px;">Công Nghệ Mới 2026</span>
+                        <h1>Giải pháp Laser <span class="highlight">Công nghiệp</span> Toàn diện</h1>
+                        <div class="nmt-hero-underline"></div>
+                        <p>Nâng tầm hiệu suất sản xuất với công nghệ cắt, khắc và hàn laser độ chính xác cao. Độ bền tối đa, vận hành dễ dàng.</p>
+                        <div class="nmt-hero-ctas">
+                            <a href="html/products.html" class="nmt-btn-primary">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">explore</span>
+                                Khám Phá Sản Phẩm
+                            </a>
+                            <a href="html/contact.html" class="nmt-btn-secondary">
+                                <span class="material-symbols-outlined" style="font-size: 20px;">support</span>
+                                Liên Hệ Chuyên Gia
+                            </a>
+                        </div>
                     </div>
+                </div>
+                <div class="nmt-hero-image">
+                    <img src="images/san-pham/may-cat-laser/fiber-f-series/main.jpg" alt="Máy Cắt Laser Fiber Công Nghiệp">
                 </div>
             </div>
         </div>
