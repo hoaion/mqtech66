@@ -758,6 +758,206 @@
             transform: translateX(0);
         }
 
+        /* ===== COMPONENT SHOWCASE ===== */
+        .nmt-components {
+            padding: 96px 0;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .nmt-comp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .nmt-comp-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.4s ease;
+        }
+        .nmt-comp-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-6px);
+            border-color: var(--sage-border);
+        }
+        .nmt-comp-card .card-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: contain;
+            background: var(--earth-bg);
+            padding: 12px;
+            border-bottom: 1px solid var(--beige);
+            transition: transform 0.5s ease;
+        }
+        .nmt-comp-card:hover .card-img {
+            transform: scale(1.05);
+        }
+        .nmt-comp-card .card-body {
+            padding: 20px 24px 24px;
+        }
+        .nmt-comp-card .card-body h4 {
+            font-family: var(--headline-font);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+        }
+        .nmt-comp-card .card-body p {
+            font-family: var(--body-font);
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .nmt-comp-card .card-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            background: var(--sage-light);
+            color: var(--sage-dark);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 12px;
+            border: 1px solid var(--sage-border);
+        }
+
+        /* ===== SAMPLE RESULTS ===== */
+        .nmt-samples {
+            padding: 96px 0;
+            background: var(--earth-bg-warm);
+        }
+        .nmt-samples-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+        .nmt-sample-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .nmt-sample-card {
+            position: relative;
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.4s ease;
+        }
+        .nmt-sample-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--sage-border);
+        }
+        .nmt-sample-card img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .nmt-sample-card:hover img {
+            transform: scale(1.08);
+        }
+        .nmt-sample-card .sample-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(31,29,26,0.7) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+        .nmt-sample-card:hover .sample-overlay {
+            opacity: 1;
+        }
+        .nmt-sample-card .sample-overlay span {
+            color: white;
+            font-family: var(--body-font);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+
+        /* ===== INSTALLATION ===== */
+        .nmt-installation {
+            padding: 96px 0;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .nmt-install-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .nmt-install-card {
+            position: relative;
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.4s ease;
+        }
+        .nmt-install-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-6px);
+            border-color: var(--sage-border);
+        }
+        .nmt-install-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: contain;
+            background: var(--earth-bg);
+            padding: 12px;
+            border-bottom: 1px solid var(--beige);
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .nmt-install-card:hover img {
+            transform: scale(1.05);
+        }
+        .nmt-install-card .install-body {
+            padding: 20px 24px 24px;
+        }
+        .nmt-install-card .install-body h4 {
+            font-family: var(--headline-font);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+        }
+        .nmt-install-card .install-body p {
+            font-family: var(--body-font);
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .nmt-install-card .install-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            background: var(--sage-light);
+            color: var(--sage-dark);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 12px;
+            border: 1px solid var(--sage-border);
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .nmt-hero { padding-left: 40px; padding-right: 40px; }
@@ -769,6 +969,12 @@
             .nmt-adv-block.reverse .nmt-adv-text { order: 2; }
             .nmt-specs { padding: 0 40px; }
             .nmt-cta-section { padding: 0 40px; }
+            .nmt-components { padding-left: 40px; padding-right: 40px; }
+            .nmt-comp-grid { grid-template-columns: repeat(2, 1fr); }
+            .nmt-sample-grid { grid-template-columns: repeat(2, 1fr); }
+            .nmt-samples-inner { padding: 0 40px; }
+            .nmt-installation { padding-left: 40px; padding-right: 40px; }
+            .nmt-install-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .nmt-hero { padding-left: 20px; padding-right: 20px; }
@@ -787,8 +993,14 @@
             .nmt-cta-section { padding: 0 20px; }
             .nmt-table th, .nmt-table td { padding: 14px 18px; }
             .nmt-thumbnails { gap: 10px; }
-            .nmt-thumb { width: 64px; height: 64px; }
+            .nmt-thumb { width: 56px; height: 56px; }
             .nmt-info-underline { width: 60px; }
+            .nmt-components { padding-left: 20px; padding-right: 20px; }
+            .nmt-comp-grid { grid-template-columns: 1fr; gap: 20px; }
+            .nmt-sample-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .nmt-samples-inner { padding: 0 20px; }
+            .nmt-installation { padding-left: 20px; padding-right: 20px; }
+            .nmt-install-grid { grid-template-columns: 1fr; gap: 20px; }
         }
     </style>
 </head>
@@ -864,6 +1076,7 @@
                                 <div class="submenu">
                                     <a href="chi-tiet-tram-han-robot-tu-dong.html" class="submenu-item">Trạm Hàn Laser Robot Tự Động</a>
                                     <a href="chi-tiet-truyen-tu-dong-in-bao-bi.html" class="submenu-item">Hệ Thống Khắc Laser Trên Băng Chuyền</a>
+                                    <a href="chi-tiet-nang-cap-fiber.html" class="submenu-item">Dự Án Nâng Cấp Máy Fiber</a>
                                 </div>
                             </div>
                             
@@ -897,22 +1110,28 @@
             <!-- Left: Image Gallery (60%) -->
             <div class="nmt-gallery">
                 <div class="nmt-main-image" id="main-showcase">
-                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/1.jpg" alt="Máy Cắt Laser Fiber F-Series" id="main-image">
+                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/Laser%20Cutting%20machine%2001%20image%201.avif" alt="Máy Cắt Laser Fiber F-Series" id="main-image">
                     <button class="nav-btn prev" id="gallery-prev" aria-label="Ảnh trước">‹</button>
                     <button class="nav-btn next" id="gallery-next" aria-label="Ảnh tiếp">›</button>
                 </div>
                 <div class="nmt-thumbnails">
-                    <div class="nmt-thumb active" onclick="changeImage('../images/san-pham/may-cat-laser/fiber-f-series/1.jpg', this)">
-                        <img src="../images/san-pham/may-cat-laser/fiber-f-series/1.jpg" alt="View 1">
+                    <div class="nmt-thumb active" onclick="changeImage('../images/san-pham/may-cat-laser/fiber-f-series/Laser%20Cutting%20machine%2001%20image%201.avif', this)">
+                        <img src="../images/san-pham/may-cat-laser/fiber-f-series/1.avif" alt="Tổng thể máy">
                     </div>
-                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-cat-laser/fiber-f-series/2.jpg', this)">
-                        <img src="../images/san-pham/may-cat-laser/fiber-f-series/2.jpg" alt="View 2">
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-cat-laser/fiber-f-series/M%C3%A1y%20sau%20khi%20l%E1%BA%AFp%20%C4%91%E1%BA%B7t.jpg', this)">
+                        <img src="../images/san-pham/may-cat-laser/fiber-f-series/M%C3%A1y%20sau%20khi%20l%E1%BA%AFp%20%C4%91%E1%BA%B7t.jpg" alt="Máy sau lắp đặt">
                     </div>
-                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-cat-laser/fiber-f-series/3.jpg', this)">
-                        <img src="../images/san-pham/may-cat-laser/fiber-f-series/3.jpg" alt="View 3">
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-cat-laser/fiber-f-series/Sample%201.jpg', this)">
+                        <img src="../images/san-pham/may-cat-laser/fiber-f-series/Sample%201.jpg" alt="Mẫu cắt 1">
                     </div>
-                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-cat-laser/fiber-f-series/4.jpg', this)">
-                        <img src="../images/san-pham/may-cat-laser/fiber-f-series/4.jpg" alt="View 4">
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-cat-laser/fiber-f-series/Sample%202.jpg', this)">
+                        <img src="../images/san-pham/may-cat-laser/fiber-f-series/Sample%202.jpg" alt="Mẫu cắt 2">
+                    </div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-cat-laser/fiber-f-series/Sample%203.jpg', this)">
+                        <img src="../images/san-pham/may-cat-laser/fiber-f-series/Sample%203.jpg" alt="Mẫu cắt 3">
+                    </div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/may-cat-laser/fiber-f-series/Seal%20Container%20Cutting%20machine%20laser.jpg', this)">
+                        <img src="../images/san-pham/may-cat-laser/fiber-f-series/Seal%20Container%20Cutting%20machine%20laser.jpg" alt="Cắt thùng phuy">
                     </div>
                 </div>
             </div>
@@ -953,52 +1172,6 @@
                         <span class="material-symbols-outlined" style="font-size: 20px;">download</span>
                         Tải Catalog PDF
                     </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== ADVANTAGES SECTION ===== -->
-    <section class="nmt-advantages nmt-animate">
-        <div class="nmt-section-title">
-            <h2>Ưu Điểm Vượt Trội</h2>
-            <p>Những công nghệ hàng đầu tạo nên sự khác biệt</p>
-            <div class="divider"></div>
-        </div>
-        <div class="nmt-adv-blocks">
-            <!-- Feature 1 -->
-            <div class="nmt-adv-block">
-                <div class="nmt-adv-image-wrap">
-                    <div class="glow-bg"></div>
-                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/IPG%20laser%20source.jpg" alt="Nguồn laser fiber chính hãng IPG/MAX">
-                </div>
-                <div class="nmt-adv-text">
-                    <span class="material-symbols-outlined icon">diamond</span>
-                    <h3>Nguồn Laser Fiber Chính Hãng</h3>
-                    <p>Trang bị nguồn laser fiber IPG (Đức) hoặc MAX (Mỹ) với tuổi thọ trên 100,000 giờ hoạt động. Công suất từ 3000W đến 12000W đáp ứng mọi nhu cầu cắt từ thép đen, inox đến nhôm và đồng.</p>
-                    <p>Đầu cắt tự động điều chỉnh tiêu cự theo độ dày vật liệu, đảm bảo chất lượng cắt đồng đều và tối ưu hóa tuổi thọ ống kính bảo vệ.</p>
-                    <div class="feature-tag">
-                        <div class="dot"></div>
-                        <span>Công Nghệ Đức / Mỹ</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature 2 - Reversed -->
-            <div class="nmt-adv-block reverse">
-                <div class="nmt-adv-image-wrap">
-                    <div class="glow-bg"></div>
-                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/3.jpg" alt="Hệ thống trao đổi bàn tự động">
-                </div>
-                <div class="nmt-adv-text">
-                    <span class="material-symbols-outlined icon">settings</span>
-                    <h3>Hệ Thống Trao Đổi Bàn Tự Động</h3>
-                    <p>Tích hợp hệ thống trao đổi bàn kép giúp tăng năng suất lên 40%. Trong khi máy đang cắt trên bàn 1, người vận hành có thể nạp/tháo phôi trên bàn 2, giảm thiểu thời gian chết.</p>
-                    <p>Phần mềm điều khiển thân thiện với giao diện tiếng Việt, hỗ trợ nhập file từ AutoCAD, SolidWorks và các phần mềm CAD/CAM phổ biến.</p>
-                    <div class="feature-tag">
-                        <div class="dot"></div>
-                        <span>Tăng Năng Suất 40%</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1073,6 +1246,213 @@
         </div>
     </section>
 
+    <!-- ===== ADVANTAGES SECTION ===== -->
+    <section class="nmt-advantages nmt-animate">
+        <div class="nmt-section-title">
+            <h2>Ưu Điểm Vượt Trội</h2>
+            <p>Những công nghệ hàng đầu tạo nên sự khác biệt</p>
+            <div class="divider"></div>
+        </div>
+        <div class="nmt-adv-blocks">
+            <!-- Feature 1 -->
+            <div class="nmt-adv-block">
+                <div class="nmt-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/IPG%20laser%20source.jpg" alt="Nguồn laser fiber chính hãng IPG/MAX">
+                </div>
+                <div class="nmt-adv-text">
+                    <span class="material-symbols-outlined icon">diamond</span>
+                    <h3>Nguồn Laser Fiber Chính Hãng</h3>
+                    <p>Trang bị nguồn laser fiber IPG (Đức) hoặc MAX (Mỹ) với tuổi thọ trên 100,000 giờ hoạt động. Công suất từ 3000W đến 12000W đáp ứng mọi nhu cầu cắt từ thép đen, inox đến nhôm và đồng.</p>
+                    <p>Đầu cắt tự động điều chỉnh tiêu cự theo độ dày vật liệu, đảm bảo chất lượng cắt đồng đều và tối ưu hóa tuổi thọ ống kính bảo vệ.</p>
+                    <div class="feature-tag">
+                        <div class="dot"></div>
+                        <span>Công Nghệ Đức / Mỹ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2 - Reversed -->
+            <div class="nmt-adv-block reverse">
+                <div class="nmt-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/Chiller%20+%20T%E1%BB%A7%20Ngu%E1%BB%93n%20Laser.jpg" alt="Hệ thống làm mát chiller công nghiệp">
+                </div>
+                <div class="nmt-adv-text">
+                    <span class="material-symbols-outlined icon">ac_unit</span>
+                    <h3>Hệ Thống Làm Mát Chuyên Nghiệp</h3>
+                    <p>Chiller nước công nghiệp công suất lớn giúp duy trì nhiệt độ ổn định cho nguồn laser và đầu cắt. Hệ thống kiểm soát nhiệt độ chính xác giúp kéo dài tuổi thọ linh kiện và đảm bảo chất lượng cắt ổn định trong suốt quá trình vận hành.</p>
+                    <p>Tủ nguồn laser được trang bị điều hòa riêng biệt, bảo vệ tối ưu các linh kiện điện tử nhạy cảm khỏi nhiệt độ và bụi bẩn môi trường sản xuất.</p>
+                    <div class="feature-tag">
+                        <div class="dot"></div>
+                        <span>Tuổi Thọ &amp; Ổn Định Cao</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="nmt-adv-block">
+                <div class="nmt-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/C%E1%BB%A5m%20tr%E1%BB%A5c%20X%20l%C3%A0m%20t%E1%BB%AB%20Nh%C3%B4m%20%C4%91%C3%BAc.jpg" alt="Cụm trục X làm từ nhôm đúc">
+                </div>
+                <div class="nmt-adv-text">
+                    <span class="material-symbols-outlined icon">precision_manufacturing</span>
+                    <h3>Cơ Cấu Truyền Động Chính Xác Cao</h3>
+                    <p>Cụm trục X được chế tạo từ nhôm đúc nguyên khối, kết hợp ray trượt tuyến tính Đài Loan và vít me bi THK Nhật Bản. Toàn bộ cơ cấu truyền động đảm bảo độ chính xác định vị ±0.03mm và vận hành êm ái ở tốc độ cao.</p>
+                    <p>Ray trượt bản lớn chịu tải trọng cao, bảo đảm độ bền vượt trội trong môi trường sản xuất liên tục 24/7.</p>
+                    <div class="feature-tag">
+                        <div class="dot"></div>
+                        <span>Độ Chính Xác ±0.03mm</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 4 - Reversed -->
+            <div class="nmt-adv-block reverse">
+                <div class="nmt-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/3.jpg" alt="Hệ thống trao đổi bàn tự động">
+                </div>
+                <div class="nmt-adv-text">
+                    <span class="material-symbols-outlined icon">settings</span>
+                    <h3>Hệ Thống Trao Đổi Bàn Tự Động</h3>
+                    <p>Tích hợp hệ thống trao đổi bàn kép giúp tăng năng suất lên 40%. Trong khi máy đang cắt trên bàn 1, người vận hành có thể nạp/tháo phôi trên bàn 2, giảm thiểu thời gian chết.</p>
+                    <p>Phần mềm điều khiển CypCut / RayTools thân thiện với giao diện tiếng Việt, hỗ trợ nhập file từ AutoCAD, SolidWorks và các phần mềm CAD/CAM phổ biến.</p>
+                    <div class="feature-tag">
+                        <div class="dot"></div>
+                        <span>Tăng Năng Suất 40%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMPONENT SHOWCASE ===== -->
+    <section class="nmt-components nmt-animate">
+        <div class="nmt-section-title">
+            <h2>Linh Kiện Cao Cấp</h2>
+            <p>Các thành phần chất lượng cao cấu tạo nên máy cắt laser F-Series</p>
+            <div class="divider"></div>
+        </div>
+        <div class="nmt-comp-grid">
+            <div class="nmt-comp-card">
+                <img class="card-img" src="../images/san-pham/may-cat-laser/fiber-f-series/Ngu%E1%BB%93n%20Laser%206KW%20c%C3%B3%20t%E1%BB%A7%20%C4%91i%E1%BB%81u%20h%C3%B2a%20ri%C3%AAng%20bi%E1%BB%87t.jpg" alt="Nguồn Laser 6KW">
+                <div class="card-body">
+                    <h4>Nguồn Laser 6KW</h4>
+                    <p>Nguồn laser công suất cao đi kèm tủ điều hòa riêng biệt, đảm bảo nhiệt độ vận hành lý tưởng cho các linh kiện quang học và điện tử.</p>
+                    <span class="card-tag">Công Nghệ Mỹ/Đức</span>
+                </div>
+            </div>
+            <div class="nmt-comp-card">
+                <img class="card-img" src="../images/san-pham/may-cat-laser/fiber-f-series/Chiller.jpg" alt="Chiller làm mát">
+                <div class="card-body">
+                    <h4>Chiller Công Nghiệp 5HP</h4>
+                    <p>Hệ thống chiller nước làm mát tuần hoàn kín, duy trì nhiệt độ nước làm mát ở mức ổn định, bảo vệ nguồn laser và đầu cắt khỏi quá nhiệt.</p>
+                    <span class="card-tag">Làm Mát Tuần Hoàn</span>
+                </div>
+            </div>
+            <div class="nmt-comp-card">
+                <img class="card-img" src="../images/san-pham/may-cat-laser/fiber-f-series/Ray%20tr%C6%B0%E1%BB%A3t%20b%E1%BA%A3n%20l%E1%BB%9Bn.jpg" alt="Ray trượt bản lớn">
+                <div class="card-body">
+                    <h4>Ray Trượt Bản Lớn</h4>
+                    <p>Ray trượt tuyến tính bản lớn chịu tải cao, đảm bảo độ chính xác định vị ±0.03mm và vận hành êm ái ở tốc độ cắt lên đến 120m/phút.</p>
+                    <span class="card-tag">Đài Loan / Nhật Bản</span>
+                </div>
+            </div>
+            <div class="nmt-comp-card">
+                <img class="card-img" src="../images/san-pham/may-cat-laser/fiber-f-series/%C4%90%E1%BA%A7u%20QBH.jpeg" alt="Đầu QBH">
+                <div class="card-body">
+                    <h4>Đầu Cắt QBH</h4>
+                    <p>Đầu cắt QBH chất lượng cao với hệ thống quang học chính xác, tự động điều chỉnh tiêu cự theo độ dày vật liệu, đảm bảo đường cắt mịn và đẹp.</p>
+                    <span class="card-tag">Quang Học Chính Xác</span>
+                </div>
+            </div>
+            <div class="nmt-comp-card">
+                <img class="card-img" src="../images/san-pham/may-cat-laser/fiber-f-series/Binh-N2-long-XL45.jpg" alt="Bình N2">
+                <div class="card-body">
+                    <h4>Bình Khí N2</h4>
+                    <p>Hệ thống cấp khí N2 áp suất cao hỗ trợ cắt inox và nhôm chất lượng cao, giúp bề mặt cắt sáng bóng, không bị oxy hóa trong quá trình cắt.</p>
+                    <span class="card-tag">Hỗ Trợ Cắt Inox</span>
+                </div>
+            </div>
+            <div class="nmt-comp-card">
+                <img class="card-img" src="../images/san-pham/may-cat-laser/fiber-f-series/G%E1%BA%A1ch%20ch%E1%BB%8Bu%20nhi%E1%BB%87t%20cao%20b%E1%BA%A3o%20v%E1%BB%87%20khung%20m%C3%A1y.jpg" alt="Gạch chịu nhiệt">
+                <div class="card-body">
+                    <h4>Gạch Chịu Nhiệt Bảo Vệ</h4>
+                    <p>Hệ thống gạch chịu nhiệt cao bảo vệ khung máy khỏi tia laser và nhiệt độ cao trong quá trình cắt, kéo dài tuổi thọ thiết bị và đảm bảo an toàn.</p>
+                    <span class="card-tag">Bảo Vệ Khung Máy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SAMPLE CUTTING RESULTS ===== -->
+    <section class="nmt-samples nmt-animate">
+        <div class="nmt-samples-inner">
+            <div class="nmt-section-title">
+                <h2>Kết Quả Cắt Mẫu</h2>
+                <p>Chất lượng cắt hoàn hảo trên nhiều loại vật liệu khác nhau</p>
+                <div class="divider"></div>
+            </div>
+            <div class="nmt-sample-grid">
+                <div class="nmt-sample-card">
+                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/Sample%201.jpg" alt="Mẫu cắt 1">
+                    <div class="sample-overlay">
+                        <span>Cắt thép tấm — Đường cắt mịn, không ba via</span>
+                    </div>
+                </div>
+                <div class="nmt-sample-card">
+                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/Sample%202.jpg" alt="Mẫu cắt 2">
+                    <div class="sample-overlay">
+                        <span>Cắt chi tiết phức tạp — Độ chính xác cao</span>
+                    </div>
+                </div>
+                <div class="nmt-sample-card">
+                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/Sample%203.jpg" alt="Mẫu cắt 3">
+                    <div class="sample-overlay">
+                        <span>Cắt inox — Bề mặt sáng bóng, không oxy hóa</span>
+                    </div>
+                </div>
+                <div class="nmt-sample-card">
+                    <img src="../images/san-pham/may-cat-laser/fiber-f-series/Sample%204.jpg" alt="Mẫu cắt 4">
+                    <div class="sample-overlay">
+                        <span>Cắt thùng phuy — Cắt nhanh, chính xác</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INSTALLATION & SETUP ===== -->
+    <section class="nmt-installation nmt-animate">
+        <div class="nmt-section-title">
+            <h2>Lắp Đặt &amp; Vận Hành</h2>
+            <p>Quy trình lắp đặt chuyên nghiệp, vận hành ổn định</p>
+            <div class="divider"></div>
+        </div>
+        <div class="nmt-install-grid">
+            <div class="nmt-install-card">
+                <img src="../images/san-pham/may-cat-laser/fiber-f-series/M%C3%A1y%20sau%20khi%20l%E1%BA%AFp%20%C4%91%E1%BA%B7t.jpg" alt="Máy sau khi lắp đặt">
+                <div class="install-body">
+                    <h4>Máy Sau Khi Lắp Đặt</h4>
+                    <p>Đội ngũ kỹ thuật giàu kinh nghiệm lắp đặt và vận hành thử tại nhà máy khách hàng, đảm bảo máy hoạt động ổn định ngay từ ngày đầu tiên.</p>
+                    <span class="install-tag">Lắp Đặt Chuyên Nghiệp</span>
+                </div>
+            </div>
+            <div class="nmt-install-card">
+                <img src="../images/san-pham/may-cat-laser/fiber-f-series/G%C3%A1%20%C4%91%E1%BA%B7t%20khung%20m%C3%A1y%202m%20x%206m%20nghi%C3%AAng%20%C4%91%E1%BB%83%20t%E1%BB%91i%20%C6%B0u%20chi%20ph%C3%AD%20khi%20v%E1%BA%ADn%20chuy%E1%BB%83n.jpg" alt="Gá đặt khung máy nghiêng">
+                <div class="install-body">
+                    <h4>Gá Đặt Khung Máy 2m x 6m</h4>
+                    <p>Thiết kế thông minh cho phép gá đặt nghiêng để tối ưu chi phí vận chuyển, dễ dàng lắp ráp tại công trình mà vẫn đảm bảo độ chính xác khung máy.</p>
+                    <span class="install-tag">Tối Ưu Vận Chuyển</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- ===== CTA SECTION ===== -->
     <section class="nmt-cta-section nmt-animate">
         <div class="nmt-cta-card">
@@ -1127,10 +1507,12 @@
     <script>
         // ===== GALLERY CONFIGURATION =====
         const imageList = [
-            '../images/san-pham/may-cat-laser/fiber-f-series/1.jpg',
-            '../images/san-pham/may-cat-laser/fiber-f-series/2.jpg',
-            '../images/san-pham/may-cat-laser/fiber-f-series/3.jpg',
-            '../images/san-pham/may-cat-laser/fiber-f-series/4.jpg'
+            '../images/san-pham/may-cat-laser/fiber-f-series/Laser Cutting machine 01 image 1.avif',
+            '../images/san-pham/may-cat-laser/fiber-f-series/Máy sau khi lắp đặt.jpg',
+            '../images/san-pham/may-cat-laser/fiber-f-series/Sample 1.jpg',
+            '../images/san-pham/may-cat-laser/fiber-f-series/Sample 2.jpg',
+            '../images/san-pham/may-cat-laser/fiber-f-series/Sample 3.jpg',
+            '../images/san-pham/may-cat-laser/fiber-f-series/Seal Container Cutting machine laser.jpg'
         ];
         let currentIndex = 0;
         const mainImage = document.getElementById('main-image');

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ Thống Khắc Laser Trên Băng Chuyền - LaserMQ | NAMTURE</title>
-    <meta name="description" content="Hệ thống khắc laser tự động trên băng chuyền, khắc on-the-fly tốc độ cao lên đến 120m/phút, phù hợp cho ngành bao bì và in ấn.">
+    <title>Dự Án Nâng Cấp Máy Laser Fiber - LaserMQ | NAMTURE</title>
+    <meta name="description" content="Dự án nâng cấp máy CO2 Trumpf cũ thành máy Fiber hoàn chỉnh. Thay thế toàn bộ hệ thống điện và truyền động Servo, giữ lại hệ cơ khí. Biến máy CO2 cũ thành máy CO2 thế hệ mới.">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/fluent-ui.css">
     
@@ -50,74 +50,52 @@
             --radius-xl: 24px;
         }
 
-        /* Warm Earth Overrides for existing page */
         body {
             background-color: var(--earth-bg) !important;
             color: var(--text-primary) !important;
             font-family: var(--body-font);
         }
 
-        /* Header Warm */
         header.mica-bg {
             background-color: rgba(246, 244, 239, 0.88) !important;
             backdrop-filter: blur(16px) saturate(140%);
             -webkit-backdrop-filter: blur(16px) saturate(140%);
             border-bottom: 1px solid var(--beige) !important;
         }
-        header .brand-text {
-            color: var(--text-primary) !important;
-        }
-        header .nav-links a {
-            color: var(--text-secondary) !important;
-        }
-        header .nav-links a:hover {
-            color: var(--sage) !important;
-        }
+        header .brand-text { color: var(--text-primary) !important; }
+        header .nav-links a { color: var(--text-secondary) !important; }
+        header .nav-links a:hover { color: var(--sage) !important; }
 
-        /* MQ Logo - Sage Green */
         .mq-squircle-logo {
             background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%) !important;
             color: white !important;
             box-shadow: 0 4px 15px var(--sage-glow) !important;
         }
 
-        /* Dropdown / Mega Menu Warm */
         .mega-menu, .submenu {
             background-color: var(--earth-card) !important;
             border: 1px solid var(--beige) !important;
         }
-        .mega-menu-category span {
-            color: var(--text-secondary) !important;
-        }
-        .mega-menu-category:hover span {
-            color: var(--sage) !important;
-        }
-        .mega-menu-category:hover {
-            background-color: var(--sage-light) !important;
-        }
-        .submenu-item {
-            color: var(--text-secondary) !important;
-        }
+        .mega-menu-category span { color: var(--text-secondary) !important; }
+        .mega-menu-category:hover span { color: var(--sage) !important; }
+        .mega-menu-category:hover { background-color: var(--sage-light) !important; }
+        .submenu-item { color: var(--text-secondary) !important; }
         .submenu-item:hover {
             background-color: var(--sage-light) !important;
             color: var(--sage) !important;
         }
 
-        /* Breadcrumb Warm */
         section[style*="background-color: #ffffff"] {
             background-color: var(--earth-bg-warm) !important;
             border-bottom: 1px solid var(--beige) !important;
         }
         section[style*="background-color: #ffffff"] a,
-        section[style*="background-color: #ffffff"] span {
-            color: var(--text-tertiary) !important;
-        }
+        section[style*="background-color: #ffffff"] span { color: var(--text-tertiary) !important; }
         section[style*="background-color: #ffffff"] span:last-child {
             color: var(--sage-dark) !important;
             font-weight: 600;
         }
 
-        /* ===== NAMTURE COMPONENTS ===== */
         .nmt-card {
             background: var(--earth-card);
             border: 1px solid var(--beige);
@@ -273,6 +251,7 @@
             display: flex;
             gap: 14px;
             justify-content: flex-start;
+            flex-wrap: wrap;
         }
         .nmt-thumb {
             width: 82px;
@@ -304,9 +283,7 @@
         }
 
         /* ===== GALLERY NAVIGATION ARROWS ===== */
-        .nmt-main-image {
-            position: relative;
-        }
+        .nmt-main-image { position: relative; }
         .nav-btn {
             position: absolute;
             top: 50%;
@@ -343,13 +320,8 @@
         .nav-btn.prev { left: 12px; }
         .nav-btn.next { right: 12px; }
 
-        /* ===== IMAGE FADE TRANSITION ===== */
-        #main-image {
-            transition: opacity 0.35s ease;
-        }
-        #main-image.fade-out {
-            opacity: 0.3;
-        }
+        #main-image { transition: opacity 0.35s ease; }
+        #main-image.fade-out { opacity: 0.3; }
 
         /* Product Info */
         .nmt-info {
@@ -381,9 +353,7 @@
             color: var(--text-primary);
             margin: 0;
         }
-        .nmt-info h1 .highlight {
-            color: var(--sage);
-        }
+        .nmt-info h1 .highlight { color: var(--sage); }
         .nmt-info-underline {
             height: 3px;
             width: 80px;
@@ -443,6 +413,162 @@
             padding-top: 8px;
         }
 
+        /* ===== HIGHLIGHT STATS BAR ===== */
+        .nmt-stats-bar {
+            max-width: 1440px;
+            margin: -16px auto 0;
+            padding: 0 80px;
+        }
+        .nmt-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .nmt-stat-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-stat-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--sage-border);
+        }
+        .nmt-stat-number {
+            font-family: var(--headline-font);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--sage-dark);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .nmt-stat-label {
+            font-family: var(--body-font);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* ===== PROCESS TIMELINE ===== */
+        .nmt-process {
+            padding: 96px 0;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .nmt-timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        .nmt-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--sage), var(--beige), var(--sage));
+            transform: translateX(-50%);
+            border-radius: 9999px;
+        }
+        .nmt-timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            position: relative;
+            margin-bottom: 48px;
+        }
+        .nmt-timeline-item:last-child { margin-bottom: 0; }
+        .nmt-timeline-item.reverse .nmt-tl-image { order: 2; }
+        .nmt-timeline-item.reverse .nmt-tl-text { order: 1; }
+        .nmt-tl-dot {
+            position: absolute;
+            left: 50%;
+            top: 24px;
+            width: 20px;
+            height: 20px;
+            background: var(--sage);
+            border: 4px solid var(--earth-bg);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 0 0 3px var(--sage-border);
+        }
+        .nmt-tl-image {
+            position: relative;
+        }
+        .nmt-tl-image .glow-bg {
+            position: absolute;
+            inset: -12px;
+            background: var(--sage-light);
+            border-radius: var(--radius-lg);
+            filter: blur(40px);
+            transition: all 0.4s ease;
+        }
+        .nmt-tl-image:hover .glow-bg { background: var(--sage-glow); }
+        .nmt-tl-image img {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: contain;
+            border-radius: var(--radius-lg);
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            padding: 12px;
+            box-shadow: var(--shadow-card);
+        }
+        .nmt-tl-text {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 20px 0;
+        }
+        .nmt-tl-text .tl-step {
+            font-family: var(--body-font);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--sage);
+        }
+        .nmt-tl-text h3 {
+            font-family: var(--headline-font);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.2;
+        }
+        .nmt-tl-text p {
+            font-family: var(--body-font);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        .nmt-tl-text .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        .nmt-tl-text .tag-list .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 9999px;
+            background: var(--sage-light);
+            color: var(--sage-dark);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
         /* ===== ADVANTAGES SECTION ===== */
         .nmt-advantages {
             padding: 96px 0;
@@ -463,15 +589,9 @@
             gap: 64px;
             align-items: center;
         }
-        .nmt-adv-block.reverse .nmt-adv-image {
-            order: 2;
-        }
-        .nmt-adv-block.reverse .nmt-adv-text {
-            order: 1;
-        }
-        .nmt-adv-image-wrap {
-            position: relative;
-        }
+        .nmt-adv-block.reverse .nmt-adv-image { order: 2; }
+        .nmt-adv-block.reverse .nmt-adv-text { order: 1; }
+        .nmt-adv-image-wrap { position: relative; }
         .nmt-adv-image-wrap .glow-bg {
             position: absolute;
             inset: -16px;
@@ -480,9 +600,7 @@
             filter: blur(40px);
             transition: all 0.4s ease;
         }
-        .nmt-adv-image-wrap:hover .glow-bg {
-            background: var(--sage-glow);
-        }
+        .nmt-adv-image-wrap:hover .glow-bg { background: var(--sage-glow); }
         .nmt-adv-image-wrap img {
             position: relative;
             width: 100%;
@@ -546,15 +664,66 @@
             50% { opacity: 0.5; }
         }
 
+        /* ===== BEFORE / AFTER COMPARISON ===== */
+        .nmt-comparison {
+            padding: 96px 0;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .nmt-compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .nmt-compare-card {
+            background: var(--earth-card);
+            border: 1px solid var(--beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s ease;
+        }
+        .nmt-compare-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+        }
+        .nmt-compare-card .compare-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 24px;
+            font-family: var(--body-font);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .nmt-compare-card.before .compare-label {
+            background: rgba(200, 180, 140, 0.15);
+            color: var(--text-tertiary);
+        }
+        .nmt-compare-card.after .compare-label {
+            background: var(--sage-light);
+            color: var(--sage-dark);
+        }
+        .nmt-compare-card .compare-label .material-symbols-outlined { font-size: 22px; }
+        .nmt-compare-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: contain;
+            padding: 16px;
+            background: var(--earth-bg);
+        }
+
         /* ===== SPECS TABLE ===== */
         .nmt-specs {
             max-width: 1440px;
             margin: 80px auto;
             padding: 0 80px;
         }
-        .nmt-specs-header {
-            margin-bottom: 40px;
-        }
+        .nmt-specs-header { margin-bottom: 40px; }
         .nmt-specs-header h2 {
             font-family: var(--headline-font);
             font-size: 36px;
@@ -597,18 +766,10 @@
             border-bottom: 1px solid var(--beige);
             transition: background 0.25s ease;
         }
-        .nmt-table tbody tr:last-child {
-            border-bottom: none;
-        }
-        .nmt-table tbody tr:hover {
-            background: var(--sage-light);
-        }
-        .nmt-table tbody tr:nth-child(even) {
-            background: var(--earth-bg);
-        }
-        .nmt-table tbody tr:nth-child(even):hover {
-            background: var(--sage-light);
-        }
+        .nmt-table tbody tr:last-child { border-bottom: none; }
+        .nmt-table tbody tr:hover { background: var(--sage-light); }
+        .nmt-table tbody tr:nth-child(even) { background: var(--earth-bg); }
+        .nmt-table tbody tr:nth-child(even):hover { background: var(--sage-light); }
         .nmt-table td {
             padding: 18px 28px;
             font-family: var(--body-font);
@@ -688,22 +849,11 @@
         }
 
         /* ===== FOOTER OVERRIDES ===== */
-        footer {
-            background: var(--beige) !important;
-            border-top: none !important;
-        }
-        footer, footer * {
-            color: var(--text-primary) !important;
-        }
-        footer h4 {
-            color: var(--sage-dark) !important;
-        }
-        footer a:hover {
-            color: var(--sage) !important;
-        }
-        footer .brand-text {
-            color: var(--text-primary) !important;
-        }
+        footer { background: var(--beige) !important; border-top: none !important; }
+        footer, footer * { color: var(--text-primary) !important; }
+        footer h4 { color: var(--sage-dark) !important; }
+        footer a:hover { color: var(--sage) !important; }
+        footer .brand-text { color: var(--text-primary) !important; }
         .footer-bottom {
             border-top-color: rgba(31, 29, 26, 0.1) !important;
             color: var(--text-tertiary) !important;
@@ -715,28 +865,19 @@
             transform: translateY(40px);
             transition: all 0.8s ease;
         }
-        .nmt-animate.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .nmt-animate.visible { opacity: 1; transform: translateY(0); }
         .nmt-animate-left {
             opacity: 0;
             transform: translateX(-40px);
             transition: all 0.8s ease;
         }
-        .nmt-animate-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
+        .nmt-animate-left.visible { opacity: 1; transform: translateX(0); }
         .nmt-animate-right {
             opacity: 0;
             transform: translateX(40px);
             transition: all 0.8s ease;
         }
-        .nmt-animate-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
+        .nmt-animate-right.visible { opacity: 1; transform: translateX(0); }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
@@ -749,6 +890,16 @@
             .nmt-adv-block.reverse .nmt-adv-text { order: 2; }
             .nmt-specs { padding: 0 40px; }
             .nmt-cta-section { padding: 0 40px; }
+            .nmt-process { padding-left: 40px; padding-right: 40px; }
+            .nmt-comparison { padding-left: 40px; padding-right: 40px; }
+            .nmt-stats-bar { padding: 0 40px; }
+            .nmt-stats-grid { grid-template-columns: 1fr 1fr; }
+            .nmt-timeline-item { grid-template-columns: 1fr; gap: 24px; }
+            .nmt-timeline-item.reverse .nmt-tl-image { order: 1; }
+            .nmt-timeline-item.reverse .nmt-tl-text { order: 2; }
+            .nmt-timeline::before { left: 24px; }
+            .nmt-tl-dot { left: 24px; }
+            .nmt-compare-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .nmt-hero { padding-left: 20px; padding-right: 20px; }
@@ -769,6 +920,12 @@
             .nmt-thumbnails { gap: 10px; }
             .nmt-thumb { width: 64px; height: 64px; }
             .nmt-info-underline { width: 60px; }
+            .nmt-process { padding-left: 20px; padding-right: 20px; }
+            .nmt-comparison { padding-left: 20px; padding-right: 20px; }
+            .nmt-stats-bar { padding: 0 20px; }
+            .nmt-stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .nmt-stat-number { font-size: 28px; }
+            .nmt-tl-text h3 { font-size: 22px; }
         }
     </style>
 </head>
@@ -805,7 +962,6 @@
                                 <span>Máy Cắt Laser</span>
                                 <span class="right-arrow">▶</span>
                                 
-                                <!-- Level 3 - Products under Máy Cắt Laser -->
                                 <div class="submenu">
                                     <a href="chi-tiet-fiber-f-series.html" class="submenu-item">Máy Cắt Laser Fiber F-Series</a>
                                     <a href="chi-tiet-ong-chuyen-dung.html" class="submenu-item">Máy Cắt Laser Ống Chuyên Dụng</a>
@@ -817,7 +973,6 @@
                                 <span>Máy Hàn Laser</span>
                                 <span class="right-arrow">▶</span>
                                 
-                                <!-- Level 3 - Products under Máy Hàn Laser -->
                                 <div class="submenu">
                                     <a href="chi-tiet-cam-tay-w-series.html" class="submenu-item">Máy Hàn Laser Cầm Tay W-Series</a>
                                 </div>
@@ -828,7 +983,6 @@
                                 <span>Máy Khắc Laser</span>
                                 <span class="right-arrow">▶</span>
                                 
-                                <!-- Level 3 - Products under Máy Khắc Laser -->
                                 <div class="submenu">
                                     <a href="chi-tiet-uv-5w.html" class="submenu-item">Máy Khắc Laser UV 5W</a>
                                     <a href="chi-tiet-fiber-3d.html" class="submenu-item">Máy Khắc Laser Fiber 3D</a>
@@ -840,7 +994,6 @@
                                 <span>Dự Án Tích Hợp</span>
                                 <span class="right-arrow">▶</span>
                                 
-                                <!-- Level 3 - Products under Dự Án Tích Hợp -->
                                 <div class="submenu">
                                     <a href="chi-tiet-tram-han-robot-tu-dong.html" class="submenu-item">Trạm Hàn Laser Robot Tự Động</a>
                                     <a href="chi-tiet-truyen-tu-dong-in-bao-bi.html" class="submenu-item">Hệ Thống Khắc Laser Trên Băng Chuyền</a>
@@ -867,7 +1020,7 @@
                 <span>/</span>
                 <a href="products.html" style="color: #888;">Sản Phẩm</a>
                 <span>/</span>
-                <span style="color: #1a1a1a; font-weight: 500;">Hệ Thống Khắc Laser Trên Băng Chuyền</span>
+                <span style="color: #1a1a1a; font-weight: 500;">Dự Án Nâng Cấp Máy Fiber</span>
             </div>
         </div>
     </section>
@@ -875,58 +1028,64 @@
     <!-- ===== NAMTURE HERO SECTION ===== -->
     <section class="nmt-hero nmt-animate">
         <div class="nmt-hero-grid">
-            <!-- Left: Image Gallery (60%) -->
             <div class="nmt-gallery">
                 <div class="nmt-main-image" id="main-showcase">
-                    <img src="../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/1.jpg" alt="Hệ Thống Khắc Laser Trên Băng Chuyền" id="main-image">
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Max%206kw%20laser%20source.jpg" alt="Dự Án Nâng Cấp Máy Fiber - Nguồn Laser Max 6kW" id="main-image">
                     <button class="nav-btn prev" id="gallery-prev" aria-label="Ảnh trước">‹</button>
                     <button class="nav-btn next" id="gallery-next" aria-label="Ảnh tiếp">›</button>
                 </div>
                 <div class="nmt-thumbnails">
-                    <div class="nmt-thumb active" onclick="changeImage('../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/1.jpg', this)">
-                        <img src="../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/1.jpg" alt="View 1">
+                    <div class="nmt-thumb active" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Max%206kw%20laser%20source.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Max%206kw%20laser%20source.jpg" alt="Nguồn Laser Max 6kW">
                     </div>
-                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/2.jpg', this)">
-                        <img src="../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/2.jpg" alt="View 2">
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Servo%20Ethercat.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Servo%20Ethercat.jpg" alt="Servo Ethercat">
                     </div>
-                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/3.jpg', this)">
-                        <img src="../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/3.jpg" alt="View 3">
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/B%E1%BB%99%20%C4%91i%E1%BB%81u%20khi%E1%BB%83n%20Bochu%20BCL%204566E.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/B%E1%BB%99%20%C4%91i%E1%BB%81u%20khi%E1%BB%83n%20Bochu%20BCL%204566E.jpg" alt="Bộ điều khiển Bochu BCL 4566E">
                     </div>
-                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/4.jpg', this)">
-                        <img src="../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/4.jpg" alt="View 4">
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Electric%2001.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Electric%2001.jpg" alt="Hệ thống điện">
+                    </div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Cutting%20head%2001.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Cutting%20head%2001.jpg" alt="Cutting head">
+                    </div>
+                    <div class="nmt-thumb" onclick="changeImage('../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Electric%2002.jpg', this)">
+                        <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Electric%2002.jpg" alt="Tủ điện">
                     </div>
                 </div>
             </div>
 
-            <!-- Right: Product Info (40%) -->
             <div class="nmt-info">
                 <span class="nmt-info-badge">Dự Án Tích Hợp</span>
-                <h1>Hệ Thống Khắc Laser <span class="highlight">Trên Băng Chuyền</span></h1>
+                <h1>Nâng Cấp Máy <span class="highlight">CO2</span> Thành <span class="highlight">Fiber</span></h1>
                 <div class="nmt-info-underline"></div>
                 <p class="nmt-info-desc">
-                    Giải pháp khắc laser on-the-fly trên băng chuyền di chuyển liên tục, tốc độ cao lên đến 120m/phút. Hoàn hảo cho ngành bao bì, in ấn và sản xuất hàng loạt.
+                    Dự án nâng cấp toàn diện từ máy cắt CO2 Trumpf cũ không còn sử dụng được, 
+                    thành máy Fiber hoàn chỉnh. Thay mới toàn bộ hệ thống điện, truyền động Servo, 
+                    nguồn laser và hệ thống điều khiển, giữ lại hệ cơ khí của máy.
                 </p>
                 
                 <div class="nmt-mini-specs">
                     <div class="nmt-mini-spec">
-                        <span class="material-symbols-outlined">bolt</span>
-                        <span class="nmt-mini-spec-label">Công Suất</span>
-                        <span class="nmt-mini-spec-value">30W / 50W / 100W</span>
+                        <span class="material-symbols-outlined">power</span>
+                        <span class="nmt-mini-spec-label">Nguồn Laser</span>
+                        <span class="nmt-mini-spec-value">Max 6kW Fiber</span>
                     </div>
                     <div class="nmt-mini-spec">
-                        <span class="material-symbols-outlined">conveyor_belt</span>
-                        <span class="nmt-mini-spec-label">Tốc Độ Băng Chuyền</span>
-                        <span class="nmt-mini-spec-value">Lên đến 120m/phút</span>
+                        <span class="material-symbols-outlined">precision_manufacturing</span>
+                        <span class="nmt-mini-spec-label">Hệ Điều Khiển</span>
+                        <span class="nmt-mini-spec-value">Bochu BCL 4566E</span>
                     </div>
                     <div class="nmt-mini-spec">
-                        <span class="material-symbols-outlined">sync</span>
-                        <span class="nmt-mini-spec-label">Khắc On-the-fly</span>
-                        <span class="nmt-mini-spec-value">Có (khi di chuyển)</span>
+                        <span class="material-symbols-outlined">sensors</span>
+                        <span class="nmt-mini-spec-label">Truyền Động</span>
+                        <span class="nmt-mini-spec-value">Servo EtherCAT</span>
                     </div>
                     <div class="nmt-mini-spec">
-                        <span class="material-symbols-outlined">height</span>
-                        <span class="nmt-mini-spec-label">Độ Chính Xác</span>
-                        <span class="nmt-mini-spec-value">±0.02mm</span>
+                        <span class="material-symbols-outlined">construction</span>
+                        <span class="nmt-mini-spec-label">Nâng Cấp</span>
+                        <span class="nmt-mini-spec-value">Toàn Bộ Hệ Thống</span>
                     </div>
                 </div>
 
@@ -944,11 +1103,221 @@
         </div>
     </section>
 
+    <!-- ===== STATS BAR ===== -->
+    <section class="nmt-stats-bar nmt-animate">
+        <div class="nmt-stats-grid">
+            <div class="nmt-stat-card">
+                <div class="nmt-stat-number">6kW</div>
+                <div class="nmt-stat-label">Công Suất Laser</div>
+            </div>
+            <div class="nmt-stat-card">
+                <div class="nmt-stat-number">100%</div>
+                <div class="nmt-stat-label">Thay Mới Hệ Điện</div>
+            </div>
+            <div class="nmt-stat-card">
+                <div class="nmt-stat-number">Giữ</div>
+                <div class="nmt-stat-label">Hệ Cơ Khí Gốc</div>
+            </div>
+            <div class="nmt-stat-card">
+                <div class="nmt-stat-number">CO2→Fiber</div>
+                <div class="nmt-stat-label">Chuyển Đổi Hoàn Toàn</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS TIMELINE ===== -->
+    <section class="nmt-process">
+        <div class="nmt-section-title">
+            <h2>Hành Trình Nâng Cấp</h2>
+            <p>Quy trình chuyển đổi máy CO2 cũ thành máy Fiber hiện đại</p>
+            <div class="divider"></div>
+        </div>
+        <div class="nmt-timeline">
+            <!-- Step 1 -->
+            <div class="nmt-timeline-item nmt-animate-left">
+                <div class="nmt-tl-image">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/V%E1%BB%8B%20tr%C3%AD%20b%E1%BA%AFt%20motor%20M%C3%A1y%20c%C5%A9.jpg" alt="Vị trí bắt motor máy cũ">
+                </div>
+                <div class="nmt-tl-text">
+                    <span class="tl-step">Bước 01</span>
+                    <h3>Đánh Giá &amp; Giữ Lại Hệ Cơ Khí</h3>
+                    <p>Giữ lại hệ cơ khí gốc của máy CO2 Trumpf bao gồm khung máy, bàn máy và các cụm cơ khí chính. 
+                    Đây là nền tảng vững chắc cho quá trình nâng cấp, tận dụng độ cứng vững và độ chính xác cơ khí vốn có.</p>
+                    <div class="tag-list">
+                        <span class="tag">Giữ khung máy</span>
+                        <span class="tag">Giữ bàn máy</span>
+                        <span class="tag">Nền tảng cơ khí</span>
+                    </div>
+                </div>
+                <div class="nmt-tl-dot"></div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="nmt-timeline-item reverse nmt-animate-right">
+                <div class="nmt-tl-image">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Motor%20c%C5%A9.jpg" alt="Motor cũ cần thay thế">
+                </div>
+                <div class="nmt-tl-text">
+                    <span class="tl-step">Bước 02</span>
+                    <h3>Thay Mới Hệ Truyền Động Servo</h3>
+                    <p>Tháo bỏ toàn bộ hệ truyền động cũ, thay thế bằng hệ Servo EtherCAT hiện đại. 
+                    Các motor Servo mới được lắp đặt chính xác tại vị trí bắt motor, kết nối với 
+                    xích nhựa trục X mới và các cụm truyền động khác, đảm bảo chuyển động mượt mà và chính xác.</p>
+                    <div class="tag-list">
+                        <span class="tag">Servo EtherCAT</span>
+                        <span class="tag">Xích nhựa trục X mới</span>
+                        <span class="tag">Độ chính xác cao</span>
+                    </div>
+                </div>
+                <div class="nmt-tl-dot"></div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="nmt-timeline-item nmt-animate-left">
+                <div class="nmt-tl-image">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Electric%20c%C5%A9.jpg" alt="Hệ thống điện cũ">
+                </div>
+                <div class="nmt-tl-text">
+                    <span class="tl-step">Bước 03</span>
+                    <h3>Thay Mới Toàn Bộ Hệ Thống Điện</h3>
+                    <p>Loại bỏ hoàn toàn hệ thống điện lạc hậu của máy CO2 cũ. Lắp đặt tủ điện mới với 
+                    các thiết bị đóng cắt, nguồn, PLC và jack kết nối công nghiệp tiêu chuẩn. 
+                    Hệ thống điện được thiết kế lại hoàn chỉnh để tương thích với công nghệ Fiber mới.</p>
+                    <div class="tag-list">
+                        <span class="tag">Tủ điện mới</span>
+                        <span class="tag">Jack kết nối CN</span>
+                        <span class="tag">Thiết kế lại hoàn chỉnh</span>
+                    </div>
+                </div>
+                <div class="nmt-tl-dot"></div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="nmt-timeline-item reverse nmt-animate-right">
+                <div class="nmt-tl-image">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Controller%20fuill%20FSCut%204000E.jpg" alt="Controller FSCut 4000E">
+                </div>
+                <div class="nmt-tl-text">
+                    <span class="tl-step">Bước 04</span>
+                    <h3>Nâng Cấp Hệ Thống Điều Khiển</h3>
+                    <p>Tích hợp bộ điều khiển Bochu BCL 4566E và Controller FSCut 4000E - giải pháp điều khiển 
+                    tiên tiến cho máy cắt Fiber. Hệ thống điều khiển mới hỗ trợ đầy đủ các tính năng cắt 
+                    Fiber hiện đại, giao diện trực quan và dễ vận hành.</p>
+                    <div class="tag-list">
+                        <span class="tag">Bochu BCL 4566E</span>
+                        <span class="tag">FSCut 4000E</span>
+                        <span class="tag">Điều khiển tiên tiến</span>
+                    </div>
+                </div>
+                <div class="nmt-tl-dot"></div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="nmt-timeline-item nmt-animate-left">
+                <div class="nmt-tl-image">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Ferrite.jpg" alt="Lõi Ferrite - Bộ phận quan trọng">
+                </div>
+                <div class="nmt-tl-text">
+                    <span class="tl-step">Bước 05</span>
+                    <h3>Lắp Đặt Nguồn Laser &amp; Cutting Head</h3>
+                    <p>Lắp đặt nguồn laser Fiber Max 6kW công suất cao, kết hợp với cutting head mới 
+                    (Raytools/WSX) và các linh kiện quang học ferrite. Hệ thống khí nén cũ được thay mới 
+                    hoàn toàn, đảm bảo cung cấp khí cắt ổn định cho chất lượng cắt tối ưu.</p>
+                    <div class="tag-list">
+                        <span class="tag">Max 6kW Laser</span>
+                        <span class="tag">Cutting head mới</span>
+                        <span class="tag">Khí nén mới</span>
+                    </div>
+                </div>
+                <div class="nmt-tl-dot"></div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="nmt-timeline-item reverse nmt-animate-right">
+                <div class="nmt-tl-image">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/X%C3%ADch%20nh%E1%BB%B1a%20Tr%E1%BB%A5c%20X%20Sau%20khi%20thay%20m%E1%BB%9Bi.jpg" alt="Xích nhựa trục X sau khi thay mới">
+                </div>
+                <div class="nmt-tl-text">
+                    <span class="tl-step">Bước 06</span>
+                    <h3>Hoàn Thiện &amp; Vận Hành</h3>
+                    <p>Hoàn thiện lắp ráp, kiểm tra và hiệu chỉnh toàn bộ hệ thống. Chạy thử nghiệm vận hành 
+                    để đảm bảo máy hoạt động ổn định với công nghệ Fiber. Kết quả: Máy CO2 cũ đã không sử dụng 
+                    được được biến thành máy Fiber hoàn chỉnh với hiệu suất vượt trội.</p>
+                    <div class="tag-list">
+                        <span class="tag">Xích nhựa trục X mới</span>
+                        <span class="tag">Vận hành thử nghiệm</span>
+                        <span class="tag">Bàn giao máy</span>
+                    </div>
+                </div>
+                <div class="nmt-tl-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BEFORE / AFTER COMPARISON ===== -->
+    <section class="nmt-comparison nmt-animate">
+        <div class="nmt-section-title">
+            <h2>Trước &amp; Sau Khi Nâng Cấp</h2>
+            <p>Hình ảnh so sánh rõ nét sự thay đổi của máy qua từng hạng mục</p>
+            <div class="divider"></div>
+        </div>
+        <div class="nmt-compare-grid">
+            <div class="nmt-compare-card before">
+                <div class="compare-label">
+                    <span class="material-symbols-outlined">cancel</span>
+                    <span>Trước Khi Nâng Cấp (Cũ)</span>
+                </div>
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Motor%20c%C5%A9.jpg" alt="Motor cũ">
+            </div>
+            <div class="nmt-compare-card after">
+                <div class="compare-label">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Sau Khi Nâng Cấp (Mới)</span>
+                </div>
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Servo%20Ethercat.jpg" alt="Servo EtherCAT mới">
+            </div>
+            <div class="nmt-compare-card before">
+                <div class="compare-label">
+                    <span class="material-symbols-outlined">cancel</span>
+                    <span>Tủ Điện Cũ</span>
+                </div>
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Electric%20c%C5%A9.jpg" alt="Hệ thống điện cũ">
+            </div>
+            <div class="nmt-compare-card after">
+                <div class="compare-label">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Tủ Điện Mới</span>
+                </div>
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Electric%2001.jpg" alt="Hệ thống điện mới">
+            </div>
+            <div class="nmt-compare-card before">
+                <div class="compare-label">
+                    <span class="material-symbols-outlined">cancel</span>
+                    <span>Cụm Khí Nén Cũ</span>
+                </div>
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/C%E1%BB%A5m%20kh%C3%AD%20n%C3%A9n%20c%C5%A9.jpg" alt="Cụm khí nén cũ">
+            </div>
+            <div class="nmt-compare-card after">
+                <div class="compare-label">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Cụm Khí Nén Mới</span>
+                </div>
+                <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/C%E1%BB%A5m%20kh%C3%AD%20n%C3%A9n%20m%E1%BB%9Bi.jpg" alt="Cụm khí nén mới">
+            </div>
+        </div>
+    </section>
+
     <!-- ===== ADVANTAGES SECTION ===== -->
     <section class="nmt-advantages">
         <div class="nmt-section-title">
-            <h2>Ưu Điểm Vượt Trội</h2>
-            <p>Hệ thống khắc laser tự động hàng đầu cho dây chuyền sản xuất</p>
+            <h2>Ưu Điểm Của Giải Pháp Nâng Cấp</h2>
+            <p>Biến máy CO2 cũ thành máy Fiber hiện đại với chi phí tối ưu</p>
             <div class="divider"></div>
         </div>
         <div class="nmt-adv-blocks">
@@ -956,16 +1325,20 @@
             <div class="nmt-adv-block nmt-animate-left">
                 <div class="nmt-adv-image-wrap">
                     <div class="glow-bg"></div>
-                    <img src="../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/2.jpg" alt="Khắc on-the-fly tốc độ cao">
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Max%206kw%20laser%20source.jpg" alt="Nguồn laser Max 6kW Fiber">
                 </div>
                 <div class="nmt-adv-text">
-                    <span class="material-symbols-outlined icon">rocket_launch</span>
-                    <h3>Khắc On-The-Fly Tốc Độ Cao</h3>
-                    <p>Công nghệ khắc on-the-fly cho phép khắc laser trên sản phẩm đang di chuyển trên băng chuyền mà không cần dừng lại. Tốc độ băng chuyền lên đến 120m/phút giúp tăng năng suất gấp 5 lần so với khắc tĩnh.</p>
-                    <p>Hệ thống encoder đồng bộ tốc độ tự động với băng chuyền, đảm bảo độ chính xác ±0.02mm ngay cả khi băng chuyền thay đổi tốc độ.</p>
+                    <span class="material-symbols-outlined icon">bolt</span>
+                    <h3>Tiết Kiệm Chi Phí Vượt Trội</h3>
+                    <p>Giải pháp nâng cấp tiết kiệm đến 50-60% chi phí so với mua máy Fiber mới. 
+                    Tận dụng hệ cơ khí chất lượng cao của máy CO2 Trumpf - vốn đã được kiểm định 
+                    qua nhiều năm sử dụng - giúp giảm đáng kể vốn đầu tư ban đầu.</p>
+                    <p>Với chi phí chỉ bằng một nửa máy mới, doanh nghiệp vẫn sở hữu một máy cắt 
+                    Fiber hiện đại với công suất cắt tương đương, khả năng mở rộng sản xuất và 
+                    thời gian thu hồi vốn nhanh chóng.</p>
                     <div class="feature-tag">
                         <div class="dot"></div>
-                        <span>Tốc Độ 120m/phút</span>
+                        <span>Tiết Kiệm 50-60% Chi Phí</span>
                     </div>
                 </div>
             </div>
@@ -974,16 +1347,41 @@
             <div class="nmt-adv-block reverse nmt-animate-right">
                 <div class="nmt-adv-image-wrap">
                     <div class="glow-bg"></div>
-                    <img src="../images/san-pham/du-an-tich-hop/truyen-tu-dong-in-bao-bi/3.jpg" alt="Tích hợp dễ dàng">
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/B%E1%BB%99%20%C4%91i%E1%BB%81u%20khi%E1%BB%83n%20Bochu%20BCL%204566E.jpg" alt="Bộ điều khiển Bochu BCL 4566E">
                 </div>
                 <div class="nmt-adv-text">
-                    <span class="material-symbols-outlined icon">link</span>
-                    <h3>Tích Hợp Dễ Dàng Vào Dây Chuyền</h3>
-                    <p>Thiết kế module linh hoạt cho phép tích hợp dễ dàng vào dây chuyền sản xuất hiện có mà không cần thay đổi cấu trúc. Hỗ trợ khắc mã QR, barcode, logo, ngày tháng và số serial tự động.</p>
-                    <p>Phần mềm quản lý dữ liệu thông minh kết nối với database, tự động thay đổi nội dung khắc theo từng sản phẩm, hỗ trợ truy xuất nguồn gốc và quản lý chất lượng.</p>
+                    <span class="material-symbols-outlined icon">precision_manufacturing</span>
+                    <h3>Công Nghệ Hiện Đại - Hiệu Suất Cao</h3>
+                    <p>Trang bị bộ điều khiển Bochu BCL 4566E tiên tiến nhất cùng Controller FSCut 4000E, 
+                    hệ truyền động Servo EtherCAT cho tốc độ cao, độ chính xác vượt trội và khả năng 
+                    đáp ứng nhanh. Nguồn laser Fiber Max 6kW cho chất lượng cắt tối ưu.</p>
+                    <p>Toàn bộ hệ thống điện được thiết kế lại với tiêu chuẩn công nghiệp, jack kết nối 
+                    chịu tải cao, đảm bảo vận hành ổn định 24/7 và an toàn tuyệt đối.</p>
                     <div class="feature-tag">
                         <div class="dot"></div>
-                        <span>Tích Hợp Module Linh Hoạt</span>
+                        <span>Công Nghệ Cắt Fiber Thế Hệ Mới</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advantage 3 -->
+            <div class="nmt-adv-block nmt-animate-left">
+                <div class="nmt-adv-image-wrap">
+                    <div class="glow-bg"></div>
+                    <img src="../images/san-pham/du-an-tich-hop/du-an-nang-cap-Fiber/Cutting%20head%2001.jpg" alt="Cutting head mới">
+                </div>
+                <div class="nmt-adv-text">
+                    <span class="material-symbols-outlined icon">support</span>
+                    <h3>Dịch Vụ Trọn Gói &amp; Bảo Hành</h3>
+                    <p>Từ khảo sát, tư vấn, thiết kế, lắp đặt đến vận hành và bàn giao - chúng tôi 
+                    cam kết hỗ trợ khách hàng trong suốt quá trình nâng cấp. Cutting head mới được 
+                    tích hợp với khả năng tự động căn chỉnh và bảo vệ quang học.</p>
+                    <p>Chế độ bảo hành dài hạn cho nguồn laser, bộ điều khiển và các linh kiện 
+                    thay mới. Đội ngũ kỹ thuật sẵn sàng hỗ trợ 24/7, đào tạo vận hành miễn phí 
+                    và cập nhật phần mềm định kỳ.</p>
+                    <div class="feature-tag">
+                        <div class="dot"></div>
+                        <span>Hỗ Trợ Kỹ Thuật 24/7</span>
                     </div>
                 </div>
             </div>
@@ -994,7 +1392,7 @@
     <section class="nmt-specs nmt-animate">
         <div class="nmt-specs-header">
             <h2>Thông Số Kỹ Thuật Chi Tiết</h2>
-            <p>Thông số kỹ thuật của hệ thống khắc laser trên băng chuyền</p>
+            <p>Thông số của máy sau khi hoàn thành nâng cấp</p>
             <div class="nmt-divider" style="margin-top: 12px;"></div>
         </div>
         <div class="nmt-table-wrap">
@@ -1007,52 +1405,60 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Công suất laser</td>
-                        <td>30W / 50W / 100W</td>
+                        <td>Loại máy gốc</td>
+                        <td>Máy Cắt CO2 Trumpf (cũ)</td>
                     </tr>
                     <tr>
-                        <td>Tốc độ băng chuyền</td>
-                        <td>Lên đến 120m/phút</td>
+                        <td>Loại máy sau nâng cấp</td>
+                        <td>Máy Cắt Laser Fiber</td>
                     </tr>
                     <tr>
-                        <td>Vùng khắc</td>
-                        <td>110x110mm - 300x300mm (Tùy chọn)</td>
+                        <td>Nguồn Laser</td>
+                        <td>Fiber Max 6kW</td>
                     </tr>
                     <tr>
-                        <td>Khắc on-the-fly</td>
-                        <td>Có (Khắc khi sản phẩm di chuyển)</td>
+                        <td>Bộ điều khiển</td>
+                        <td>Bochu BCL 4566E + FSCut 4000E</td>
                     </tr>
                     <tr>
-                        <td>Hệ thống encoder</td>
-                        <td>Đồng bộ tốc độ tự động</td>
+                        <td>Hệ truyền động</td>
+                        <td>Servo EtherCAT - Thay mới hoàn toàn</td>
                     </tr>
                     <tr>
-                        <td>Độ chính xác</td>
-                        <td>±0.02mm</td>
+                        <td>Cutting head</td>
+                        <td>Raytools / WSX (mới)</td>
                     </tr>
                     <tr>
-                        <td>Vật liệu</td>
-                        <td>Giấy, Nhựa, Kim loại, Thủy tinh, Gỗ</td>
+                        <td>Hệ thống điện</td>
+                        <td>Thiết kế lại hoàn toàn - Tủ điện mới</td>
                     </tr>
                     <tr>
-                        <td>Tích hợp</td>
-                        <td>Dễ dàng tích hợp vào dây chuyền có sẵn</td>
+                        <td>Hệ thống khí nén</td>
+                        <td>Thay mới hoàn toàn</td>
                     </tr>
                     <tr>
-                        <td>Phần mềm</td>
-                        <td>Quản lý dữ liệu, Kết nối database, Truy xuất nguồn gốc</td>
+                        <td>Jack kết nối</td>
+                        <td>Công nghiệp - Chịu tải cao</td>
                     </tr>
                     <tr>
-                        <td>Nội dung khắc</td>
-                        <td>Mã QR, Barcode, Logo, Ngày tháng, Số serial</td>
+                        <td>Xích nhựa trục X</td>
+                        <td>Thay mới</td>
                     </tr>
                     <tr>
-                        <td>Nguồn điện</td>
-                        <td>220V / 1 pha / 50Hz</td>
+                        <td>Hệ cơ khí</td>
+                        <td>Giữ nguyên (khung máy, bàn máy)</td>
                     </tr>
                     <tr>
-                        <td>Dịch vụ</td>
-                        <td>Tư vấn thiết kế, Lắp đặt, Đào tạo vận hành</td>
+                        <td>Vật liệu cắt</td>
+                        <td>Thép đen, Inox, Nhôm, Đồng, Thép mạ kẽm</td>
+                    </tr>
+                    <tr>
+                        <td>Ứng dụng</td>
+                        <td>Cắt kim loại tấm công nghiệp</td>
+                    </tr>
+                    <tr>
+                        <td>Dịch vụ đi kèm</td>
+                        <td>Khảo sát, Tư vấn, Lắp đặt, Đào tạo, Bảo hành</td>
                     </tr>
                 </tbody>
             </table>
@@ -1064,8 +1470,9 @@
         <div class="nmt-cta-card">
             <div class="glow-1"></div>
             <div class="glow-2"></div>
-            <h2>Tự Động Hóa Dây Chuyền Khắc Laser</h2>
-            <p>Liên hệ ngay với chuyên gia kỹ thuật của chúng tôi để được tư vấn thiết kế hệ thống khắc laser trên băng chuyền phù hợp nhất với quy trình sản xuất của doanh nghiệp bạn.</p>
+            <h2>Bạn Cũng Muốn Nâng Cấp Máy CO2 Cũ?</h2>
+            <p>Hãy liên hệ ngay với chuyên gia kỹ thuật của chúng tôi để được tư vấn giải pháp nâng cấp 
+            máy CO2 thành Fiber phù hợp nhất với nhu cầu sản xuất và ngân sách của doanh nghiệp bạn.</p>
             <div class="nmt-cta-btns">
                 <a href="contact.html" class="nmt-btn-primary">
                     <span class="material-symbols-outlined" style="font-size: 20px;">mail</span>
@@ -1126,7 +1533,6 @@
             const nextBtn = document.getElementById('gallery-next');
             if (!mainImg || thumbs.length === 0) return;
 
-            // Build image list from thumb data attributes
             const images = [];
             thumbs.forEach(function(t) {
                 var onclickAttr = t.getAttribute('onclick');
@@ -1138,19 +1544,16 @@
 
             var currentIndex = 0;
 
-            // Update active thumbnail
             function setActive(idx) {
                 thumbs.forEach(function(t) { t.classList.remove('active'); });
                 if (thumbs[idx]) thumbs[idx].classList.add('active');
             }
 
-            // Change image with fade effect
             function switchImage(index) {
                 if (index < 0) index = images.length - 1;
                 if (index >= images.length) index = 0;
                 currentIndex = index;
 
-                // Fade out effect
                 mainImg.classList.add('fade-out');
                 setTimeout(function() {
                     mainImg.src = images[currentIndex];
@@ -1159,18 +1562,13 @@
                 }, 200);
             }
 
-            // === THUMBNAIL HOVER ===
             thumbs.forEach(function(t, i) {
-                // Hover: đổi ảnh lớn tạm thời
                 t.addEventListener('mouseenter', function() {
                     var src = images[i];
-                    if (src) {
-                        mainImg.src = src;
-                    }
+                    if (src) mainImg.src = src;
                 });
             });
 
-            // === ARROW NAVIGATION ===
             if (prevBtn) {
                 prevBtn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1186,7 +1584,6 @@
                 });
             }
 
-            // === KEYBOARD SUPPORT ===
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'ArrowLeft') {
                     e.preventDefault();
@@ -1197,7 +1594,6 @@
                 }
             });
 
-            // Override global changeImage to keep currentIndex synced
             window.changeImage = function(imageSrc, thumbElement) {
                 var idx = images.indexOf(imageSrc);
                 if (idx !== -1) {
@@ -1207,7 +1603,6 @@
                 }
             };
 
-            // Init active state
             setActive(0);
         })();
 
